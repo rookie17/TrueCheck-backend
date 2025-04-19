@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 import requests
-from firestore import get_product_from_db, save_product_to_db
+from firestore import get_product_from_db, save_product_to_db, get_ingredient_profile_from_db, save_ingredient_to_db
+from utils.openai_client import get_ingredient_details_from_openai
 
 app = Flask(__name__)
 
@@ -52,8 +53,25 @@ def get_ingredient_profile():
     if not ingredient_name:
         return jsonify({"error": "No ingredient name provided"}), 400
 
-    profile = get_ingredient_profile(ingredient_name)
-    return jsonify(profile)
+    profile = get_ingredient_profile_from_db(ingredient_name)
+    if profile:
+        return jsonify(profile)
+    
+    try:
+        profile = get_ingredient_details_from_openai(ingredient_name)
+        if profile:
+            save_ingredient_to_db(ingredient_name.lower(), ingredient_name, profile)
+            return jsonify(profile)
+        
+        else:
+            return jsonify({"error":"Failed to get profile from Gemini"}), 500
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
+
+
+
 
 
 if __name__ == '__main__':
