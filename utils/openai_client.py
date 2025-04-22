@@ -9,6 +9,8 @@ genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel("gemini-2.0-flash")  
 
 def get_ingredient_details_from_openai(ingredient_name):
+    ingredient_name = ingredient_name.lower()
+    
     with open("utils/system_prompt.txt", "r") as file:
         system_prompt = file.read()
 

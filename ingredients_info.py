@@ -25,3 +25,4 @@ def get_ingredient_profile(ingredient_name: str):
 
     # Return the newly fetched ingredient profile
     return {"ingredient_name": ingredient_name, "profile": ingredient_details}
+
