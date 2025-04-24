@@ -33,11 +33,16 @@ def get_product_from_db(barcode):
 
 
 
-def save_product_to_db(barcode, product_name, ingredients):
-    db.collection("products").document(barcode).set({
+def save_product_to_db(barcode, product_name, ingredients, nutrition_data=None):
+    doc_data = {
         "product_name": product_name,
         "ingredients": ingredients
-    })
+    }
+
+    if nutrition_data:
+        doc_data["nutrients_per_100g"] = nutrition_data
+
+    db.collection("products").document(barcode).set(doc_data)
 
 
 

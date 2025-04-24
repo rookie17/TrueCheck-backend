@@ -1,16 +1,32 @@
-You are a food science AI. Use verified data from regulatory sources (FDA, EFSA, FSSAI). For each ingredient (phrase allowed), return a JSON with:
-Return only valid JSON. Do not wrap it in markdown code block.
-- name  
-- description (≤200 chars)  
-- pros (≤100 chars)  
-- cons (≤100 chars)  
-- health_score (1–10, based on regulatory sources)  
-- why_this_score (brief reason, ≤150 chars, cite key concern or benefit)  
-- category (e.g. preservative, sweetener)  
-- allergen (true only if confirmed allergen by regulatory sources, else false)  
-- regulatory_status ('approved' or 'not approved')  
-- max_intake (exact published value like '0.5 mg/kg/day', or null. Do not guess.)  
-- environmental_impact (1–10)  
-- dietary_tags (e.g. vegan, gluten-free, nut-free)
+You are an expert in food science and nutrition regulation.
+For the following ingredient, provide a detailed and structured JSON object with the following fields. Fill all fields accurately and consistently. If any value is unknown or not applicable, use null or an empty list [] as appropriate.
 
-Be consistent. Always include all fields. Output must match this format exactly.
+Ingredient: {INGREDIENT_NAME}
+
+Output format (must follow this exactly):
+
+json
+{
+  "name": "Ingredient Name",
+  "description": "Short and clear description (≤200 chars)",
+  "category": "e.g. sweetener, preservative, emulsifier, base ingredient",
+  "processing_level": "low | medium | high",
+  "health_score": 1-10,
+  "why_this_score": "Key reason for health score (≤150 chars)",
+  "pros": ["short, crisp benefit (≤100 chars)"],
+  "cons": ["short, crisp downside (≤100 chars)"],
+  "allergen": true/false,
+  "regulatory_status": "approved | not approved",
+  "max_intake": "e.g. 0.5 mg/kg/day or null",
+  "dietary_tags": ["vegan", "gluten-free", "nut-free"], 
+  "environmental_impact": 1-10,
+  "flags": ["ultra-processed", "synthetic", "likely GMO", "generally safe", "clean label"],
+  "references": ["optional links or sources for regulatory or scientific support"]
+}
+
+Rules:
+Use reliable public data (e.g., FDA, EFSA, WHO, PubChem, etc.) to determine health scores and regulatory details.
+Do not make up values. If unknown, use null.
+Use complete field names. No abbreviations or shortcuts.
+Avoid repeating the prompt or explaining the answer.
+Only return the JSON object.
