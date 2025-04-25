@@ -19,16 +19,18 @@ def get_product_from_db(barcode):
     ingredient_profiles = []
 
     for ingredient in ingredients:
-        profile = get_ingredient_profile_from_db(ingredient.lower())
+        ingredient_name = ingredient if isinstance(ingredient, str) else ingredient.get("name", "")
+        profile = get_ingredient_profile_from_db(ingredient_name.lower())
         if profile:
             ingredient_profiles.append({
-                "name": ingredient,
+                "name": ingredient_name,
                 "profile": profile
             })
 
     return {
         "product_name": product_data.get("product_name", ""),
-        "ingredients": ingredient_profiles
+        "ingredients": ingredient_profiles,
+        "nutrients_per_100g": product_data.get("nutrients_per_100g", {})
     }
 
 
@@ -61,3 +63,24 @@ def save_ingredient_to_db(ingredient, ingredient_name, ingredient_profile):
         "ingredient_name": ingredient_name,
         "ingredient_profile": ingredient_profile
     })
+
+
+def save_product_rating_to_db(barcode, rating_data):
+    db.collection("products").document(barcode).update({
+        "product_rating": rating_data
+    })
+
+from firestore import db 
+
+def save_percent_estimate_to_db(barcode, percent_list):
+    # Save percent estimate under the product document
+    product_ref = db.collection("products").document(barcode)
+    product_doc = product_ref.get()
+
+    if product_doc.exists:
+        # Update the product document with the percent estimate
+        product_ref.update({
+            "percent_estimate": percent_list
+        })
+    else:
+        print(f"Product with barcode {barcode} not found.")
