@@ -1,16 +1,88 @@
 from flask import Flask, jsonify, request
 import requests
-from firestore import get_product_from_db, save_product_to_db, get_ingredient_profile_from_db, save_ingredient_to_db
-from utils.openai_client import get_ingredient_details_from_openai
+from firestore import get_product_from_db, save_product_to_db, get_ingredient_profile_from_db, save_ingredient_to_db, save_percent_estimate_to_db, save_product_rating_to_db
+from utils.openai_client import get_ingredient_details_from_openai, get_product_rating_from_gemini
 from services.enrichment import enrich_ingredients
 from services.product_rating import calculate_product_score
 from product_rating_algo import processed_product_score
 from services.nutrition_fetcher import fetch_nutrition_from_barcode
+from services.percent_estimate import get_percent_estimates, save_percent_estimate_to_db
+
 
 
 app = Flask(__name__)
 
+@app.route("/get-complete-product-info", methods=["GET"])
+def get_complete_product_info():
+    barcode = request.args.get("barcode")
+    
+    if not barcode:
+        return jsonify({"error": "No barcode provided"}), 400
 
+    # Try to get everything from DB
+    product_data = get_product_from_db(barcode)
+    
+    if product_data:
+        product_name = product_data.get("product_name", "Unknown")
+        ingredients_profiles = product_data.get("ingredients", [])
+        nutrition_data = product_data.get("nutrients_per_100g", {})
+        enriched_ingredients = ingredients_profiles  # Set enriched_ingredients from DB directly
+    else:
+        # If not found in DB, fetch from OpenFoodFacts & enrich
+        url = f"https://world.openfoodfacts.org/api/v0/product/{barcode}.json"
+        response = requests.get(url)
+        
+        if response.status_code != 200:
+            return jsonify({"error": "Failed to fetch from OpenFoodFacts"}), 500
+
+        product = response.json().get("product", {})
+        product_name = product.get("product_name", "Unknown")
+        raw_ingredients = [i.get("text") for i in product.get("ingredients", []) if "text" in i]
+        
+        enriched_ingredients = enrich_ingredients(raw_ingredients) if raw_ingredients else []
+        
+        # Get nutrition data and save to DB
+        nutriments = product.get("nutriments", {})
+        nutrition_data = {k: v for k, v in nutriments.items() if k.endswith("_100g")}
+        
+        save_product_to_db(barcode, product_name, enriched_ingredients, nutrition_data)
+        
+        ingredients_profiles = []
+
+    final_ingredient_list = []
+    for ing in enriched_ingredients:
+        name = ing["name"] if isinstance(ing, dict) else ing
+        
+        profile = get_ingredient_profile_from_db(name.lower())
+        
+        if not profile:
+            profile = get_ingredient_details_from_openai(name)
+            if profile:
+                save_ingredient_to_db(name, name, profile)
+        
+        final_ingredient_list.append({
+            "name": name,
+            "profile": profile
+        })
+
+    
+
+    # Get percent estimates and save them at the product level
+    percent_estimates = get_percent_estimates(barcode, [i["name"] for i in enriched_ingredients])
+    save_percent_estimate_to_db(barcode, percent_estimates)  # Save percent estimate at the product level
+
+    product_rating = get_product_rating_from_gemini(final_ingredient_list, percent_estimates)
+    save_product_rating_to_db(barcode, product_rating)
+
+    return jsonify({
+        "product_name": product_name,
+        "ingredients_profile": final_ingredient_list,
+        "nutrients": nutrition_data,
+        "percent_estimate": percent_estimates,
+        "overall_rating": product_rating
+    })
+
+ 
 
 @app.route("/test-nutrition", methods=["GET"])
 def test_nutrition():
@@ -129,23 +201,23 @@ def get_ingredients():
         "ingredients": enriched_ingredients
     })
 
-@app.route("/get-product-score", methods=["GET"])
-def get_product_score():
-    barcode = request.args.get("barcode")
-    if not barcode:
-        return jsonify({"error": "No barcode provided"}), 400
+# @app.route("/get-product-score", methods=["GET"])
+# def get_product_score():
+#     barcode = request.args.get("barcode")
+#     if not barcode:
+#         return jsonify({"error": "No barcode provided"}), 400
 
-    product_data = get_product_from_db(barcode)
-    if not product_data:
-        return jsonify({"error": "Product not found"}), 404
+#     product_data = get_product_from_db(barcode)
+#     if not product_data:
+#         return jsonify({"error": "Product not found"}), 404
 
-    enriched_ingredients = product_data.get("ingredients", [])
-    result = processed_product_score({
-        "product_name": product_data["product_name"],
-        "ingredients": enriched_ingredients
-    })
+#     enriched_ingredients = product_data.get("ingredients", [])
+#     result = processed_product_score({
+#         "product_name": product_data["product_name"],
+#         "ingredients": enriched_ingredients
+#     })
 
-    return jsonify(result)
+    # return jsonify(result)
 
 @app.route("/get-ingredient-profile", methods=["GET"])
 def get_ingredient_profile(ingredient_name):
@@ -161,6 +233,26 @@ def get_ingredient_profile(ingredient_name):
         return ingredient_profile
 
     return None
+
+@app.route("/get-overall-product-rating", methods=["GET"])
+def get_overall_product_rating():
+    barcode = request.args.get("barcode")
+    if not barcode:
+        return jsonify({"error": "No barcode provided"}), 400
+
+    product_data = get_product_from_db(barcode)
+    if not product_data:
+        return jsonify({"error": "Product not found in DB"}), 404
+
+    ingredients = product_data.get("ingredients")
+    if not ingredients:
+        return jsonify({"error": "No ingredients found. Please enrich first."}), 400
+
+    # Get overall product rating via OpenAI
+    result = get_product_rating_from_gemini(ingredients)
+    return jsonify(result)
+
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
