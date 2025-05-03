@@ -9,8 +9,10 @@ from services.nutrition_fetcher import fetch_nutrition_from_barcode
 from services.percent_estimate import get_percent_estimates, save_percent_estimate_to_db
 
 
+from flask_cors import CORS  # Import CORS
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
 @app.route("/get-complete-product-info", methods=["GET"])
 def get_complete_product_info():
@@ -255,4 +257,4 @@ def get_overall_product_rating():
     
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
