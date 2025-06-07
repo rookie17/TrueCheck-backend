@@ -85,10 +85,3 @@ def save_percent_estimate_to_db(barcode, percent_list):
     product_ref = db.collection("products").document(barcode)
     product_ref.update({"percent_estimate": percent_list})
 
-
-def check_empty_ingredients_from_db():
-    product_ref = db.collection("products")
-    for doc in product_ref.stream():
-        data = doc.to_dict()
-        if 'ingredients' in data and data['ingredients']:
-            pass
