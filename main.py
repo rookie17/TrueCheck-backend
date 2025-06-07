@@ -21,59 +21,56 @@ def get_complete_product_info():
     if not barcode:
         return jsonify({"error": "No barcode provided"}), 400
 
-    # Try to get everything from DB
+    # ---------- 1. LOOK IN DB ----------
     product_data = get_product_from_db(barcode)
-    
-    if product_data:
+
+    if product_data:  # product already cached
         product_name = product_data.get("product_name", "Unknown")
-        ingredients_profiles = product_data.get("ingredients", [])
+        ingredient_names = product_data.get("ingredients", [])
         nutrition_data = product_data.get("nutrients_per_100g", {})
-        enriched_ingredients = ingredients_profiles  # Set enriched_ingredients from DB directly
-    else:
-        # If not found in DB, fetch from OpenFoodFacts & enrich
+    else:  # fetch from OpenFoodFacts
         url = f"https://world.openfoodfacts.org/api/v0/product/{barcode}.json"
-        response = requests.get(url)
-        
-        if response.status_code != 200:
+        resp = requests.get(url)
+        if resp.status_code != 200:
             return jsonify({"error": "Failed to fetch from OpenFoodFacts"}), 500
 
-        product = response.json().get("product", {})
+        product = resp.json().get("product", {})
         product_name = product.get("product_name", "Unknown")
-        raw_ingredients = [i.get("text") for i in product.get("ingredients", []) if "text" in i]
-        
-        enriched_ingredients = enrich_ingredients(raw_ingredients) if raw_ingredients else []
-        
-        # Get nutrition data and save to DB
+        raw_ingredient_names = [
+            i.get("text") for i in product.get("ingredients", []) if "text" in i
+        ]
+
+        enrich_ingredients(raw_ingredient_names)  # async in real world ideally
+
         nutriments = product.get("nutriments", {})
         nutrition_data = {k: v for k, v in nutriments.items() if k.endswith("_100g")}
-        
-        save_product_to_db(barcode, product_name, enriched_ingredients, nutrition_data)
-        
-        ingredients_profiles = []
 
+        # Save only names to DB
+        save_product_to_db(barcode, product_name, raw_ingredient_names, nutrition_data)
+
+        ingredient_names = raw_ingredient_names
+
+    # ---------- 2. ENRICH INGREDIENTS ----------
     final_ingredient_list = []
-    for ing in enriched_ingredients:
-        name = ing["name"] if isinstance(ing, dict) else ing
-        
-        profile = get_ingredient_profile_from_db(name.lower())
-        
-        if not profile:
-            profile = get_ingredient_details_from_openai(name)
-            if profile:
-                save_ingredient_to_db(name, name, profile)
-        
+    for name in ingredient_names:
+        profile_doc = get_ingredient_profile_from_db(name.lower())
+        if not profile_doc:
+            profile_doc = get_ingredient_details_from_openai(name)
+            if profile_doc:
+                save_ingredient_to_db(name.lower(), name, profile_doc)
+
         final_ingredient_list.append({
             "name": name,
-            "profile": profile
+            "profile": profile_doc
         })
 
-    
+    # ---------- 3. GET PERCENT ESTIMATES ----------
+    percent_estimates = get_percent_estimates(barcode, ingredient_names)
 
-    # Get percent estimates and save them at the product level
-    percent_estimates = get_percent_estimates(barcode, [i["name"] for i in enriched_ingredients])
-    save_percent_estimate_to_db(barcode, percent_estimates)  # Save percent estimate at the product level
-
+    # ---------- 4. GET RATING ----------
     product_rating = get_product_rating_from_gemini(final_ingredient_list, percent_estimates)
+
+    # ---------- 5. SAVE FINAL DATA ----------
     save_product_rating_to_db(barcode, product_rating)
 
     return jsonify({
@@ -83,6 +80,7 @@ def get_complete_product_info():
         "percent_estimate": percent_estimates,
         "overall_rating": product_rating
     })
+
 
  
 
