@@ -35,10 +35,19 @@ def get_product_from_db(barcode):
 
 
 
-def save_product_to_db(barcode, product_name, ingredients, nutrition_data=None):
+def save_product_to_db(barcode, product_name, ingredient_list, nutrition_data=None):
+    """
+    Save product with only ingredient *names* (no profiles).
+    """
+    # Ensure only names are stored
+    ingredient_names = [
+        ing if isinstance(ing, str) else ing.get("name", "unknown")
+        for ing in ingredient_list
+    ]
+
     doc_data = {
         "product_name": product_name,
-        "ingredients": ingredients
+        "ingredients": ingredient_names
     }
 
     if nutrition_data:
@@ -73,14 +82,13 @@ def save_product_rating_to_db(barcode, rating_data):
 from firestore import db 
 
 def save_percent_estimate_to_db(barcode, percent_list):
-    # Save percent estimate under the product document
     product_ref = db.collection("products").document(barcode)
-    product_doc = product_ref.get()
+    product_ref.update({"percent_estimate": percent_list})
 
-    if product_doc.exists:
-        # Update the product document with the percent estimate
-        product_ref.update({
-            "percent_estimate": percent_list
-        })
-    else:
-        print(f"Product with barcode {barcode} not found.")
+
+def check_empty_ingredients_from_db():
+    product_ref = db.collection("products")
+    for doc in product_ref.stream():
+        data = doc.to_dict()
+        if 'ingredients' in data and data['ingredients']:
+            pass
