@@ -53,16 +53,23 @@ def get_complete_product_info():
     # ---------- 2. ENRICH INGREDIENTS ----------
     final_ingredient_list = []
     for name in ingredient_names:
-        profile_doc = get_ingredient_profile_from_db(name.lower())
-        if not profile_doc:
-            profile_doc = get_ingredient_details_from_openai(name)
-            if profile_doc:
-                save_ingredient_to_db(name.lower(), name, profile_doc)
+        if isinstance(name, dict):
+            name_str = name.get("text", "")
+        else:
+            name_str = name
 
-        final_ingredient_list.append({
-            "name": name,
-            "profile": profile_doc
-        })
+    profile_doc = get_ingredient_profile_from_db(name_str.lower())
+
+    if not profile_doc:
+        profile_doc = get_ingredient_details_from_openai(name_str)
+        if profile_doc:
+            save_ingredient_to_db(name_str.lower(), name_str, profile_doc)
+
+    final_ingredient_list.append({
+        "name": name_str,
+        "profile": profile_doc
+    })
+
 
     # ---------- 3. GET PERCENT ESTIMATES ----------
     percent_estimates = get_percent_estimates(barcode, ingredient_names)
