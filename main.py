@@ -54,16 +54,21 @@ def get_complete_product_info():
     final_ingredient_list = []
     for name in ingredient_names:
         if isinstance(name, dict):
-            name_str = name.get("text", "")
+            name_str = name.get("text") or name.get("name") or ""
         else:
             name_str = name
 
-        profile_doc = get_ingredient_profile_from_db(name_str.lower())
+        name_str = str(name_str).strip().lower()
+
+        if not name_str:
+            continue
+
+        profile_doc = get_ingredient_profile_from_db(name_str)
 
         if not profile_doc:
             profile_doc = get_ingredient_details_from_openai(name_str)
             if profile_doc:
-                save_ingredient_to_db(name_str.lower(), name_str, profile_doc)
+                save_ingredient_to_db(name_str, name_str, profile_doc)
 
         final_ingredient_list.append({
             "name": name_str,
