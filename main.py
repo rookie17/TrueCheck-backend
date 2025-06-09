@@ -9,7 +9,7 @@ from services.nutrition_fetcher import fetch_nutrition_from_barcode
 from services.percent_estimate import get_percent_estimates, save_percent_estimate_to_db
 
 
-from flask_cors import CORS  # Import CORS
+from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
@@ -40,7 +40,7 @@ def get_complete_product_info():
             i.get("text") for i in product.get("ingredients", []) if "text" in i
         ]
 
-        enrich_ingredients(raw_ingredient_names)  # async in real world ideally
+        enrich_ingredients(raw_ingredient_names)
 
         nutriments = product.get("nutriments", {})
         nutrition_data = {k: v for k, v in nutriments.items() if k.endswith("_100g")}
