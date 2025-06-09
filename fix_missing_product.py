@@ -56,6 +56,9 @@ def main():
             if confirmation.strip().lower() in ('n','no') :
                 db.collection("products").document(barcode).delete()
                 continue
+
+            elif confirmation.lower().strip() in ('skip', 's'):
+                continue
                 
             print(f"\n📦 Fixing product: {barcode}")
 
