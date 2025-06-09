@@ -58,17 +58,17 @@ def get_complete_product_info():
         else:
             name_str = name
 
-    profile_doc = get_ingredient_profile_from_db(name_str.lower())
+        profile_doc = get_ingredient_profile_from_db(name_str.lower())
 
-    if not profile_doc:
-        profile_doc = get_ingredient_details_from_openai(name_str)
-        if profile_doc:
-            save_ingredient_to_db(name_str.lower(), name_str, profile_doc)
+        if not profile_doc:
+            profile_doc = get_ingredient_details_from_openai(name_str)
+            if profile_doc:
+                save_ingredient_to_db(name_str.lower(), name_str, profile_doc)
 
-    final_ingredient_list.append({
-        "name": name_str,
-        "profile": profile_doc
-    })
+        final_ingredient_list.append({
+            "name": name_str,
+            "profile": profile_doc
+        })
 
 
     # ---------- 3. GET PERCENT ESTIMATES ----------
