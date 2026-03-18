@@ -2,16 +2,12 @@ import json
 import re
 
 def clean_gemini_response(raw_text: str):
-    # Remove markdown-style wrapping and leading `json\n` or triple backticks
-    cleaned = re.sub(r"^(```json|```)?", "", raw_text.strip(), flags=re.IGNORECASE)
-    cleaned = re.sub(r"(```)$", "", cleaned.strip())
-    cleaned = cleaned.strip()
-
-    # Remove leading 'json\n' if still there
-    if cleaned.lower().startswith("json\\n") or cleaned.lower().startswith("json\n"):
-        cleaned = cleaned.split("\n", 1)[1]
-
-    return cleaned
+    # Extract content between first { and last }
+    start = raw_text.find("{")
+    end = raw_text.rfind("}")
+    if start == -1 or end == -1:
+        return raw_text.strip()
+    return raw_text[start:end+1]
 
 def parse_cleaned_json(raw_text: str):
     cleaned = clean_gemini_response(raw_text)
