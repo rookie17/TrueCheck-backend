@@ -2,12 +2,17 @@ import os
 import firebase_admin
 from firebase_admin import credentials, firestore
 
-cred_path = os.getenv("FIREBASE_CREDENTIALS_PATH")
-if not cred_path:
-    raise RuntimeError("FIREBASE_CREDENTIALS_PATH environment variable not set.")
+import json, os
+from firebase_admin import credentials, initialize_app
 
-cred = credentials.Certificate(cred_path)
-firebase_admin.initialize_app(cred)
+cred_json = os.environ.get("FIREBASE_CREDENTIALS_JSON")
+if not cred_json:
+    raise RuntimeError("FIREBASE_CREDENTIALS_JSON environment variable not set.")
+
+cred_dict = json.loads(cred_json)
+cred_dict["private_key"] = cred_dict["private_key"].replace("\\n", "\n")
+cred = credentials.Certificate(cred_dict)
+initialize_app(cred)
 
 db = firestore.client()
 
