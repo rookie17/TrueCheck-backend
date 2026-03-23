@@ -5,7 +5,7 @@ from firebase_admin import credentials, firestore
 import json, os
 from firebase_admin import credentials, initialize_app
 
-cred_json = os.environ.get("FIREBASE_CREDENTIALS_JSON")
+cred_json = os.environ.get("FIREBASE_CREDENTIALS")
 if not cred_json:
     raise RuntimeError("FIREBASE_CREDENTIALS_JSON environment variable not set.")
 
