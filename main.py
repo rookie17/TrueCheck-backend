@@ -39,10 +39,11 @@ def get_complete_product_info():
         except requests.exceptions.RequestException as e:
             return jsonify({"error": f"OpenFoodFacts request failed: {str(e)}"}), 502
         
-        if resp.status_code != 200:
-            return jsonify({"error": "Failed to fetch from OpenFoodFacts"}), 500
-
-        product = resp.json().get("product", {})
+        data = resp.json()
+        if data.get("status") != 1:
+            return jsonify({"error": "Product not found on OpenFoodFacts"}), 404
+        product = data.get("product", {})
+        
         product_name = product.get("product_name", "Unknown")
         raw_ingredient_names = [
             i.get("text") for i in product.get("ingredients", []) if "text" in i
@@ -129,8 +130,6 @@ def test_openai():
     result = get_ingredient_details_from_openai(ingredient_name)
     return jsonify({"result": result})
 
-
-from services.nutrition_fetcher import fetch_nutrition_from_barcode
 
 @app.route("/get-product-details", methods=["GET"])
 def get_product_details():
@@ -242,11 +241,13 @@ def get_ingredients():
 @app.route("/get-ingredient-profile", methods=["GET"])
 def get_ingredient_profile():
     ingredient_name = request.args.get("ingredient_name")
+    if not ingredient_name:
+        return jsonify({"error": "No ingredient_name provided"}), 400
     ingredient_name = ingredient_name.lower()
 
     ingredient_profile = get_ingredient_profile_from_db(ingredient_name)
     if ingredient_profile:
-        return ingredient_profile
+        return jsonify(ingredient_profile)
 
     ingredient_profile = get_ingredient_details_from_openai(ingredient_name)
     if ingredient_profile:
@@ -270,7 +271,7 @@ def get_overall_product_rating():
         return jsonify({"error": "No ingredients found. Please enrich first."}), 400
 
     # Get overall product rating via OpenAI
-    result = get_product_rating_from_gemini(ingredients)
+    result = get_product_rating_from_gemini(ingredients, ["not avail"] * len(ingredients))
     return jsonify(result)
 
     
