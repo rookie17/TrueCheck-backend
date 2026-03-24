@@ -7,12 +7,13 @@ def fetch_nutrition_from_barcode(barcode):
     Saves and returns only keys ending in '_100g'.
     """
     url = f"https://world.openfoodfacts.org/api/v0/product/{barcode}.json"
-    response = requests.get(url)
-
-    if response.status_code != 200:
+    
+    response = requests.get(url, timeout=10)
+    data = response.json()
+    if data.get("status") != 1:
         return None
-
-    product = response.json().get("product", {})
+    product = data.get("product", {})
+    
     nutriments = product.get("nutriments", {})
     if not nutriments:
         return None

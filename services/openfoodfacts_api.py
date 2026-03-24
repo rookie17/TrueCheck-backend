@@ -2,9 +2,8 @@ import requests
 
 def get_product_from_openfoodfacts(barcode):
     url = f"https://world.openfoodfacts.org/api/v2/product/{barcode}"
-    response = requests.get(url)
-
-    if response.status_code == 200:
-        data = response.json()
-        return data.get("product", {})
-    return None
+    response = requests.get(url, timeout=10)
+    data = response.json()
+    if data.get("status") != 1:
+        return None
+    return data.get("product", {})

@@ -1,3 +1,5 @@
+from urllib import response
+
 from dotenv import load_dotenv
 load_dotenv()
 from flask import Flask, jsonify, request
@@ -8,7 +10,7 @@ from services.enrichment import enrich_ingredients
 from services.product_rating import calculate_product_score
 from product_rating_algo import processed_product_score
 from services.nutrition_fetcher import fetch_nutrition_from_barcode
-from services.percent_estimate import get_percent_estimates, save_percent_estimate_to_db
+from services.percent_estimate import get_percent_estimates
 
 
 from flask_cors import CORS
@@ -32,7 +34,11 @@ def get_complete_product_info():
         nutrition_data = product_data.get("nutrients_per_100g", {})
     else:  # fetch from OpenFoodFacts
         url = f"https://world.openfoodfacts.org/api/v0/product/{barcode}.json"
-        resp = requests.get(url)
+        try:
+            resp = requests.get(url, timeout=10)
+        except requests.exceptions.RequestException as e:
+            return jsonify({"error": f"OpenFoodFacts request failed: {str(e)}"}), 502
+        
         if resp.status_code != 200:
             return jsonify({"error": "Failed to fetch from OpenFoodFacts"}), 500
 
@@ -143,11 +149,11 @@ def get_product_details():
 
     # Fetch from OPFF
     url = f"https://world.openfoodfacts.org/api/v0/product/{barcode}.json"
-    response = requests.get(url)
-    if response.status_code != 200:
-        return jsonify({"error": "Failed to fetch from OpenFoodFacts"}), 500
-
+   # fix (both routes)
+    response = requests.get(url, timeout=10)
     data = response.json()
+    if data.get("status") != 1:
+        return jsonify({"error": "Product not found on OpenFoodFacts"}), 404
     product = data.get("product", {})
     product_name = product.get("product_name", "Unknown")
 
@@ -191,11 +197,11 @@ def get_ingredients():
         })
 
     url = f"https://world.openfoodfacts.org/api/v0/product/{barcode}.json"
-    response = requests.get(url)
-    if response.status_code != 200:
-        return jsonify({"error": "Failed to fetch from OpenFoodFacts"}), 500
-
+    # fix (both routes)
+    response = requests.get(url, timeout=10)
     data = response.json()
+    if data.get("status") != 1:
+        return jsonify({"error": "Product not found on OpenFoodFacts"}), 404
     product = data.get("product", {})
     product_name = product.get("product_name", "Unknown")
     ingredients = [i.get("text") for i in product.get("ingredients", []) if "text" in i]
@@ -234,7 +240,8 @@ def get_ingredients():
     # return jsonify(result)
 
 @app.route("/get-ingredient-profile", methods=["GET"])
-def get_ingredient_profile(ingredient_name):
+def get_ingredient_profile():
+    ingredient_name = request.args.get("ingredient_name")
     ingredient_name = ingredient_name.lower()
 
     ingredient_profile = get_ingredient_profile_from_db(ingredient_name)

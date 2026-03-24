@@ -89,7 +89,6 @@ def save_product_rating_to_db(barcode, rating_data):
         "product_rating": rating_data
     })
 
-from firestore import db 
 
 def save_percent_estimate_to_db(barcode, percent_list):
     product_ref = db.collection("products").document(barcode)
