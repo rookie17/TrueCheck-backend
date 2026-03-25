@@ -1,23 +1,31 @@
-import os
-import firebase_admin
-from firebase_admin import credentials, firestore
+import os, json
+from firebase_admin import credentials, initialize_app, firestore
 
-import json, os
-from firebase_admin import credentials, initialize_app
-
+# Dev: set FIREBASE_CREDENTIALS_PATH=./firebase_config.json in .env
+# Prod: set FIREBASE_CREDENTIALS with the raw JSON string
+cred_path = os.environ.get("FIREBASE_CREDENTIALS_PATH")
 cred_json = os.environ.get("FIREBASE_CREDENTIALS")
-if not cred_json:
-    raise RuntimeError("FIREBASE_CREDENTIALS_JSON environment variable not set.")
 
-cred_dict = json.loads(cred_json)
-cred_dict["private_key"] = cred_dict["private_key"].replace("\\n", "\n")
-cred = credentials.Certificate(cred_dict)
+if cred_path:
+    cred = credentials.Certificate(cred_path)
+elif cred_json:
+    cred_dict = json.loads(cred_json)
+    cred_dict["private_key"] = cred_dict["private_key"].replace("\\n", "\n")
+    cred = credentials.Certificate(cred_dict)
+else:
+    raise RuntimeError("No Firebase credentials provided. Set FIREBASE_CREDENTIALS_PATH or FIREBASE_CREDENTIALS.")
+
 initialize_app(cred)
-
 db = firestore.client()
 
 
 def get_product_from_db(barcode):
+    """
+    Returns the product dict with raw ingredient names (not profiles).
+    Profiles are intentionally NOT loaded here — main.py's enrichment
+    loop fetches them per-ingredient so partial caches are handled correctly.
+    Returns None if the product document doesn't exist.
+    """
     product_ref = db.collection("products").document(barcode)
     product_doc = product_ref.get()
 
@@ -26,30 +34,26 @@ def get_product_from_db(barcode):
 
     product_data = product_doc.to_dict()
     ingredients = product_data.get("ingredients", [])
-    ingredient_profiles = []
 
-    for ingredient in ingredients:
-        ingredient_name = ingredient if isinstance(ingredient, str) else ingredient.get("name", "")
-        profile = get_ingredient_profile_from_db(ingredient_name.lower())
-        if profile:
-            ingredient_profiles.append({
-                "name": ingredient_name,
-                "profile": profile
-            })
+    # Normalise: ingredients are stored as plain strings; return as
+    # [{name, profile: None}] so main.py's enrichment loop is uniform.
+    normalised = []
+    for ing in ingredients:
+        name = ing if isinstance(ing, str) else ing.get("name", "")
+        if name:
+            normalised.append({"name": name, "profile": None})
 
     return {
         "product_name": product_data.get("product_name", ""),
-        "ingredients": ingredient_profiles,
+        "ingredients": normalised,
         "nutrients_per_100g": product_data.get("nutrients_per_100g", {})
     }
-
 
 
 def save_product_to_db(barcode, product_name, ingredient_list, nutrition_data=None):
     """
     Save product with only ingredient *names* (no profiles).
     """
-    # Ensure only names are stored
     ingredient_names = [
         ing if isinstance(ing, str) else ing.get("name", "unknown")
         for ing in ingredient_list
@@ -66,15 +70,15 @@ def save_product_to_db(barcode, product_name, ingredient_list, nutrition_data=No
     db.collection("products").document(barcode).set(doc_data)
 
 
-
 def get_ingredient_profile_from_db(ingredient):
     ingredient = ingredient.lower()
     ingredient_ref = db.collection("ingredients").document(ingredient)
     ingredient_doc = ingredient_ref.get()
-    
+
     if ingredient_doc.exists:
         return ingredient_doc.to_dict()
     return None
+
 
 def save_ingredient_to_db(ingredient, ingredient_name, ingredient_profile):
     ingredient = ingredient.lower()
@@ -93,4 +97,3 @@ def save_product_rating_to_db(barcode, rating_data):
 def save_percent_estimate_to_db(barcode, percent_list):
     product_ref = db.collection("products").document(barcode)
     product_ref.update({"percent_estimate": percent_list})
-
