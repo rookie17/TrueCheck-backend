@@ -33,6 +33,7 @@ def get_complete_product_info():
         cached_ingredients = product_data.get("ingredients", [])  # already [{name, profile}]
         nutrition_data = product_data.get("nutrients_per_100g", {})
         from_cache = True
+        off_product_data = None 
     else:
         product = get_product_from_openfoodfacts(barcode)
         if not product:
@@ -49,6 +50,7 @@ def get_complete_product_info():
 
         cached_ingredients = [{"name": n, "profile": None} for n in raw_ingredient_names]
         from_cache = False
+        off_product_data = product
 
     # ---------- 2. ENRICH INGREDIENTS ----------
     final_ingredient_list = []
@@ -73,7 +75,7 @@ def get_complete_product_info():
 
     # ---------- 3. GET PERCENT ESTIMATES ----------
     ingredient_names_only = [i.get("name", "") if isinstance(i, dict) else i for i in cached_ingredients]
-    percent_estimates = get_percent_estimates(barcode, ingredient_names_only)
+    percent_estimates = get_percent_estimates(barcode, ingredient_names_only, product_data=off_product_data)
 
     # ---------- 4. GET RATING ----------
     product_rating = get_product_rating_from_llm(final_ingredient_list, percent_estimates)

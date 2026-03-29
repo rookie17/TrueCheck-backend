@@ -9,14 +9,15 @@ def _get_ingredient_text(item):
     return text if isinstance(text, str) else ""
 
 
-def get_percent_estimates(barcode, ingredient_names):
+def get_percent_estimates(barcode, ingredient_names, product_data=None):
     product_doc = db.collection("products").document(barcode).get()
     if product_doc.exists:
         existing_data = product_doc.to_dict()
         if "percent_estimate" in existing_data:
             return existing_data["percent_estimate"]
 
-    product_data = get_product_from_openfoodfacts(barcode)
+    if product_data is None:
+        product_data = get_product_from_openfoodfacts(barcode)
     if not product_data:
         return ["Not Available"] * len(ingredient_names)
 
