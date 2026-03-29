@@ -98,8 +98,8 @@ def save_percent_estimate_to_db(barcode, percent_list):
     product_ref = db.collection("products").document(barcode)
     product_ref.update({"percent_estimate": percent_list})
 
-    def get_product_rating_from_db(barcode):
-        doc = db.collection("products").document(barcode).get()
-        if doc.exists:
-            return doc.to_dict().get("product_rating")
-        return None
+def get_product_rating_from_db(barcode):
+    doc = db.collection("products").document(barcode).get()
+    if doc.exists:
+        return doc.to_dict().get("product_rating")
+    return None
