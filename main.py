@@ -5,7 +5,8 @@ from flask import Flask, jsonify, request
 from firestore import (
     get_product_from_db, save_product_to_db,
     get_ingredient_profile_from_db, save_ingredient_to_db,
-    save_percent_estimate_to_db, save_product_rating_to_db
+    save_percent_estimate_to_db, save_product_rating_to_db,
+    get_product_rating_from_db  # ADD THIS
 )
 from utils.llm_client import get_ingredient_profile_from_llm, get_product_rating_from_llm
 from services.enrichment import enrich_ingredients
@@ -78,10 +79,11 @@ def get_complete_product_info():
     percent_estimates = get_percent_estimates(barcode, ingredient_names_only, product_data=off_product_data)
 
     # ---------- 4. GET RATING ----------
-    product_rating = get_product_rating_from_llm(final_ingredient_list, percent_estimates)
-
-    # ---------- 5. SAVE RATING ----------
-    save_product_rating_to_db(barcode, product_rating)
+    product_rating = get_product_rating_from_db(barcode)
+    if not product_rating:
+        product_rating = get_product_rating_from_llm(final_ingredient_list, percent_estimates)
+        # ---------- 5. SAVE RATING ----------
+        save_product_rating_to_db(barcode, product_rating)
 
     return jsonify({
         "product_name": product_name,
