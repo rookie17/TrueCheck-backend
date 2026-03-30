@@ -1,6 +1,5 @@
 import requests
-from firestore import save_product_to_db
-
+from firestore import save_nutrition_to_db
 
 def fetch_nutrition_from_barcode(barcode: str) -> dict | None:
     """
@@ -33,8 +32,8 @@ def fetch_nutrition_from_barcode(barcode: str) -> dict | None:
 
     product_name = product.get("product_name", "Unknown")
 
-    save_product_to_db(barcode, product_name, [], nutrition_100g)
-
+    save_nutrition_to_db(barcode, nutrition_100g)
+    
     return {
         "product_name": product_name,
         "barcode": barcode,

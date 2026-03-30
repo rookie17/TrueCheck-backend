@@ -1,12 +1,6 @@
 from firestore import db, save_percent_estimate_to_db
 from services.openfoodfacts_api import get_product_from_openfoodfacts
-
-
-def _get_ingredient_text(item):
-    text = item.get("text", "")
-    if isinstance(text, dict):
-        return text.get("en", "")
-    return text if isinstance(text, str) else ""
+from utils.ingredient_utils import extract_ingredient_text
 
 
 def get_percent_estimates(barcode, ingredient_names, product_data=None):
@@ -26,7 +20,7 @@ def get_percent_estimates(barcode, ingredient_names, product_data=None):
         ing_str = ing if isinstance(ing, str) else ing.get("name", "")
         match = next(
             (item.get("percent_estimate") for item in product_data.get("ingredients", [])
-             if isinstance(item, dict) and _get_ingredient_text(item).lower() == ing_str.lower()),
+             if isinstance(item, dict) and  extract_ingredient_text(item).lower() == ing_str.lower()),
             "Not Available"
         )
         percent_list.append(match if match is not None else "Not Available")

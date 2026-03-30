@@ -14,7 +14,7 @@ def get_product_from_openfoodfacts(barcode: str) -> dict | None:
     url = f"https://world.openfoodfacts.org/api/v0/product/{barcode}.json"
 
     try:
-        response = requests.get(url, headers=_HEADERS, timeout=10)
+        response = requests.get(url, headers=_HEADERS, params={"lc": "en"}, timeout=10)
         response.raise_for_status()
         data = response.json()
 

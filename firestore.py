@@ -51,9 +51,6 @@ def get_product_from_db(barcode):
 
 
 def save_product_to_db(barcode, product_name, ingredient_list, nutrition_data=None):
-    """
-    Save product with only ingredient *names* (no profiles).
-    """
     ingredient_names = [
         ing if isinstance(ing, str) else ing.get("name", "unknown")
         for ing in ingredient_list
@@ -67,7 +64,7 @@ def save_product_to_db(barcode, product_name, ingredient_list, nutrition_data=No
     if nutrition_data:
         doc_data["nutrients_per_100g"] = nutrition_data
 
-    db.collection("products").document(barcode).set(doc_data)
+    db.collection("products").document(barcode).set(doc_data, merge=True)
 
 
 def get_ingredient_profile_from_db(ingredient):
@@ -89,17 +86,26 @@ def save_ingredient_to_db(ingredient, ingredient_name, ingredient_profile):
 
 
 def save_product_rating_to_db(barcode, rating_data):
-    db.collection("products").document(barcode).update({
-        "product_rating": rating_data
-    })
+    db.collection("products").document(barcode).set(
+        {"product_rating": rating_data}, merge=True
+    )
 
 
 def save_percent_estimate_to_db(barcode, percent_list):
-    product_ref = db.collection("products").document(barcode)
-    product_ref.update({"percent_estimate": percent_list})
+    db.collection("products").document(barcode).set(
+        {"percent_estimate": percent_list}, merge=True
+    )
+
 
 def get_product_rating_from_db(barcode):
     doc = db.collection("products").document(barcode).get()
     if doc.exists:
         return doc.to_dict().get("product_rating")
     return None
+
+
+def save_nutrition_to_db(barcode: str, nutrition_data: dict):
+    db.collection("products").document(barcode).set(
+        {"nutrients_per_100g": nutrition_data},
+        merge=True
+    )

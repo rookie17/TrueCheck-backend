@@ -6,13 +6,14 @@ from firestore import (
     get_product_from_db, save_product_to_db,
     get_ingredient_profile_from_db, save_ingredient_to_db,
     save_percent_estimate_to_db, save_product_rating_to_db,
-    get_product_rating_from_db  # ADD THIS
+    get_product_rating_from_db
 )
 from utils.llm_client import get_ingredient_profile_from_llm, get_product_rating_from_llm
 from services.enrichment import enrich_ingredients
 from services.openfoodfacts_api import get_product_from_openfoodfacts
 from services.nutrition_fetcher import fetch_nutrition_from_barcode
 from services.percent_estimate import get_percent_estimates
+from utils.ingredient_utils import extract_ingredient_text
 
 from flask_cors import CORS
 
@@ -31,10 +32,10 @@ def get_complete_product_info():
 
     if product_data:
         product_name = product_data.get("product_name", "Unknown")
-        cached_ingredients = product_data.get("ingredients", [])  # already [{name, profile}]
+        cached_ingredients = product_data.get("ingredients", [])
         nutrition_data = product_data.get("nutrients_per_100g", {})
         from_cache = True
-        off_product_data = None 
+        off_product_data = None
     else:
         product = get_product_from_openfoodfacts(barcode)
         if not product:
@@ -42,7 +43,8 @@ def get_complete_product_info():
 
         product_name = product.get("product_name", "Unknown")
         raw_ingredient_names = [
-            i.get("text") for i in product.get("ingredients", []) if "text" in i
+            extract_ingredient_text(i) for i in product.get("ingredients", [])
+            if extract_ingredient_text(i)
         ]
         nutriments = product.get("nutriments", {})
         nutrition_data = {k: v for k, v in nutriments.items() if k.endswith("_100g")}
@@ -56,7 +58,6 @@ def get_complete_product_info():
     # ---------- 2. ENRICH INGREDIENTS ----------
     final_ingredient_list = []
     for item in cached_ingredients:
-        # If profile already loaded from cache, skip re-fetching
         if isinstance(item, dict) and item.get("profile"):
             final_ingredient_list.append(item)
             continue
@@ -82,7 +83,6 @@ def get_complete_product_info():
     product_rating = get_product_rating_from_db(barcode)
     if not product_rating:
         product_rating = get_product_rating_from_llm(final_ingredient_list, percent_estimates)
-        # ---------- 5. SAVE RATING ----------
         save_product_rating_to_db(barcode, product_rating)
 
     return jsonify({
@@ -139,7 +139,10 @@ def get_product_details():
         return jsonify({"error": "Product not found on OpenFoodFacts"}), 404
 
     product_name = product.get("product_name", "Unknown")
-    ingredients = [i.get("text") for i in product.get("ingredients", []) if "text" in i]
+    ingredients = [
+        extract_ingredient_text(i) for i in product.get("ingredients", [])
+        if extract_ingredient_text(i)
+    ]
     nutriments = product.get("nutriments", {})
     nutrition_data = {k: v for k, v in nutriments.items() if k.endswith("_100g")}
 
@@ -171,7 +174,10 @@ def get_ingredients():
         return jsonify({"error": "Product not found on OpenFoodFacts"}), 404
 
     product_name = product.get("product_name", "Unknown")
-    ingredients = [i.get("text") for i in product.get("ingredients", []) if "text" in i]
+    ingredients = [
+        extract_ingredient_text(i) for i in product.get("ingredients", [])
+        if extract_ingredient_text(i)
+    ]
 
     if not ingredients:
         return jsonify({

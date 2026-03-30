@@ -5,8 +5,7 @@ from firestore import (
     save_percent_estimate_to_db,
 )
 from services.enrichment import enrich_ingredients
-from utils.openai_client import get_product_rating_from_gemini
-
+from utils.llm_client import get_ingredient_profile_from_llm, get_product_rating_from_llm
 
 def prompt_for_list(prompt_text, allow_empty=False):
     print(prompt_text)
@@ -78,7 +77,7 @@ def main():
 
             # Enrich and rate
             enriched = enrich_ingredients(ingredient_names)
-            product_rating = get_product_rating_from_gemini(enriched, percent_estimate)
+            product_rating = get_product_rating_from_llm(enriched, percent_estimate)
             save_product_rating_to_db(barcode, product_rating)
 
             print(f"✅ Fixed product: {barcode}\n")
