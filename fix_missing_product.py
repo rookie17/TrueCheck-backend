@@ -5,7 +5,7 @@ from firestore import (
     save_percent_estimate_to_db,
 )
 from services.enrichment import enrich_ingredients
-from utils.openai_client import get_product_rating_from_gemini
+from ml.predict import predict_score
 
 
 def prompt_for_list(prompt_text, allow_empty=False):
@@ -78,7 +78,10 @@ def main():
 
             # Enrich and rate
             enriched = enrich_ingredients(ingredient_names)
-            product_rating = get_product_rating_from_gemini(enriched, percent_estimate)
+            product_rating = predict_score({
+    "ingredients": ingredient_names,
+    "nutrients_per_100g": nutrients
+})
             save_product_rating_to_db(barcode, product_rating)
 
             print(f"✅ Fixed product: {barcode}\n")

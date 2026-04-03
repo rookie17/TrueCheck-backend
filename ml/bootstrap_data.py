@@ -47,7 +47,7 @@ def _random_nutrients(profile: str) -> dict:
             "energy_100g":          random.uniform(80, 250),
             "sugars_100g":          random.uniform(0, 8),
             "fat_100g":             random.uniform(1, 10),
-            "saturated-fat_100g":   random.uniform(0, 3),
+            "saturated_fat_100g":   random.uniform(0, 3),
             "sodium_100g":          random.uniform(0, 0.3),
             "salt_100g":            random.uniform(0, 0.8),
             "fiber_100g":           random.uniform(3, 10),
