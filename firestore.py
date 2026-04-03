@@ -1,18 +1,44 @@
 """
+firestore.py
+============
 Firestore client for TrueCheck.
-All Gemini/LLM references removed.
+
+Auth priority:
+  1. FIREBASE_CREDENTIALS  — JSON string (production / cloud hosting)
+  2. FIREBASE_CREDENTIALS_PATH — file path (local development only)
 """
 
 import os
-import firebase_admin
-from firebase_admin import credentials, firestore
+import json
+import firebase_admin  # type: ignore
+from firebase_admin import credentials, firestore  # type: ignore
 
-cred_path = os.getenv("FIREBASE_CREDENTIALS_PATH")
-if not cred_path:
-    raise RuntimeError("FIREBASE_CREDENTIALS_PATH environment variable not set.")
 
-cred = credentials.Certificate(cred_path)
-firebase_admin.initialize_app(cred)
+# ── Init once — guarded against double-init ───────────────────────────────────
+if not firebase_admin._apps:
+    cred_json = os.environ.get("FIREBASE_CREDENTIALS")
+
+    if cred_json:
+        # Production: read credentials from JSON string env var
+        try:
+            cred_dict = json.loads(cred_json)
+            # Fix escaped newlines in private key (common when storing JSON in env vars)
+            cred_dict["private_key"] = cred_dict["private_key"].replace("\\n", "\n")
+            cred = credentials.Certificate(cred_dict)
+        except Exception as e:
+            raise RuntimeError(f"Failed to parse FIREBASE_CREDENTIALS: {e}") from e
+    else:
+        # Local dev: read credentials from file path
+        cred_path = os.environ.get("FIREBASE_CREDENTIALS_PATH")
+        if not cred_path:
+            raise RuntimeError(
+                "Firebase credentials not configured.\n"
+                "  Production : set FIREBASE_CREDENTIALS as a JSON string.\n"
+                "  Local dev  : set FIREBASE_CREDENTIALS_PATH to your serviceAccountKey.json."
+            )
+        cred = credentials.Certificate(cred_path)
+
+    firebase_admin.initialize_app(cred)
 
 db = firestore.client()
 
@@ -20,29 +46,27 @@ db = firestore.client()
 # ─── Products ─────────────────────────────────────────────────────────────────
 
 def get_product_from_db(barcode: str) -> dict | None:
+    if not barcode or not isinstance(barcode, str):
+        return None
+
+    barcode = barcode.strip()
+
+    if "/" in barcode:
+        return None
+
     doc = db.collection("products").document(barcode).get()
+
     if not doc.exists:
         return None
 
-    data        = doc.to_dict()
-    ingredients = data.get("ingredients", [])
-
-    # Attach cached ingredient profiles if stored separately
-    ingredient_profiles = []
-    for ing in ingredients:
-        name    = ing if isinstance(ing, str) else ing.get("name", "")
-        profile = get_ingredient_profile_from_db(name.lower())
-        if profile:
-            ingredient_profiles.append({"name": name, "profile": profile})
-        else:
-            ingredient_profiles.append({"name": name, "profile": None})
+    data = doc.to_dict()
 
     return {
-        "product_name":      data.get("product_name", ""),
-        "ingredients":       ingredient_profiles,
+        "product_name":       data.get("product_name", ""),
+        "ingredients":        data.get("ingredients", []),
         "nutrients_per_100g": data.get("nutrients_per_100g", {}),
-        "product_rating":    data.get("product_rating"),
-        "percent_estimate":  data.get("percent_estimate"),
+        "product_rating":     data.get("product_rating"),
+        "percent_estimate":   data.get("percent_estimate"),
     }
 
 
@@ -56,17 +80,10 @@ def save_product_to_db(barcode: str, product_name: str,
     doc = {"product_name": product_name, "ingredients": ingredient_names}
     if nutrition_data:
         doc["nutrients_per_100g"] = nutrition_data
-
     db.collection("products").document(barcode).set(doc)
 
 
 def save_product_rating_to_db(barcode: str, rating_data: dict):
-    """
-    Save ML prediction result to Firestore.
-    rating_data expected shape:
-      { "overall_score": float, "method": str, "confidence": str,
-        "breakdown": dict, "features": dict }
-    """
     db.collection("products").document(barcode).update({
         "product_rating": rating_data
     })
@@ -80,10 +97,34 @@ def save_percent_estimate_to_db(barcode: str, percent_list: list):
 
 # ─── Ingredients ─────────────────────────────────────────────────────────────
 
-def get_ingredient_profile_from_db(ingredient: str) -> dict | None:
-    ingredient = ingredient.lower()
-    doc = db.collection("ingredients").document(ingredient).get()
-    return doc.to_dict() if doc.exists else None
+def get_ingredient_profile_from_db(ingredient):
+    # Handle dict input
+    if isinstance(ingredient, dict):
+        ingredient = ingredient.get("name") or ingredient.get("text") or ""
+
+    if not isinstance(ingredient, str):
+        return None
+
+    ingredient = ingredient.strip().lower()
+
+    if not ingredient:
+        return None
+
+    ingredient_ref = db.collection("ingredients").document(ingredient)
+    ingredient_doc = ingredient_ref.get()
+
+    if ingredient_doc.exists:
+        profile = ingredient_doc.to_dict()
+
+        # Skip corrupted Gemini data
+        if "ingredient_profile" in profile:
+            inner = profile["ingredient_profile"]
+            if isinstance(inner, dict) and "error" in inner:
+                return None
+
+        return profile
+
+    return None
 
 
 def save_ingredient_to_db(ingredient: str, ingredient_name: str,

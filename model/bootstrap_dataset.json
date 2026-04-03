@@ -23,7 +23,7 @@
       "proteins_100g": 9.829266304167906,
       "carbohydrates_100g": 34.7897794913067
     },
-    "overall_score": 3.07
+    "overall_score": 6.51
   },
   {
     "barcode": "BOOTSTRAP_0001",
@@ -52,7 +52,7 @@
       "proteins_100g": 5.501762427990829,
       "carbohydrates_100g": 49.070533327932004
     },
-    "overall_score": 2.79
+    "overall_score": 5.45
   },
   {
     "barcode": "BOOTSTRAP_0002",
@@ -83,7 +83,7 @@
       "proteins_100g": 7.129666673286589,
       "carbohydrates_100g": 37.946404994941574
     },
-    "overall_score": 1.82
+    "overall_score": 5.77
   },
   {
     "barcode": "BOOTSTRAP_0003",
@@ -102,14 +102,14 @@
       "energy_100g": 214.6534919417039,
       "sugars_100g": 3.3772797343974723,
       "fat_100g": 1.571749355367614,
-      "saturated-fat_100g": 1.1448578595196102,
+      "saturated_fat_100g": 1.1448578595196102,
       "sodium_100g": 0.29883641407202904,
       "salt_100g": 0.4232914760793096,
       "fiber_100g": 9.797548643295327,
       "proteins_100g": 17.91169553351747,
       "carbohydrates_100g": 10.344430658284589
     },
-    "overall_score": 6.58
+    "overall_score": 8.62
   },
   {
     "barcode": "BOOTSTRAP_0004",
@@ -139,7 +139,7 @@
       "proteins_100g": 8.10621249320019,
       "carbohydrates_100g": 32.36271144874098
     },
-    "overall_score": 2.02
+    "overall_score": 4.96
   },
   {
     "barcode": "BOOTSTRAP_0005",
@@ -165,7 +165,7 @@
       "proteins_100g": 4.981956460064035,
       "carbohydrates_100g": 32.12979258027097
     },
-    "overall_score": 2.13
+    "overall_score": 4.96
   },
   {
     "barcode": "BOOTSTRAP_0006",
@@ -192,7 +192,7 @@
       "proteins_100g": 3.545514066693123,
       "carbohydrates_100g": 51.84640765323548
     },
-    "overall_score": 2.29
+    "overall_score": 5.39
   },
   {
     "barcode": "BOOTSTRAP_0007",
@@ -221,7 +221,7 @@
       "proteins_100g": 5.632590367796666,
       "carbohydrates_100g": 73.55388070382365
     },
-    "overall_score": 0.0
+    "overall_score": 1.04
   },
   {
     "barcode": "BOOTSTRAP_0008",
@@ -241,14 +241,14 @@
       "energy_100g": 224.72823270850066,
       "sugars_100g": 0.5481706616303388,
       "fat_100g": 1.6116477703818153,
-      "saturated-fat_100g": 2.5854576059103884,
+      "saturated_fat_100g": 2.5854576059103884,
       "sodium_100g": 0.12113266539548323,
       "salt_100g": 0.7532769017832716,
       "fiber_100g": 6.987727870967294,
       "proteins_100g": 13.68378586260816,
       "carbohydrates_100g": 11.192249868671931
     },
-    "overall_score": 6.81
+    "overall_score": 9.1
   },
   {
     "barcode": "BOOTSTRAP_0009",
@@ -268,14 +268,14 @@
       "energy_100g": 92.45432258693761,
       "sugars_100g": 1.7052344981363232,
       "fat_100g": 3.386803732753612,
-      "saturated-fat_100g": 2.7997781339811274,
+      "saturated_fat_100g": 2.7997781339811274,
       "sodium_100g": 0.2642592521059319,
       "salt_100g": 0.7034161939876342,
       "fiber_100g": 5.586689621172187,
       "proteins_100g": 7.36620248535848,
       "carbohydrates_100g": 35.012348639194215
     },
-    "overall_score": 6.85
+    "overall_score": 9.45
   },
   {
     "barcode": "BOOTSTRAP_0010",
@@ -301,7 +301,7 @@
       "proteins_100g": 6.0020088474457935,
       "carbohydrates_100g": 33.924589821051065
     },
-    "overall_score": 1.48
+    "overall_score": 4.21
   },
   {
     "barcode": "BOOTSTRAP_0011",
@@ -335,7 +335,7 @@
       "proteins_100g": 5.0111756946856945,
       "carbohydrates_100g": 75.92192085125838
     },
-    "overall_score": 0.0
+    "overall_score": 0.73
   },
   {
     "barcode": "BOOTSTRAP_0012",
@@ -367,7 +367,7 @@
       "proteins_100g": 4.031044266530716,
       "carbohydrates_100g": 65.34269179008434
     },
-    "overall_score": 0.0
+    "overall_score": 2.01
   },
   {
     "barcode": "BOOTSTRAP_0013",
@@ -396,7 +396,7 @@
       "proteins_100g": 6.654676518823466,
       "carbohydrates_100g": 55.01175507912173
     },
-    "overall_score": 3.38
+    "overall_score": 6.22
   },
   {
     "barcode": "BOOTSTRAP_0014",
@@ -412,14 +412,14 @@
       "energy_100g": 166.8995794686798,
       "sugars_100g": 6.349883192848016,
       "fat_100g": 9.638488033147325,
-      "saturated-fat_100g": 2.207884337820665,
+      "saturated_fat_100g": 2.207884337820665,
       "sodium_100g": 0.19765522349952652,
       "salt_100g": 0.22702912399442196,
       "fiber_100g": 7.646976854134991,
       "proteins_100g": 14.288912080435633,
       "carbohydrates_100g": 12.80161600226688
     },
-    "overall_score": 6.65
+    "overall_score": 9.27
   },
   {
     "barcode": "BOOTSTRAP_0015",
@@ -454,7 +454,7 @@
       "proteins_100g": 4.596369806379835,
       "carbohydrates_100g": 65.14334494473206
     },
-    "overall_score": 0.0
+    "overall_score": 0.91
   },
   {
     "barcode": "BOOTSTRAP_0016",
@@ -492,7 +492,7 @@
       "proteins_100g": 5.767151692350532,
       "carbohydrates_100g": 62.57063847889466
     },
-    "overall_score": 0.0
+    "overall_score": 1.36
   },
   {
     "barcode": "BOOTSTRAP_0017",
@@ -522,7 +522,7 @@
       "proteins_100g": 6.794083440828649,
       "carbohydrates_100g": 55.047327447363635
     },
-    "overall_score": 2.27
+    "overall_score": 5.74
   },
   {
     "barcode": "BOOTSTRAP_0018",
@@ -548,7 +548,7 @@
       "proteins_100g": 4.473892291504793,
       "carbohydrates_100g": 39.33116758795799
     },
-    "overall_score": 3.02
+    "overall_score": 6.31
   },
   {
     "barcode": "BOOTSTRAP_0019",
@@ -579,7 +579,7 @@
       "proteins_100g": 10.273792969260803,
       "carbohydrates_100g": 46.14518719344767
     },
-    "overall_score": 0.18
+    "overall_score": 3.96
   },
   {
     "barcode": "BOOTSTRAP_0020",
@@ -611,7 +611,7 @@
       "proteins_100g": 3.837480154992045,
       "carbohydrates_100g": 36.6478920141759
     },
-    "overall_score": 1.26
+    "overall_score": 4.72
   },
   {
     "barcode": "BOOTSTRAP_0021",
@@ -641,7 +641,7 @@
       "proteins_100g": 3.4096413088489648,
       "carbohydrates_100g": 31.635780607169632
     },
-    "overall_score": 0.0
+    "overall_score": 3.27
   },
   {
     "barcode": "BOOTSTRAP_0022",
@@ -657,14 +657,14 @@
       "energy_100g": 244.13459933351012,
       "sugars_100g": 2.019827123943781,
       "fat_100g": 8.755506681647619,
-      "saturated-fat_100g": 0.3422614221747736,
+      "saturated_fat_100g": 0.3422614221747736,
       "sodium_100g": 0.019603030534179743,
       "salt_100g": 0.39339724823285444,
       "fiber_100g": 7.039148095295727,
       "proteins_100g": 15.296765273840249,
       "carbohydrates_100g": 14.551810208528693
     },
-    "overall_score": 6.89
+    "overall_score": 8.7
   },
   {
     "barcode": "BOOTSTRAP_0023",
@@ -695,7 +695,7 @@
       "proteins_100g": 2.1573811727801293,
       "carbohydrates_100g": 71.208674896371
     },
-    "overall_score": 0.0
+    "overall_score": 1.91
   },
   {
     "barcode": "BOOTSTRAP_0024",
@@ -726,7 +726,7 @@
       "proteins_100g": 9.06868530454954,
       "carbohydrates_100g": 55.815506184518135
     },
-    "overall_score": 2.7
+    "overall_score": 5.97
   },
   {
     "barcode": "BOOTSTRAP_0025",
@@ -752,7 +752,7 @@
       "proteins_100g": 6.604070293322907,
       "carbohydrates_100g": 52.81499316172971
     },
-    "overall_score": 3.0
+    "overall_score": 5.97
   },
   {
     "barcode": "BOOTSTRAP_0026",
@@ -767,14 +767,14 @@
       "energy_100g": 150.25208703588464,
       "sugars_100g": 1.500660331156217,
       "fat_100g": 4.256014232365077,
-      "saturated-fat_100g": 2.2693294621667213,
+      "saturated_fat_100g": 2.2693294621667213,
       "sodium_100g": 0.18762262264350268,
       "salt_100g": 0.6079924288488137,
       "fiber_100g": 4.424907668451917,
       "proteins_100g": 13.238294586279975,
       "carbohydrates_100g": 37.83018282533343
     },
-    "overall_score": 6.59
+    "overall_score": 9.03
   },
   {
     "barcode": "BOOTSTRAP_0027",
@@ -805,7 +805,7 @@
       "proteins_100g": 5.486226625398369,
       "carbohydrates_100g": 53.70018546009341
     },
-    "overall_score": 2.25
+    "overall_score": 6.11
   },
   {
     "barcode": "BOOTSTRAP_0028",
@@ -833,7 +833,7 @@
       "proteins_100g": 8.973199465360812,
       "carbohydrates_100g": 54.62242655128665
     },
-    "overall_score": 2.08
+    "overall_score": 5.64
   },
   {
     "barcode": "BOOTSTRAP_0029",
@@ -867,7 +867,7 @@
       "proteins_100g": 4.51945414664519,
       "carbohydrates_100g": 53.01521720968452
     },
-    "overall_score": 0.0
+    "overall_score": 1.7
   },
   {
     "barcode": "BOOTSTRAP_0030",
@@ -883,14 +883,14 @@
       "energy_100g": 170.29827408528922,
       "sugars_100g": 4.5274244953274945,
       "fat_100g": 8.13267526492858,
-      "saturated-fat_100g": 0.5099509472042921,
+      "saturated_fat_100g": 0.5099509472042921,
       "sodium_100g": 0.02369050519799839,
       "salt_100g": 0.6966716789158839,
       "fiber_100g": 7.3379725797619075,
       "proteins_100g": 8.612446877844695,
       "carbohydrates_100g": 37.384870480706645
     },
-    "overall_score": 6.68
+    "overall_score": 8.96
   },
   {
     "barcode": "BOOTSTRAP_0031",
@@ -908,14 +908,14 @@
       "energy_100g": 188.61957940120206,
       "sugars_100g": 3.3944715076871814,
       "fat_100g": 3.250884019669311,
-      "saturated-fat_100g": 2.535911775427796,
+      "saturated_fat_100g": 2.535911775427796,
       "sodium_100g": 0.0597650997326677,
       "salt_100g": 0.3077545991738764,
       "fiber_100g": 6.382456427414512,
       "proteins_100g": 8.558085528913619,
       "carbohydrates_100g": 27.157680770522166
     },
-    "overall_score": 6.82
+    "overall_score": 9.2
   },
   {
     "barcode": "BOOTSTRAP_0032",
@@ -943,7 +943,7 @@
       "proteins_100g": 3.8112003817159703,
       "carbohydrates_100g": 38.85331354887466
     },
-    "overall_score": 2.55
+    "overall_score": 6.2
   },
   {
     "barcode": "BOOTSTRAP_0033",
@@ -970,7 +970,7 @@
       "proteins_100g": 3.1252678959081104,
       "carbohydrates_100g": 46.09716924807177
     },
-    "overall_score": 1.56
+    "overall_score": 5.21
   },
   {
     "barcode": "BOOTSTRAP_0034",
@@ -1001,7 +1001,7 @@
       "proteins_100g": 8.286063109937468,
       "carbohydrates_100g": 51.79797451671725
     },
-    "overall_score": 1.26
+    "overall_score": 4.91
   },
   {
     "barcode": "BOOTSTRAP_0035",
@@ -1032,7 +1032,7 @@
       "proteins_100g": 5.348477133847723,
       "carbohydrates_100g": 59.85678660296691
     },
-    "overall_score": 0.0
+    "overall_score": 1.42
   },
   {
     "barcode": "BOOTSTRAP_0036",
@@ -1050,14 +1050,14 @@
       "energy_100g": 180.1049967485752,
       "sugars_100g": 0.12624866808928203,
       "fat_100g": 3.3883075749247604,
-      "saturated-fat_100g": 0.38027563113834084,
+      "saturated_fat_100g": 0.38027563113834084,
       "sodium_100g": 0.12628816707302373,
       "salt_100g": 0.0909194454292373,
       "fiber_100g": 3.4449062670299537,
       "proteins_100g": 11.724128214048262,
       "carbohydrates_100g": 20.86116921452536
     },
-    "overall_score": 7.41
+    "overall_score": 9.08
   },
   {
     "barcode": "BOOTSTRAP_0037",
@@ -1089,7 +1089,7 @@
       "proteins_100g": 9.487559249918393,
       "carbohydrates_100g": 36.450691989824904
     },
-    "overall_score": 1.78
+    "overall_score": 5.64
   },
   {
     "barcode": "BOOTSTRAP_0038",
@@ -1119,7 +1119,7 @@
       "proteins_100g": 10.812829339821585,
       "carbohydrates_100g": 51.63182036238449
     },
-    "overall_score": 2.06
+    "overall_score": 5.56
   },
   {
     "barcode": "BOOTSTRAP_0039",
@@ -1157,7 +1157,7 @@
       "proteins_100g": 2.558186848521082,
       "carbohydrates_100g": 59.731486762352795
     },
-    "overall_score": 0.0
+    "overall_score": 0.58
   },
   {
     "barcode": "BOOTSTRAP_0040",
@@ -1193,7 +1193,7 @@
       "proteins_100g": 5.03100093283382,
       "carbohydrates_100g": 52.162264897764736
     },
-    "overall_score": 0.0
+    "overall_score": 1.89
   },
   {
     "barcode": "BOOTSTRAP_0041",
@@ -1223,7 +1223,7 @@
       "proteins_100g": 1.5701331991927627,
       "carbohydrates_100g": 65.29856186968917
     },
-    "overall_score": 0.0
+    "overall_score": 1.1
   },
   {
     "barcode": "BOOTSTRAP_0042",
@@ -1257,7 +1257,7 @@
       "proteins_100g": 4.075041942077868,
       "carbohydrates_100g": 65.21203452001865
     },
-    "overall_score": 0.0
+    "overall_score": 1.49
   },
   {
     "barcode": "BOOTSTRAP_0043",
@@ -1284,7 +1284,7 @@
       "proteins_100g": 9.97018309716362,
       "carbohydrates_100g": 50.36693161678743
     },
-    "overall_score": 0.48
+    "overall_score": 4.49
   },
   {
     "barcode": "BOOTSTRAP_0044",
@@ -1304,14 +1304,14 @@
       "energy_100g": 101.92178190616524,
       "sugars_100g": 5.670672114968431,
       "fat_100g": 1.762471108036018,
-      "saturated-fat_100g": 1.6767662102731906,
+      "saturated_fat_100g": 1.6767662102731906,
       "sodium_100g": 0.19304797900839585,
       "salt_100g": 0.26278124340286724,
       "fiber_100g": 3.8945563487024213,
       "proteins_100g": 15.542463082331302,
       "carbohydrates_100g": 38.41325873258143
     },
-    "overall_score": 6.82
+    "overall_score": 9.23
   },
   {
     "barcode": "BOOTSTRAP_0045",
@@ -1346,7 +1346,7 @@
       "proteins_100g": 2.170014721677122,
       "carbohydrates_100g": 57.175054917365586
     },
-    "overall_score": 0.0
+    "overall_score": 0.89
   },
   {
     "barcode": "BOOTSTRAP_0046",
@@ -1381,7 +1381,7 @@
       "proteins_100g": 1.4080271860552083,
       "carbohydrates_100g": 56.73616275821348
     },
-    "overall_score": 0.0
+    "overall_score": 0.78
   },
   {
     "barcode": "BOOTSTRAP_0047",
@@ -1396,14 +1396,14 @@
       "energy_100g": 209.00299631015324,
       "sugars_100g": 3.7528810172439497,
       "fat_100g": 6.538134314471935,
-      "saturated-fat_100g": 2.7175724673098123,
+      "saturated_fat_100g": 2.7175724673098123,
       "sodium_100g": 0.005701165473291114,
       "salt_100g": 0.17252379557468356,
       "fiber_100g": 4.046637332749588,
       "proteins_100g": 19.103389240119768,
       "carbohydrates_100g": 28.266402973481604
     },
-    "overall_score": 6.12
+    "overall_score": 8.25
   },
   {
     "barcode": "BOOTSTRAP_0048",
@@ -1432,7 +1432,7 @@
       "proteins_100g": 7.56594926921808,
       "carbohydrates_100g": 59.649944567894025
     },
-    "overall_score": 2.89
+    "overall_score": 5.8
   },
   {
     "barcode": "BOOTSTRAP_0049",
@@ -1465,7 +1465,7 @@
       "proteins_100g": 7.260597909091591,
       "carbohydrates_100g": 31.09862314610725
     },
-    "overall_score": 1.14
+    "overall_score": 4.9
   },
   {
     "barcode": "BOOTSTRAP_0050",
@@ -1495,7 +1495,7 @@
       "proteins_100g": 9.207883276009376,
       "carbohydrates_100g": 40.546409513159766
     },
-    "overall_score": 1.91
+    "overall_score": 5.39
   },
   {
     "barcode": "BOOTSTRAP_0051",
@@ -1512,14 +1512,14 @@
       "energy_100g": 224.27378269499087,
       "sugars_100g": 5.42471097596359,
       "fat_100g": 4.943555424460699,
-      "saturated-fat_100g": 0.3786900729067628,
+      "saturated_fat_100g": 0.3786900729067628,
       "sodium_100g": 0.07079861412610568,
       "salt_100g": 0.5161303005595712,
       "fiber_100g": 5.535054077803945,
       "proteins_100g": 19.2420066781988,
       "carbohydrates_100g": 10.97155971939001
     },
-    "overall_score": 7.38
+    "overall_score": 9.47
   },
   {
     "barcode": "BOOTSTRAP_0052",
@@ -1537,14 +1537,14 @@
       "energy_100g": 205.0647261115027,
       "sugars_100g": 3.9923516820517344,
       "fat_100g": 4.482886420353371,
-      "saturated-fat_100g": 1.6850181322789413,
+      "saturated_fat_100g": 1.6850181322789413,
       "sodium_100g": 0.07853300297624874,
       "salt_100g": 0.20823181691192272,
       "fiber_100g": 6.123911786839313,
       "proteins_100g": 19.945476682321413,
       "carbohydrates_100g": 18.56730633094474
     },
-    "overall_score": 7.1
+    "overall_score": 9.2
   },
   {
     "barcode": "BOOTSTRAP_0053",
@@ -1579,7 +1579,7 @@
       "proteins_100g": 5.116696997541953,
       "carbohydrates_100g": 52.21252138733717
     },
-    "overall_score": 0.0
+    "overall_score": 1.41
   },
   {
     "barcode": "BOOTSTRAP_0054",
@@ -1610,7 +1610,7 @@
       "proteins_100g": 3.959042226583026,
       "carbohydrates_100g": 67.41939503420761
     },
-    "overall_score": 0.0
+    "overall_score": 0.02
   },
   {
     "barcode": "BOOTSTRAP_0055",
@@ -1629,14 +1629,14 @@
       "energy_100g": 189.1242391812096,
       "sugars_100g": 2.416752903636981,
       "fat_100g": 3.2039011958404875,
-      "saturated-fat_100g": 2.422047943286393,
+      "saturated_fat_100g": 2.422047943286393,
       "sodium_100g": 0.12182775802336752,
       "salt_100g": 0.362835306364137,
       "fiber_100g": 7.820295001710885,
       "proteins_100g": 7.371206705228108,
       "carbohydrates_100g": 22.46865238642345
     },
-    "overall_score": 6.79
+    "overall_score": 9.08
   },
   {
     "barcode": "BOOTSTRAP_0056",
@@ -1666,7 +1666,7 @@
       "proteins_100g": 7.484389878539179,
       "carbohydrates_100g": 45.441745176944536
     },
-    "overall_score": 2.84
+    "overall_score": 6.62
   },
   {
     "barcode": "BOOTSTRAP_0057",
@@ -1697,7 +1697,7 @@
       "proteins_100g": 7.538299762108842,
       "carbohydrates_100g": 52.932123441217186
     },
-    "overall_score": 0.74
+    "overall_score": 4.03
   },
   {
     "barcode": "BOOTSTRAP_0058",
@@ -1715,14 +1715,14 @@
       "energy_100g": 87.7015699194027,
       "sugars_100g": 1.0962909885401633,
       "fat_100g": 3.997366348174905,
-      "saturated-fat_100g": 1.42123245118557,
+      "saturated_fat_100g": 1.42123245118557,
       "sodium_100g": 0.13709656778486218,
       "salt_100g": 0.48500841792304333,
       "fiber_100g": 6.608540125030777,
       "proteins_100g": 9.919487714547895,
       "carbohydrates_100g": 28.39204363194034
     },
-    "overall_score": 7.56
+    "overall_score": 9.89
   },
   {
     "barcode": "BOOTSTRAP_0059",
@@ -1741,14 +1741,14 @@
       "energy_100g": 246.5826653004575,
       "sugars_100g": 4.669617134790291,
       "fat_100g": 8.170793325371324,
-      "saturated-fat_100g": 2.175972637655566,
+      "saturated_fat_100g": 2.175972637655566,
       "sodium_100g": 0.2064130953608315,
       "salt_100g": 0.02131772397106655,
       "fiber_100g": 6.322131498595423,
       "proteins_100g": 19.50606044258076,
       "carbohydrates_100g": 33.48711974294264
     },
-    "overall_score": 6.6
+    "overall_score": 8.76
   },
   {
     "barcode": "BOOTSTRAP_0060",
@@ -1785,7 +1785,7 @@
       "proteins_100g": 2.3950319796087833,
       "carbohydrates_100g": 58.95497483570882
     },
-    "overall_score": 0.0
+    "overall_score": 1.29
   },
   {
     "barcode": "BOOTSTRAP_0061",
@@ -1818,7 +1818,7 @@
       "proteins_100g": 1.2538271497873201,
       "carbohydrates_100g": 77.1555257285479
     },
-    "overall_score": 0.0
+    "overall_score": 0.84
   },
   {
     "barcode": "BOOTSTRAP_0062",
@@ -1833,14 +1833,14 @@
       "energy_100g": 80.88084588921211,
       "sugars_100g": 4.402820526236933,
       "fat_100g": 9.3618971215298,
-      "saturated-fat_100g": 1.2207223546406505,
+      "saturated_fat_100g": 1.2207223546406505,
       "sodium_100g": 0.28050962957884545,
       "salt_100g": 0.7027196972113826,
       "fiber_100g": 6.342139643086275,
       "proteins_100g": 7.991839620014025,
       "carbohydrates_100g": 38.917421166728076
     },
-    "overall_score": 6.83
+    "overall_score": 9.39
   },
   {
     "barcode": "BOOTSTRAP_0063",
@@ -1859,14 +1859,14 @@
       "energy_100g": 229.04633854604697,
       "sugars_100g": 0.07413734784079828,
       "fat_100g": 6.1116568179804585,
-      "saturated-fat_100g": 0.32190207232061396,
+      "saturated_fat_100g": 0.32190207232061396,
       "sodium_100g": 0.2948981665113019,
       "salt_100g": 0.22764932188003703,
       "fiber_100g": 9.923696290621063,
       "proteins_100g": 13.149507253354624,
       "carbohydrates_100g": 24.817372610254573
     },
-    "overall_score": 8.08
+    "overall_score": 9.88
   },
   {
     "barcode": "BOOTSTRAP_0064",
@@ -1904,7 +1904,7 @@
       "proteins_100g": 4.51778517551128,
       "carbohydrates_100g": 59.32933845153981
     },
-    "overall_score": 0.0
+    "overall_score": 1.57
   },
   {
     "barcode": "BOOTSTRAP_0065",
@@ -1921,14 +1921,14 @@
       "energy_100g": 208.7495889617354,
       "sugars_100g": 6.415959934240248,
       "fat_100g": 8.430431581778112,
-      "saturated-fat_100g": 2.285578859913321,
+      "saturated_fat_100g": 2.285578859913321,
       "sodium_100g": 0.20410257597581938,
       "salt_100g": 0.4766515724249783,
       "fiber_100g": 8.5115948287628,
       "proteins_100g": 12.882599843302515,
       "carbohydrates_100g": 25.845193722195802
     },
-    "overall_score": 6.29
+    "overall_score": 9.14
   },
   {
     "barcode": "BOOTSTRAP_0066",
@@ -1953,7 +1953,7 @@
       "proteins_100g": 8.07520066588842,
       "carbohydrates_100g": 46.763915969962994
     },
-    "overall_score": 3.73
+    "overall_score": 6.66
   },
   {
     "barcode": "BOOTSTRAP_0067",
@@ -1981,7 +1981,7 @@
       "proteins_100g": 11.160905803721153,
       "carbohydrates_100g": 41.26936601405963
     },
-    "overall_score": 3.11
+    "overall_score": 7.1
   },
   {
     "barcode": "BOOTSTRAP_0068",
@@ -2009,7 +2009,7 @@
       "proteins_100g": 10.95380959660837,
       "carbohydrates_100g": 30.469373890906486
     },
-    "overall_score": 2.23
+    "overall_score": 6.01
   },
   {
     "barcode": "BOOTSTRAP_0069",
@@ -2023,14 +2023,14 @@
       "energy_100g": 121.60480570712673,
       "sugars_100g": 0.35389384044798256,
       "fat_100g": 4.9506653033871455,
-      "saturated-fat_100g": 1.6192794267222852,
+      "saturated_fat_100g": 1.6192794267222852,
       "sodium_100g": 0.22631571262418532,
       "salt_100g": 0.6208508971717599,
       "fiber_100g": 3.9809490258043323,
       "proteins_100g": 19.902251618645725,
       "carbohydrates_100g": 17.024845514249705
     },
-    "overall_score": 7.61
+    "overall_score": 9.66
   },
   {
     "barcode": "BOOTSTRAP_0070",
@@ -2068,7 +2068,7 @@
       "proteins_100g": 5.235666929598059,
       "carbohydrates_100g": 52.77391989580591
     },
-    "overall_score": 0.0
+    "overall_score": 1.6
   },
   {
     "barcode": "BOOTSTRAP_0071",
@@ -2095,7 +2095,7 @@
       "proteins_100g": 4.8406182868010434,
       "carbohydrates_100g": 57.45379378780669
     },
-    "overall_score": 1.13
+    "overall_score": 4.95
   },
   {
     "barcode": "BOOTSTRAP_0072",
@@ -2126,7 +2126,7 @@
       "proteins_100g": 6.03807855632857,
       "carbohydrates_100g": 52.9008187699896
     },
-    "overall_score": 1.79
+    "overall_score": 5.22
   },
   {
     "barcode": "BOOTSTRAP_0073",
@@ -2160,7 +2160,7 @@
       "proteins_100g": 7.519944290208928,
       "carbohydrates_100g": 50.93577228651187
     },
-    "overall_score": 1.89
+    "overall_score": 5.31
   },
   {
     "barcode": "BOOTSTRAP_0074",
@@ -2186,7 +2186,7 @@
       "proteins_100g": 9.836272651591603,
       "carbohydrates_100g": 32.805015162813284
     },
-    "overall_score": 2.27
+    "overall_score": 6.18
   },
   {
     "barcode": "BOOTSTRAP_0075",
@@ -2217,7 +2217,7 @@
       "proteins_100g": 8.075623796613884,
       "carbohydrates_100g": 47.00087759673235
     },
-    "overall_score": 2.17
+    "overall_score": 5.56
   },
   {
     "barcode": "BOOTSTRAP_0076",
@@ -2254,7 +2254,7 @@
       "proteins_100g": 2.7995874867344828,
       "carbohydrates_100g": 58.09299329718159
     },
-    "overall_score": 0.0
+    "overall_score": 1.25
   },
   {
     "barcode": "BOOTSTRAP_0077",
@@ -2270,14 +2270,14 @@
       "energy_100g": 181.47717439880552,
       "sugars_100g": 6.27550979402246,
       "fat_100g": 8.773463595413723,
-      "saturated-fat_100g": 0.03702184465186331,
+      "saturated_fat_100g": 0.03702184465186331,
       "sodium_100g": 0.12414302093043822,
       "salt_100g": 0.6233352844995231,
       "fiber_100g": 8.07390690824354,
       "proteins_100g": 13.39304818643714,
       "carbohydrates_100g": 39.7819060038417
     },
-    "overall_score": 6.68
+    "overall_score": 9.07
   },
   {
     "barcode": "BOOTSTRAP_0078",
@@ -2295,14 +2295,14 @@
       "energy_100g": 151.58739776132913,
       "sugars_100g": 3.873850511471428,
       "fat_100g": 1.6922922525564144,
-      "saturated-fat_100g": 0.7550992133667086,
+      "saturated_fat_100g": 0.7550992133667086,
       "sodium_100g": 0.07397702050410088,
       "salt_100g": 0.5000269502151158,
       "fiber_100g": 7.15664478627355,
       "proteins_100g": 7.933223373203907,
       "carbohydrates_100g": 13.209171027427061
     },
-    "overall_score": 6.82
+    "overall_score": 9.01
   },
   {
     "barcode": "BOOTSTRAP_0079",
@@ -2320,14 +2320,14 @@
       "energy_100g": 161.43165620722738,
       "sugars_100g": 1.4210981705531252,
       "fat_100g": 4.584156242896072,
-      "saturated-fat_100g": 0.9574129944618377,
+      "saturated_fat_100g": 0.9574129944618377,
       "sodium_100g": 0.22046230963235594,
       "salt_100g": 0.5063219695747334,
       "fiber_100g": 9.774341598385236,
       "proteins_100g": 16.729615544053647,
       "carbohydrates_100g": 19.776587123287165
     },
-    "overall_score": 7.78
+    "overall_score": 9.68
   },
   {
     "barcode": "BOOTSTRAP_0080",
@@ -2345,14 +2345,14 @@
       "energy_100g": 154.53734223251445,
       "sugars_100g": 2.3306496638823626,
       "fat_100g": 7.235517513919085,
-      "saturated-fat_100g": 2.4568967040133756,
+      "saturated_fat_100g": 2.4568967040133756,
       "sodium_100g": 0.2386970507987863,
       "salt_100g": 0.3273132721959212,
       "fiber_100g": 6.495122507022722,
       "proteins_100g": 14.500040594804954,
       "carbohydrates_100g": 17.260635030123964
     },
-    "overall_score": 7.54
+    "overall_score": 9.72
   },
   {
     "barcode": "BOOTSTRAP_0081",
@@ -2385,7 +2385,7 @@
       "proteins_100g": 6.520207518097525,
       "carbohydrates_100g": 53.17026697387296
     },
-    "overall_score": 1.84
+    "overall_score": 4.84
   },
   {
     "barcode": "BOOTSTRAP_0082",
@@ -2413,7 +2413,7 @@
       "proteins_100g": 3.9842641360629645,
       "carbohydrates_100g": 54.00150377251671
     },
-    "overall_score": 2.27
+    "overall_score": 4.83
   },
   {
     "barcode": "BOOTSTRAP_0083",
@@ -2447,7 +2447,7 @@
       "proteins_100g": 2.96272002857196,
       "carbohydrates_100g": 53.42696220008835
     },
-    "overall_score": 0.0
+    "overall_score": 2.12
   },
   {
     "barcode": "BOOTSTRAP_0084",
@@ -2479,7 +2479,7 @@
       "proteins_100g": 4.228812431962464,
       "carbohydrates_100g": 54.45647821961585
     },
-    "overall_score": 2.05
+    "overall_score": 4.68
   },
   {
     "barcode": "BOOTSTRAP_0085",
@@ -2519,7 +2519,7 @@
       "proteins_100g": 4.5537697974689975,
       "carbohydrates_100g": 68.98311892781416
     },
-    "overall_score": 0.0
+    "overall_score": 0.29
   },
   {
     "barcode": "BOOTSTRAP_0086",
@@ -2534,14 +2534,14 @@
       "energy_100g": 135.0211146952959,
       "sugars_100g": 5.632430094041508,
       "fat_100g": 3.603999191184492,
-      "saturated-fat_100g": 0.8020291988342404,
+      "saturated_fat_100g": 0.8020291988342404,
       "sodium_100g": 0.25740505348387727,
       "salt_100g": 0.7883906418094354,
       "fiber_100g": 7.75509521146317,
       "proteins_100g": 6.4283774572151415,
       "carbohydrates_100g": 38.88315984981376
     },
-    "overall_score": 6.52
+    "overall_score": 9.1
   },
   {
     "barcode": "BOOTSTRAP_0087",
@@ -2570,7 +2570,7 @@
       "proteins_100g": 1.465708290447739,
       "carbohydrates_100g": 79.1645087581387
     },
-    "overall_score": 0.0
+    "overall_score": 0.87
   },
   {
     "barcode": "BOOTSTRAP_0088",
@@ -2599,7 +2599,7 @@
       "proteins_100g": 11.184664928817881,
       "carbohydrates_100g": 56.46443292125997
     },
-    "overall_score": 2.71
+    "overall_score": 6.64
   },
   {
     "barcode": "BOOTSTRAP_0089",
@@ -2615,14 +2615,14 @@
       "energy_100g": 203.41802178997568,
       "sugars_100g": 6.041857256540289,
       "fat_100g": 4.86307846679812,
-      "saturated-fat_100g": 0.2735975616506794,
+      "saturated_fat_100g": 0.2735975616506794,
       "sodium_100g": 0.028555103393836975,
       "salt_100g": 0.1707369415569705,
       "fiber_100g": 3.545571051008243,
       "proteins_100g": 13.905192452615967,
       "carbohydrates_100g": 25.583327639099075
     },
-    "overall_score": 6.91
+    "overall_score": 8.89
   },
   {
     "barcode": "BOOTSTRAP_0090",
@@ -2648,7 +2648,7 @@
       "proteins_100g": 3.0762726775770863,
       "carbohydrates_100g": 49.500606394734206
     },
-    "overall_score": 2.67
+    "overall_score": 5.92
   },
   {
     "barcode": "BOOTSTRAP_0091",
@@ -2676,7 +2676,7 @@
       "proteins_100g": 10.882444692513674,
       "carbohydrates_100g": 36.16337154457326
     },
-    "overall_score": 3.77
+    "overall_score": 6.93
   },
   {
     "barcode": "BOOTSTRAP_0092",
@@ -2706,7 +2706,7 @@
       "proteins_100g": 3.5442197362938512,
       "carbohydrates_100g": 53.678699969792746
     },
-    "overall_score": 0.07
+    "overall_score": 3.52
   },
   {
     "barcode": "BOOTSTRAP_0093",
@@ -2739,7 +2739,7 @@
       "proteins_100g": 4.234906176578227,
       "carbohydrates_100g": 30.340518093965787
     },
-    "overall_score": 0.0
+    "overall_score": 3.26
   },
   {
     "barcode": "BOOTSTRAP_0094",
@@ -2770,7 +2770,7 @@
       "proteins_100g": 10.766356454123502,
       "carbohydrates_100g": 37.336543510701105
     },
-    "overall_score": 1.9
+    "overall_score": 4.81
   },
   {
     "barcode": "BOOTSTRAP_0095",
@@ -2801,7 +2801,7 @@
       "proteins_100g": 10.060564955586074,
       "carbohydrates_100g": 52.18727960200254
     },
-    "overall_score": 1.26
+    "overall_score": 4.83
   },
   {
     "barcode": "BOOTSTRAP_0096",
@@ -2818,14 +2818,14 @@
       "energy_100g": 241.66834456438536,
       "sugars_100g": 0.011696324284621973,
       "fat_100g": 6.91573465158398,
-      "saturated-fat_100g": 2.5470179633367653,
+      "saturated_fat_100g": 2.5470179633367653,
       "sodium_100g": 0.21816451171229176,
       "salt_100g": 0.08315921548124772,
       "fiber_100g": 6.708701423420088,
       "proteins_100g": 8.572513917812985,
       "carbohydrates_100g": 24.760866305496926
     },
-    "overall_score": 6.91
+    "overall_score": 9.19
   },
   {
     "barcode": "BOOTSTRAP_0097",
@@ -2841,14 +2841,14 @@
       "energy_100g": 178.7310066539652,
       "sugars_100g": 4.0434221108862065,
       "fat_100g": 6.734941120294228,
-      "saturated-fat_100g": 1.183053867701377,
+      "saturated_fat_100g": 1.183053867701377,
       "sodium_100g": 0.17756872900088294,
       "salt_100g": 0.049826290815966526,
       "fiber_100g": 7.637107497077643,
       "proteins_100g": 6.960624296602428,
       "carbohydrates_100g": 18.750280721707107
     },
-    "overall_score": 6.49
+    "overall_score": 8.81
   },
   {
     "barcode": "BOOTSTRAP_0098",
@@ -2886,7 +2886,7 @@
       "proteins_100g": 5.273006523110015,
       "carbohydrates_100g": 66.67861284645164
     },
-    "overall_score": 0.0
+    "overall_score": 2.22
   },
   {
     "barcode": "BOOTSTRAP_0099",
@@ -2914,7 +2914,7 @@
       "proteins_100g": 10.395168613790553,
       "carbohydrates_100g": 41.84996064665758
     },
-    "overall_score": 2.42
+    "overall_score": 6.07
   },
   {
     "barcode": "BOOTSTRAP_0100",
@@ -2934,14 +2934,14 @@
       "energy_100g": 127.56191786462513,
       "sugars_100g": 1.0978881370565183,
       "fat_100g": 2.7951202599992797,
-      "saturated-fat_100g": 2.653957548674895,
+      "saturated_fat_100g": 2.653957548674895,
       "sodium_100g": 0.15774421747583392,
       "salt_100g": 0.5046035110598044,
       "fiber_100g": 8.615176579397893,
       "proteins_100g": 16.922693664528055,
       "carbohydrates_100g": 39.68210847284602
     },
-    "overall_score": 7.47
+    "overall_score": 9.89
   },
   {
     "barcode": "BOOTSTRAP_0101",
@@ -2976,7 +2976,7 @@
       "proteins_100g": 5.569900020642671,
       "carbohydrates_100g": 50.84619709181477
     },
-    "overall_score": 0.0
+    "overall_score": 1.22
   },
   {
     "barcode": "BOOTSTRAP_0102",
@@ -3003,7 +3003,7 @@
       "proteins_100g": 9.342267075590918,
       "carbohydrates_100g": 34.24957993053641
     },
-    "overall_score": 2.46
+    "overall_score": 5.67
   },
   {
     "barcode": "BOOTSTRAP_0103",
@@ -3022,14 +3022,14 @@
       "energy_100g": 109.61445406244022,
       "sugars_100g": 7.749943170665341,
       "fat_100g": 7.242043584632887,
-      "saturated-fat_100g": 2.786535626956276,
+      "saturated_fat_100g": 2.786535626956276,
       "sodium_100g": 0.23609753777867304,
       "salt_100g": 0.17858977118451397,
       "fiber_100g": 7.1226510904817255,
       "proteins_100g": 7.630274449853312,
       "carbohydrates_100g": 19.20469687893874
     },
-    "overall_score": 5.57
+    "overall_score": 8.44
   },
   {
     "barcode": "BOOTSTRAP_0104",
@@ -3056,7 +3056,7 @@
       "proteins_100g": 7.019669406880144,
       "carbohydrates_100g": 37.956373216886284
     },
-    "overall_score": 3.07
+    "overall_score": 6.01
   },
   {
     "barcode": "BOOTSTRAP_0105",
@@ -3071,14 +3071,14 @@
       "energy_100g": 244.7473102679665,
       "sugars_100g": 7.07641598069782,
       "fat_100g": 5.437737941264628,
-      "saturated-fat_100g": 1.136137724322777,
+      "saturated_fat_100g": 1.136137724322777,
       "sodium_100g": 0.16380719030353627,
       "salt_100g": 0.08114284770969729,
       "fiber_100g": 6.356424752780123,
       "proteins_100g": 17.960760807028656,
       "carbohydrates_100g": 29.52908689340432
     },
-    "overall_score": 7.02
+    "overall_score": 9.31
   },
   {
     "barcode": "BOOTSTRAP_0106",
@@ -3107,7 +3107,7 @@
       "proteins_100g": 6.683518791755812,
       "carbohydrates_100g": 46.62337296948688
     },
-    "overall_score": 2.06
+    "overall_score": 5.94
   },
   {
     "barcode": "BOOTSTRAP_0107",
@@ -3144,7 +3144,7 @@
       "proteins_100g": 3.3252897807732524,
       "carbohydrates_100g": 56.78726840848001
     },
-    "overall_score": 0.0
+    "overall_score": 0.32
   },
   {
     "barcode": "BOOTSTRAP_0108",
@@ -3158,14 +3158,14 @@
       "energy_100g": 217.3906267586822,
       "sugars_100g": 3.3118932229700997,
       "fat_100g": 7.808111975398197,
-      "saturated-fat_100g": 0.6825382758737036,
+      "saturated_fat_100g": 0.6825382758737036,
       "sodium_100g": 0.018295123817318282,
       "salt_100g": 0.3096848775053335,
       "fiber_100g": 6.65807591326851,
       "proteins_100g": 19.48441556120452,
       "carbohydrates_100g": 30.612037971666606
     },
-    "overall_score": 7.75
+    "overall_score": 9.68
   },
   {
     "barcode": "BOOTSTRAP_0109",
@@ -3202,7 +3202,7 @@
       "proteins_100g": 4.897723484821261,
       "carbohydrates_100g": 73.57236890929033
     },
-    "overall_score": 0.0
+    "overall_score": 2.0
   },
   {
     "barcode": "BOOTSTRAP_0110",
@@ -3237,7 +3237,7 @@
       "proteins_100g": 3.208582990295831,
       "carbohydrates_100g": 77.4029841625622
     },
-    "overall_score": 0.0
+    "overall_score": 0.19
   },
   {
     "barcode": "BOOTSTRAP_0111",
@@ -3270,7 +3270,7 @@
       "proteins_100g": 5.327939344500378,
       "carbohydrates_100g": 54.92610604066786
     },
-    "overall_score": 2.93
+    "overall_score": 6.43
   },
   {
     "barcode": "BOOTSTRAP_0112",
@@ -3285,14 +3285,14 @@
       "energy_100g": 195.20819183546502,
       "sugars_100g": 2.1526686341516568,
       "fat_100g": 4.685564768459879,
-      "saturated-fat_100g": 0.06015707249857316,
+      "saturated_fat_100g": 0.06015707249857316,
       "sodium_100g": 0.234091099278193,
       "salt_100g": 0.6140581827294811,
       "fiber_100g": 3.0622859024903204,
       "proteins_100g": 18.672731570785576,
       "carbohydrates_100g": 29.421146625250724
     },
-    "overall_score": 6.47
+    "overall_score": 8.32
   },
   {
     "barcode": "BOOTSTRAP_0113",
@@ -3317,7 +3317,7 @@
       "proteins_100g": 10.554405773938207,
       "carbohydrates_100g": 46.84371351763802
     },
-    "overall_score": 2.64
+    "overall_score": 6.32
   },
   {
     "barcode": "BOOTSTRAP_0114",
@@ -3347,7 +3347,7 @@
       "proteins_100g": 4.7092364437021565,
       "carbohydrates_100g": 51.796496297427105
     },
-    "overall_score": 1.32
+    "overall_score": 4.74
   },
   {
     "barcode": "BOOTSTRAP_0115",
@@ -3366,14 +3366,14 @@
       "energy_100g": 191.25388953969605,
       "sugars_100g": 1.7780280921032068,
       "fat_100g": 3.0099513284704775,
-      "saturated-fat_100g": 2.614296696493445,
+      "saturated_fat_100g": 2.614296696493445,
       "sodium_100g": 0.1261417704554433,
       "salt_100g": 0.7094748397548027,
       "fiber_100g": 5.601777008354028,
       "proteins_100g": 13.783560428103556,
       "carbohydrates_100g": 23.912818845632795
     },
-    "overall_score": 6.21
+    "overall_score": 8.56
   },
   {
     "barcode": "BOOTSTRAP_0116",
@@ -3387,14 +3387,14 @@
       "energy_100g": 170.07254578709956,
       "sugars_100g": 3.3048580321110466,
       "fat_100g": 8.83764231717704,
-      "saturated-fat_100g": 0.45233535328578767,
+      "saturated_fat_100g": 0.45233535328578767,
       "sodium_100g": 0.29770435586637983,
       "salt_100g": 0.2741359079432001,
       "fiber_100g": 9.910341195656546,
       "proteins_100g": 18.392676849658145,
       "carbohydrates_100g": 39.59947767650442
     },
-    "overall_score": 7.82
+    "overall_score": 9.7
   },
   {
     "barcode": "BOOTSTRAP_0117",
@@ -3413,14 +3413,14 @@
       "energy_100g": 101.9990127866086,
       "sugars_100g": 3.4696913143090926,
       "fat_100g": 4.864687507082085,
-      "saturated-fat_100g": 1.2870763458012304,
+      "saturated_fat_100g": 1.2870763458012304,
       "sodium_100g": 0.1432200827821711,
       "salt_100g": 0.0037353100641090544,
       "fiber_100g": 6.736478219895807,
       "proteins_100g": 15.959886056158847,
       "carbohydrates_100g": 38.50205846445496
     },
-    "overall_score": 8.19
+    "overall_score": 10.0
   },
   {
     "barcode": "BOOTSTRAP_0118",
@@ -3456,7 +3456,7 @@
       "proteins_100g": 4.201605426363243,
       "carbohydrates_100g": 73.1374899003059
     },
-    "overall_score": 0.0
+    "overall_score": 1.75
   },
   {
     "barcode": "BOOTSTRAP_0119",
@@ -3480,7 +3480,7 @@
       "proteins_100g": 5.429794345834702,
       "carbohydrates_100g": 48.169030107720125
     },
-    "overall_score": 3.57
+    "overall_score": 6.6
   },
   {
     "barcode": "BOOTSTRAP_0120",
@@ -3494,14 +3494,14 @@
       "energy_100g": 183.53030759064404,
       "sugars_100g": 6.223671332776183,
       "fat_100g": 8.483489384564123,
-      "saturated-fat_100g": 2.919359166957584,
+      "saturated_fat_100g": 2.919359166957584,
       "sodium_100g": 0.10737655096524226,
       "salt_100g": 0.32780498442263123,
       "fiber_100g": 4.122615190415382,
       "proteins_100g": 13.222081455926006,
       "carbohydrates_100g": 37.310698823860434
     },
-    "overall_score": 6.52
+    "overall_score": 9.09
   },
   {
     "barcode": "BOOTSTRAP_0121",
@@ -3534,7 +3534,7 @@
       "proteins_100g": 5.95794743461718,
       "carbohydrates_100g": 56.83582852133688
     },
-    "overall_score": 2.66
+    "overall_score": 5.63
   },
   {
     "barcode": "BOOTSTRAP_0122",
@@ -3570,7 +3570,7 @@
       "proteins_100g": 5.889477787753992,
       "carbohydrates_100g": 70.09533074642945
     },
-    "overall_score": 0.0
+    "overall_score": 0.57
   },
   {
     "barcode": "BOOTSTRAP_0123",
@@ -3588,14 +3588,14 @@
       "energy_100g": 165.94648722040466,
       "sugars_100g": 3.7543114931506603,
       "fat_100g": 5.462514376824652,
-      "saturated-fat_100g": 0.4962116198584118,
+      "saturated_fat_100g": 0.4962116198584118,
       "sodium_100g": 0.22542900031428326,
       "salt_100g": 0.2565070524268855,
       "fiber_100g": 5.3162638976500585,
       "proteins_100g": 9.172356953883623,
       "carbohydrates_100g": 25.207879965612257
     },
-    "overall_score": 7.19
+    "overall_score": 9.28
   },
   {
     "barcode": "BOOTSTRAP_0124",
@@ -3628,7 +3628,7 @@
       "proteins_100g": 6.269650924527804,
       "carbohydrates_100g": 43.57597368524001
     },
-    "overall_score": 0.59
+    "overall_score": 4.6
   },
   {
     "barcode": "BOOTSTRAP_0125",
@@ -3647,14 +3647,14 @@
       "energy_100g": 98.18345593831823,
       "sugars_100g": 4.88681412910947,
       "fat_100g": 2.68789060478443,
-      "saturated-fat_100g": 2.790648777459436,
+      "saturated_fat_100g": 2.790648777459436,
       "sodium_100g": 0.11786894697455202,
       "salt_100g": 0.36563680663439113,
       "fiber_100g": 8.469942825541283,
       "proteins_100g": 15.751818717040145,
       "carbohydrates_100g": 13.23297241862476
     },
-    "overall_score": 7.5
+    "overall_score": 10.0
   },
   {
     "barcode": "BOOTSTRAP_0126",
@@ -3682,7 +3682,7 @@
       "proteins_100g": 5.234149101841172,
       "carbohydrates_100g": 41.93609989365791
     },
-    "overall_score": 1.32
+    "overall_score": 4.92
   },
   {
     "barcode": "BOOTSTRAP_0127",
@@ -3699,14 +3699,14 @@
       "energy_100g": 114.15114399530856,
       "sugars_100g": 4.993340713643105,
       "fat_100g": 3.615215459313256,
-      "saturated-fat_100g": 1.0358807426957433,
+      "saturated_fat_100g": 1.0358807426957433,
       "sodium_100g": 0.2017121139153951,
       "salt_100g": 0.7850683969878939,
       "fiber_100g": 7.550604714648846,
       "proteins_100g": 19.374896792077948,
       "carbohydrates_100g": 25.11680317129749
     },
-    "overall_score": 6.42
+    "overall_score": 8.86
   },
   {
     "barcode": "BOOTSTRAP_0128",
@@ -3735,7 +3735,7 @@
       "proteins_100g": 6.2281419361102275,
       "carbohydrates_100g": 43.5778351357162
     },
-    "overall_score": 2.06
+    "overall_score": 5.37
   },
   {
     "barcode": "BOOTSTRAP_0129",
@@ -3765,7 +3765,7 @@
       "proteins_100g": 6.856570329606608,
       "carbohydrates_100g": 46.69795861785999
     },
-    "overall_score": 1.88
+    "overall_score": 4.71
   },
   {
     "barcode": "BOOTSTRAP_0130",
@@ -3784,14 +3784,14 @@
       "energy_100g": 92.38973523143935,
       "sugars_100g": 5.661452491155803,
       "fat_100g": 5.728555604663923,
-      "saturated-fat_100g": 2.870963152882511,
+      "saturated_fat_100g": 2.870963152882511,
       "sodium_100g": 0.15618188619951112,
       "salt_100g": 0.629006591469886,
       "fiber_100g": 4.115593447622051,
       "proteins_100g": 13.146202326234722,
       "carbohydrates_100g": 22.102511992740382
     },
-    "overall_score": 5.65
+    "overall_score": 8.46
   },
   {
     "barcode": "BOOTSTRAP_0131",
@@ -3807,14 +3807,14 @@
       "energy_100g": 99.5027317383851,
       "sugars_100g": 2.768058326582148,
       "fat_100g": 3.1631308878993094,
-      "saturated-fat_100g": 1.9267930674635116,
+      "saturated_fat_100g": 1.9267930674635116,
       "sodium_100g": 0.27558218975618115,
       "salt_100g": 0.1950617310935069,
       "fiber_100g": 3.279140738977935,
       "proteins_100g": 18.284902384981926,
       "carbohydrates_100g": 21.441178228542004
     },
-    "overall_score": 6.33
+    "overall_score": 8.4
   },
   {
     "barcode": "BOOTSTRAP_0132",
@@ -3845,7 +3845,7 @@
       "proteins_100g": 1.3606024662737106,
       "carbohydrates_100g": 70.58130617896197
     },
-    "overall_score": 0.0
+    "overall_score": 1.15
   },
   {
     "barcode": "BOOTSTRAP_0133",
@@ -3865,14 +3865,14 @@
       "energy_100g": 82.87146461170401,
       "sugars_100g": 5.386389858621702,
       "fat_100g": 5.813509330549019,
-      "saturated-fat_100g": 1.924268239444919,
+      "saturated_fat_100g": 1.924268239444919,
       "sodium_100g": 0.18550480767318064,
       "salt_100g": 0.604768477356142,
       "fiber_100g": 7.099256093193724,
       "proteins_100g": 15.51323047074503,
       "carbohydrates_100g": 12.177683343969314
     },
-    "overall_score": 6.38
+    "overall_score": 8.93
   },
   {
     "barcode": "BOOTSTRAP_0134",
@@ -3902,7 +3902,7 @@
       "proteins_100g": 5.51773187987273,
       "carbohydrates_100g": 60.31554949545941
     },
-    "overall_score": 0.0
+    "overall_score": 1.91
   },
   {
     "barcode": "BOOTSTRAP_0135",
@@ -3929,7 +3929,7 @@
       "proteins_100g": 5.56623429488869,
       "carbohydrates_100g": 32.09426654132871
     },
-    "overall_score": 2.01
+    "overall_score": 4.87
   },
   {
     "barcode": "BOOTSTRAP_0136",
@@ -3947,14 +3947,14 @@
       "energy_100g": 133.24651272482998,
       "sugars_100g": 6.285280896516186,
       "fat_100g": 7.409792145031287,
-      "saturated-fat_100g": 1.9225156330195976,
+      "saturated_fat_100g": 1.9225156330195976,
       "sodium_100g": 0.08300395050669472,
       "salt_100g": 0.28758879980031143,
       "fiber_100g": 7.757061258933019,
       "proteins_100g": 9.973444254460091,
       "carbohydrates_100g": 24.398619114499173
     },
-    "overall_score": 6.02
+    "overall_score": 8.74
   },
   {
     "barcode": "BOOTSTRAP_0137",
@@ -3985,7 +3985,7 @@
       "proteins_100g": 9.599041444916109,
       "carbohydrates_100g": 38.729974806431215
     },
-    "overall_score": 1.13
+    "overall_score": 5.35
   },
   {
     "barcode": "BOOTSTRAP_0138",
@@ -4013,7 +4013,7 @@
       "proteins_100g": 6.251262281036659,
       "carbohydrates_100g": 44.09022687030627
     },
-    "overall_score": 2.92
+    "overall_score": 6.11
   },
   {
     "barcode": "BOOTSTRAP_0139",
@@ -4037,7 +4037,7 @@
       "proteins_100g": 6.176082069837531,
       "carbohydrates_100g": 56.03158265613742
     },
-    "overall_score": 2.81
+    "overall_score": 6.2
   },
   {
     "barcode": "BOOTSTRAP_0140",
@@ -4068,7 +4068,7 @@
       "proteins_100g": 7.613785344009979,
       "carbohydrates_100g": 56.72393014407217
     },
-    "overall_score": 1.98
+    "overall_score": 5.18
   },
   {
     "barcode": "BOOTSTRAP_0141",
@@ -4084,14 +4084,14 @@
       "energy_100g": 156.36457147530763,
       "sugars_100g": 7.94220658966383,
       "fat_100g": 8.805721590928849,
-      "saturated-fat_100g": 0.5117003519690888,
+      "saturated_fat_100g": 0.5117003519690888,
       "sodium_100g": 0.24910907241128422,
       "salt_100g": 0.4806709715289601,
       "fiber_100g": 8.562312491823159,
       "proteins_100g": 17.30679770195746,
       "carbohydrates_100g": 15.45652455610299
     },
-    "overall_score": 6.09
+    "overall_score": 8.36
   },
   {
     "barcode": "BOOTSTRAP_0142",
@@ -4120,7 +4120,7 @@
       "proteins_100g": 11.117862801486789,
       "carbohydrates_100g": 46.17857958991567
     },
-    "overall_score": 2.8
+    "overall_score": 6.52
   },
   {
     "barcode": "BOOTSTRAP_0143",
@@ -4140,14 +4140,14 @@
       "energy_100g": 128.1553335615225,
       "sugars_100g": 7.014130505545796,
       "fat_100g": 4.677820342184937,
-      "saturated-fat_100g": 0.5670630411536122,
+      "saturated_fat_100g": 0.5670630411536122,
       "sodium_100g": 0.21274465116183236,
       "salt_100g": 0.6315379858440999,
       "fiber_100g": 7.045910020603124,
       "proteins_100g": 6.767429059717266,
       "carbohydrates_100g": 10.215821573517443
     },
-    "overall_score": 6.04
+    "overall_score": 8.85
   },
   {
     "barcode": "BOOTSTRAP_0144",
@@ -4179,7 +4179,7 @@
       "proteins_100g": 10.04798334310802,
       "carbohydrates_100g": 58.47735535244534
     },
-    "overall_score": 1.81
+    "overall_score": 4.97
   },
   {
     "barcode": "BOOTSTRAP_0145",
@@ -4198,14 +4198,14 @@
       "energy_100g": 117.70094158531704,
       "sugars_100g": 0.6403178935664213,
       "fat_100g": 1.3397980445657103,
-      "saturated-fat_100g": 1.152978031278066,
+      "saturated_fat_100g": 1.152978031278066,
       "sodium_100g": 0.29533443018938194,
       "salt_100g": 0.4911724725733711,
       "fiber_100g": 6.647038802543912,
       "proteins_100g": 15.674087475634717,
       "carbohydrates_100g": 27.92417691442289
     },
-    "overall_score": 7.76
+    "overall_score": 9.92
   },
   {
     "barcode": "BOOTSTRAP_0146",
@@ -4239,7 +4239,7 @@
       "proteins_100g": 3.273795043293902,
       "carbohydrates_100g": 62.11869409119488
     },
-    "overall_score": 0.0
+    "overall_score": 0.4
   },
   {
     "barcode": "BOOTSTRAP_0147",
@@ -4255,14 +4255,14 @@
       "energy_100g": 228.9392178613214,
       "sugars_100g": 6.505178796850994,
       "fat_100g": 6.174044908965181,
-      "saturated-fat_100g": 2.0825755844139002,
+      "saturated_fat_100g": 2.0825755844139002,
       "sodium_100g": 0.28981663668993174,
       "salt_100g": 0.4505348830439442,
       "fiber_100g": 8.389770349136835,
       "proteins_100g": 16.36209927570009,
       "carbohydrates_100g": 38.83716175904843
     },
-    "overall_score": 6.05
+    "overall_score": 8.45
   },
   {
     "barcode": "BOOTSTRAP_0148",
@@ -4293,7 +4293,7 @@
       "proteins_100g": 7.490994063273148,
       "carbohydrates_100g": 35.98999617282928
     },
-    "overall_score": 3.11
+    "overall_score": 6.35
   },
   {
     "barcode": "BOOTSTRAP_0149",
@@ -4322,7 +4322,7 @@
       "proteins_100g": 10.19342926001983,
       "carbohydrates_100g": 44.349602298361305
     },
-    "overall_score": 0.99
+    "overall_score": 4.57
   },
   {
     "barcode": "BOOTSTRAP_0150",
@@ -4354,7 +4354,7 @@
       "proteins_100g": 4.180252498488516,
       "carbohydrates_100g": 47.276781876238864
     },
-    "overall_score": 0.86
+    "overall_score": 3.76
   },
   {
     "barcode": "BOOTSTRAP_0151",
@@ -4369,14 +4369,14 @@
       "energy_100g": 160.40779416981056,
       "sugars_100g": 0.07793832877917684,
       "fat_100g": 4.7936860210923875,
-      "saturated-fat_100g": 0.40341505398366817,
+      "saturated_fat_100g": 0.40341505398366817,
       "sodium_100g": 0.26798112284255754,
       "salt_100g": 0.5045215875924048,
       "fiber_100g": 6.737878114312308,
       "proteins_100g": 9.735908707827285,
       "carbohydrates_100g": 24.598605923362264
     },
-    "overall_score": 7.0
+    "overall_score": 9.11
   },
   {
     "barcode": "BOOTSTRAP_0152",
@@ -4394,14 +4394,14 @@
       "energy_100g": 124.16075074198503,
       "sugars_100g": 2.8824526405543107,
       "fat_100g": 6.017423394222566,
-      "saturated-fat_100g": 2.430047644474689,
+      "saturated_fat_100g": 2.430047644474689,
       "sodium_100g": 0.10324208293818382,
       "salt_100g": 0.3294087238385528,
       "fiber_100g": 5.457633428808898,
       "proteins_100g": 15.193787771811696,
       "carbohydrates_100g": 28.167280971771053
     },
-    "overall_score": 7.83
+    "overall_score": 10.0
   },
   {
     "barcode": "BOOTSTRAP_0153",
@@ -4429,7 +4429,7 @@
       "proteins_100g": 7.004085488831746,
       "carbohydrates_100g": 55.88419450941008
     },
-    "overall_score": 2.29
+    "overall_score": 5.13
   },
   {
     "barcode": "BOOTSTRAP_0154",
@@ -4463,7 +4463,7 @@
       "proteins_100g": 10.77817027483428,
       "carbohydrates_100g": 44.01580430008058
     },
-    "overall_score": 3.53
+    "overall_score": 6.62
   },
   {
     "barcode": "BOOTSTRAP_0155",
@@ -4498,7 +4498,7 @@
       "proteins_100g": 4.983836919338181,
       "carbohydrates_100g": 66.4463658720949
     },
-    "overall_score": 0.0
+    "overall_score": 1.29
   },
   {
     "barcode": "BOOTSTRAP_0156",
@@ -4517,14 +4517,14 @@
       "energy_100g": 150.19365900725205,
       "sugars_100g": 6.8278561871328325,
       "fat_100g": 2.6416646110237854,
-      "saturated-fat_100g": 0.8687858978738564,
+      "saturated_fat_100g": 0.8687858978738564,
       "sodium_100g": 0.19106781286450403,
       "salt_100g": 0.4941835311220123,
       "fiber_100g": 4.904938913161368,
       "proteins_100g": 14.341306704133302,
       "carbohydrates_100g": 15.633683276320337
     },
-    "overall_score": 6.05
+    "overall_score": 8.36
   },
   {
     "barcode": "BOOTSTRAP_0157",
@@ -4538,14 +4538,14 @@
       "energy_100g": 201.58331017591675,
       "sugars_100g": 5.81685656358028,
       "fat_100g": 3.0952944816035988,
-      "saturated-fat_100g": 0.4520510810924657,
+      "saturated_fat_100g": 0.4520510810924657,
       "sodium_100g": 0.1480738659587236,
       "salt_100g": 0.273530283094901,
       "fiber_100g": 5.181036796421388,
       "proteins_100g": 16.99193527904105,
       "carbohydrates_100g": 39.938903384967986
     },
-    "overall_score": 7.52
+    "overall_score": 9.57
   },
   {
     "barcode": "BOOTSTRAP_0158",
@@ -4571,7 +4571,7 @@
       "proteins_100g": 8.994070953421613,
       "carbohydrates_100g": 36.25341396171426
     },
-    "overall_score": 0.22
+    "overall_score": 4.05
   },
   {
     "barcode": "BOOTSTRAP_0159",
@@ -4601,7 +4601,7 @@
       "proteins_100g": 9.937173000017696,
       "carbohydrates_100g": 37.46166769214685
     },
-    "overall_score": 1.66
+    "overall_score": 4.96
   },
   {
     "barcode": "BOOTSTRAP_0160",
@@ -4630,7 +4630,7 @@
       "proteins_100g": 7.892584898538754,
       "carbohydrates_100g": 39.71042627075368
     },
-    "overall_score": 3.13
+    "overall_score": 5.95
   },
   {
     "barcode": "BOOTSTRAP_0161",
@@ -4656,7 +4656,7 @@
       "proteins_100g": 10.371447604055835,
       "carbohydrates_100g": 35.696083573416566
     },
-    "overall_score": 3.93
+    "overall_score": 7.61
   },
   {
     "barcode": "BOOTSTRAP_0162",
@@ -4684,7 +4684,7 @@
       "proteins_100g": 8.45358261809205,
       "carbohydrates_100g": 32.12621882850366
     },
-    "overall_score": 2.45
+    "overall_score": 5.92
   },
   {
     "barcode": "BOOTSTRAP_0163",
@@ -4719,7 +4719,7 @@
       "proteins_100g": 3.749827332852675,
       "carbohydrates_100g": 65.14078341517884
     },
-    "overall_score": 0.0
+    "overall_score": 1.09
   },
   {
     "barcode": "BOOTSTRAP_0164",
@@ -4752,7 +4752,7 @@
       "proteins_100g": 8.136013845602438,
       "carbohydrates_100g": 47.14835490764263
     },
-    "overall_score": 1.22
+    "overall_score": 4.86
   },
   {
     "barcode": "BOOTSTRAP_0165",
@@ -4770,14 +4770,14 @@
       "energy_100g": 204.8252121591886,
       "sugars_100g": 5.78864421395612,
       "fat_100g": 8.13613774882852,
-      "saturated-fat_100g": 0.5187074725689678,
+      "saturated_fat_100g": 0.5187074725689678,
       "sodium_100g": 0.24771157331546562,
       "salt_100g": 0.5516760808399194,
       "fiber_100g": 7.033627232436887,
       "proteins_100g": 18.614834632206417,
       "carbohydrates_100g": 27.856936076787402
     },
-    "overall_score": 6.79
+    "overall_score": 9.13
   },
   {
     "barcode": "BOOTSTRAP_0166",
@@ -4797,14 +4797,14 @@
       "energy_100g": 135.561376701357,
       "sugars_100g": 5.582149220752547,
       "fat_100g": 2.3787773434421293,
-      "saturated-fat_100g": 2.0209057271088335,
+      "saturated_fat_100g": 2.0209057271088335,
       "sodium_100g": 0.29921019090611345,
       "salt_100g": 0.776832195792295,
       "fiber_100g": 8.269881421073714,
       "proteins_100g": 13.62882280775115,
       "carbohydrates_100g": 12.702488576341933
     },
-    "overall_score": 7.07
+    "overall_score": 9.83
   },
   {
     "barcode": "BOOTSTRAP_0167",
@@ -4835,7 +4835,7 @@
       "proteins_100g": 6.287408799937149,
       "carbohydrates_100g": 35.71469224707894
     },
-    "overall_score": 2.16
+    "overall_score": 5.21
   },
   {
     "barcode": "BOOTSTRAP_0168",
@@ -4854,14 +4854,14 @@
       "energy_100g": 99.10319593346773,
       "sugars_100g": 0.43630410689403387,
       "fat_100g": 9.5404682352321,
-      "saturated-fat_100g": 2.7801890853273212,
+      "saturated_fat_100g": 2.7801890853273212,
       "sodium_100g": 0.26062570549349057,
       "salt_100g": 0.656107165143997,
       "fiber_100g": 3.0961330488540195,
       "proteins_100g": 15.406928375841764,
       "carbohydrates_100g": 13.338339769494095
     },
-    "overall_score": 7.04
+    "overall_score": 9.2
   },
   {
     "barcode": "BOOTSTRAP_0169",
@@ -4887,7 +4887,7 @@
       "proteins_100g": 8.943355429483901,
       "carbohydrates_100g": 49.88944907160467
     },
-    "overall_score": 2.0
+    "overall_score": 4.76
   },
   {
     "barcode": "BOOTSTRAP_0170",
@@ -4919,7 +4919,7 @@
       "proteins_100g": 2.2883968233569436,
       "carbohydrates_100g": 61.61511768931197
     },
-    "overall_score": 0.0
+    "overall_score": 0.87
   },
   {
     "barcode": "BOOTSTRAP_0171",
@@ -4950,7 +4950,7 @@
       "proteins_100g": 3.824221436571781,
       "carbohydrates_100g": 54.74143750611608
     },
-    "overall_score": 0.0
+    "overall_score": 0.72
   },
   {
     "barcode": "BOOTSTRAP_0172",
@@ -4968,14 +4968,14 @@
       "energy_100g": 102.36279965495245,
       "sugars_100g": 0.2095857717065499,
       "fat_100g": 9.873600337712721,
-      "saturated-fat_100g": 1.8508395165248797,
+      "saturated_fat_100g": 1.8508395165248797,
       "sodium_100g": 0.181681353376157,
       "salt_100g": 0.48988961715049356,
       "fiber_100g": 7.174524848351462,
       "proteins_100g": 8.463685663868995,
       "carbohydrates_100g": 10.782534783913494
     },
-    "overall_score": 7.45
+    "overall_score": 9.76
   },
   {
     "barcode": "BOOTSTRAP_0173",
@@ -4992,14 +4992,14 @@
       "energy_100g": 112.85417101134672,
       "sugars_100g": 0.25783642581636634,
       "fat_100g": 7.880849687154112,
-      "saturated-fat_100g": 0.045042781355271067,
+      "saturated_fat_100g": 0.045042781355271067,
       "sodium_100g": 0.08095761079385438,
       "salt_100g": 0.3304352177533758,
       "fiber_100g": 8.196566631640298,
       "proteins_100g": 19.82365126194435,
       "carbohydrates_100g": 32.733297691768875
     },
-    "overall_score": 8.5
+    "overall_score": 10.0
   },
   {
     "barcode": "BOOTSTRAP_0174",
@@ -5017,14 +5017,14 @@
       "energy_100g": 168.5103455080373,
       "sugars_100g": 3.6128767405092965,
       "fat_100g": 8.44309091493415,
-      "saturated-fat_100g": 0.12724774802729333,
+      "saturated_fat_100g": 0.12724774802729333,
       "sodium_100g": 0.29875091145721444,
       "salt_100g": 0.4149621220700094,
       "fiber_100g": 5.769278376451242,
       "proteins_100g": 16.02755122325401,
       "carbohydrates_100g": 26.731028494402285
     },
-    "overall_score": 7.32
+    "overall_score": 9.31
   },
   {
     "barcode": "BOOTSTRAP_0175",
@@ -5049,7 +5049,7 @@
       "proteins_100g": 5.911148392095958,
       "carbohydrates_100g": 30.747363383817355
     },
-    "overall_score": 2.34
+    "overall_score": 5.67
   },
   {
     "barcode": "BOOTSTRAP_0176",
@@ -5079,7 +5079,7 @@
       "proteins_100g": 5.599024837002721,
       "carbohydrates_100g": 35.42088079099818
     },
-    "overall_score": 3.11
+    "overall_score": 6.35
   },
   {
     "barcode": "BOOTSTRAP_0177",
@@ -5109,7 +5109,7 @@
       "proteins_100g": 5.269146436170939,
       "carbohydrates_100g": 70.00989628838585
     },
-    "overall_score": 0.0
+    "overall_score": 1.41
   },
   {
     "barcode": "BOOTSTRAP_0178",
@@ -5170,7 +5170,7 @@
       "proteins_100g": 10.196079161299556,
       "carbohydrates_100g": 59.96961021750393
     },
-    "overall_score": 3.55
+    "overall_score": 6.93
   },
   {
     "barcode": "BOOTSTRAP_0180",
@@ -5201,7 +5201,7 @@
       "proteins_100g": 8.644804389369199,
       "carbohydrates_100g": 56.76174980369754
     },
-    "overall_score": 2.03
+    "overall_score": 5.36
   },
   {
     "barcode": "BOOTSTRAP_0181",
@@ -5233,7 +5233,7 @@
       "proteins_100g": 5.138780216457338,
       "carbohydrates_100g": 43.557189888385864
     },
-    "overall_score": 0.78
+    "overall_score": 4.33
   },
   {
     "barcode": "BOOTSTRAP_0182",
@@ -5267,7 +5267,7 @@
       "proteins_100g": 4.2949214333875,
       "carbohydrates_100g": 59.37442400063878
     },
-    "overall_score": 0.0
+    "overall_score": 0.64
   },
   {
     "barcode": "BOOTSTRAP_0183",
@@ -5296,7 +5296,7 @@
       "proteins_100g": 11.030187942450121,
       "carbohydrates_100g": 46.21731306097976
     },
-    "overall_score": 2.38
+    "overall_score": 5.47
   },
   {
     "barcode": "BOOTSTRAP_0184",
@@ -5311,14 +5311,14 @@
       "energy_100g": 146.6258493097656,
       "sugars_100g": 5.637420749433121,
       "fat_100g": 9.021483051291153,
-      "saturated-fat_100g": 1.8884120695927977,
+      "saturated_fat_100g": 1.8884120695927977,
       "sodium_100g": 0.20703746907271184,
       "salt_100g": 0.35666901240536775,
       "fiber_100g": 5.489370191001032,
       "proteins_100g": 9.984981434506398,
       "carbohydrates_100g": 15.944414149127603
     },
-    "overall_score": 6.55
+    "overall_score": 9.44
   },
   {
     "barcode": "BOOTSTRAP_0185",
@@ -5353,7 +5353,7 @@
       "proteins_100g": 3.3048742637342388,
       "carbohydrates_100g": 67.7160787016396
     },
-    "overall_score": 0.0
+    "overall_score": 1.93
   },
   {
     "barcode": "BOOTSTRAP_0186",
@@ -5368,14 +5368,14 @@
       "energy_100g": 213.33337602492338,
       "sugars_100g": 3.4828296641833294,
       "fat_100g": 8.085940935312268,
-      "saturated-fat_100g": 1.6335806405723052,
+      "saturated_fat_100g": 1.6335806405723052,
       "sodium_100g": 0.07084629574362662,
       "salt_100g": 0.5300898055410695,
       "fiber_100g": 3.5452608181206084,
       "proteins_100g": 18.96294888614589,
       "carbohydrates_100g": 27.22564872430597
     },
-    "overall_score": 6.83
+    "overall_score": 8.83
   },
   {
     "barcode": "BOOTSTRAP_0187",
@@ -5408,7 +5408,7 @@
       "proteins_100g": 6.912543300242133,
       "carbohydrates_100g": 59.47740910540176
     },
-    "overall_score": 3.3
+    "overall_score": 6.94
   },
   {
     "barcode": "BOOTSTRAP_0188",
@@ -5422,14 +5422,14 @@
       "energy_100g": 90.60979495024598,
       "sugars_100g": 7.20860556059391,
       "fat_100g": 9.711095649586214,
-      "saturated-fat_100g": 0.0025299423192617354,
+      "saturated_fat_100g": 0.0025299423192617354,
       "sodium_100g": 0.1680090773569493,
       "salt_100g": 0.7829569838002004,
       "fiber_100g": 3.7678882183785354,
       "proteins_100g": 9.233138695248922,
       "carbohydrates_100g": 10.935542263517043
     },
-    "overall_score": 6.24
+    "overall_score": 8.74
   },
   {
     "barcode": "BOOTSTRAP_0189",
@@ -5461,7 +5461,7 @@
       "proteins_100g": 9.25851467579503,
       "carbohydrates_100g": 57.90933037378732
     },
-    "overall_score": 1.04
+    "overall_score": 5.2
   },
   {
     "barcode": "BOOTSTRAP_0190",
@@ -5495,7 +5495,7 @@
       "proteins_100g": 7.852774911991388,
       "carbohydrates_100g": 47.38885320257389
     },
-    "overall_score": 1.51
+    "overall_score": 5.29
   },
   {
     "barcode": "BOOTSTRAP_0191",
@@ -5524,7 +5524,7 @@
       "proteins_100g": 10.053865399216408,
       "carbohydrates_100g": 37.561529233874104
     },
-    "overall_score": 3.63
+    "overall_score": 6.27
   },
   {
     "barcode": "BOOTSTRAP_0192",
@@ -5554,7 +5554,7 @@
       "proteins_100g": 9.799355383036875,
       "carbohydrates_100g": 33.47983093243611
     },
-    "overall_score": 2.71
+    "overall_score": 6.01
   },
   {
     "barcode": "BOOTSTRAP_0193",
@@ -5572,14 +5572,14 @@
       "energy_100g": 237.62782942907913,
       "sugars_100g": 3.590564988971,
       "fat_100g": 7.106440647253375,
-      "saturated-fat_100g": 2.8852881684210914,
+      "saturated_fat_100g": 2.8852881684210914,
       "sodium_100g": 0.20486289327413756,
       "salt_100g": 0.032814092024351996,
       "fiber_100g": 9.423984987430671,
       "proteins_100g": 14.561362268830994,
       "carbohydrates_100g": 38.68550967668875
     },
-    "overall_score": 6.57
+    "overall_score": 8.8
   },
   {
     "barcode": "BOOTSTRAP_0194",
@@ -5609,7 +5609,7 @@
       "proteins_100g": 3.511937204350152,
       "carbohydrates_100g": 47.82415747417633
     },
-    "overall_score": 1.51
+    "overall_score": 5.01
   },
   {
     "barcode": "BOOTSTRAP_0195",
@@ -5643,7 +5643,7 @@
       "proteins_100g": 4.227415885480393,
       "carbohydrates_100g": 53.25291405853761
     },
-    "overall_score": 0.0
+    "overall_score": 0.55
   },
   {
     "barcode": "BOOTSTRAP_0196",
@@ -5674,7 +5674,7 @@
       "proteins_100g": 7.861158453171116,
       "carbohydrates_100g": 30.09922080883917
     },
-    "overall_score": 1.72
+    "overall_score": 5.95
   },
   {
     "barcode": "BOOTSTRAP_0197",
@@ -5708,7 +5708,7 @@
       "proteins_100g": 3.702760236092196,
       "carbohydrates_100g": 59.23192638896796
     },
-    "overall_score": 0.0
+    "overall_score": 1.23
   },
   {
     "barcode": "BOOTSTRAP_0198",
@@ -5739,7 +5739,7 @@
       "proteins_100g": 3.575618537963938,
       "carbohydrates_100g": 54.52411184601438
     },
-    "overall_score": 1.68
+    "overall_score": 5.31
   },
   {
     "barcode": "BOOTSTRAP_0199",
@@ -5757,14 +5757,14 @@
       "energy_100g": 209.9187400024363,
       "sugars_100g": 4.74468202432678,
       "fat_100g": 4.019533549018181,
-      "saturated-fat_100g": 0.36223646865546755,
+      "saturated_fat_100g": 0.36223646865546755,
       "sodium_100g": 0.04237104078579711,
       "salt_100g": 0.3321234593871286,
       "fiber_100g": 7.874070499759103,
       "proteins_100g": 13.301115948521284,
       "carbohydrates_100g": 23.159836361626816
     },
-    "overall_score": 7.44
+    "overall_score": 9.6
   },
   {
     "barcode": "BOOTSTRAP_0200",
@@ -5792,7 +5792,7 @@
       "proteins_100g": 5.7514903205641055,
       "carbohydrates_100g": 68.81574962135038
     },
-    "overall_score": 0.0
+    "overall_score": 1.31
   },
   {
     "barcode": "BOOTSTRAP_0201",
@@ -5827,7 +5827,7 @@
       "proteins_100g": 4.927460090408669,
       "carbohydrates_100g": 64.55184188073211
     },
-    "overall_score": 0.0
+    "overall_score": 1.05
   },
   {
     "barcode": "BOOTSTRAP_0202",
@@ -5843,14 +5843,14 @@
       "energy_100g": 118.72295086585657,
       "sugars_100g": 1.8969468914120116,
       "fat_100g": 4.713359116233711,
-      "saturated-fat_100g": 0.5998674938574219,
+      "saturated_fat_100g": 0.5998674938574219,
       "sodium_100g": 0.2674095449313434,
       "salt_100g": 0.0588237730919734,
       "fiber_100g": 7.0956458031449765,
       "proteins_100g": 5.815090338567886,
       "carbohydrates_100g": 23.075951817246064
     },
-    "overall_score": 7.52
+    "overall_score": 9.57
   },
   {
     "barcode": "BOOTSTRAP_0203",
@@ -5869,14 +5869,14 @@
       "energy_100g": 98.88857599184462,
       "sugars_100g": 3.724274364625151,
       "fat_100g": 4.764014464175789,
-      "saturated-fat_100g": 2.281018749108374,
+      "saturated_fat_100g": 2.281018749108374,
       "sodium_100g": 0.0659560692751608,
       "salt_100g": 0.23612921001694193,
       "fiber_100g": 4.097516868463372,
       "proteins_100g": 16.918480989113363,
       "carbohydrates_100g": 38.58280426521482
     },
-    "overall_score": 6.46
+    "overall_score": 8.74
   },
   {
     "barcode": "BOOTSTRAP_0204",
@@ -5916,7 +5916,7 @@
       "proteins_100g": 3.8519039879473556,
       "carbohydrates_100g": 67.50980333039465
     },
-    "overall_score": 0.0
+    "overall_score": 0.87
   },
   {
     "barcode": "BOOTSTRAP_0205",
@@ -5951,7 +5951,7 @@
       "proteins_100g": 1.5677883941321964,
       "carbohydrates_100g": 64.35480395049902
     },
-    "overall_score": 0.0
+    "overall_score": 0.53
   },
   {
     "barcode": "BOOTSTRAP_0206",
@@ -5992,7 +5992,7 @@
       "proteins_100g": 5.1747375930640365,
       "carbohydrates_100g": 65.58861448869229
     },
-    "overall_score": 0.0
+    "overall_score": 0.8
   },
   {
     "barcode": "BOOTSTRAP_0207",
@@ -6011,14 +6011,14 @@
       "energy_100g": 118.5529294782976,
       "sugars_100g": 2.9752185327246217,
       "fat_100g": 3.5933166364412576,
-      "saturated-fat_100g": 2.536541127726114,
+      "saturated_fat_100g": 2.536541127726114,
       "sodium_100g": 0.04450150062096318,
       "salt_100g": 0.22750562701181487,
       "fiber_100g": 9.693496988449555,
       "proteins_100g": 14.279453447922874,
       "carbohydrates_100g": 14.823696474390962
     },
-    "overall_score": 7.31
+    "overall_score": 9.94
   },
   {
     "barcode": "BOOTSTRAP_0208",
@@ -6045,7 +6045,7 @@
       "proteins_100g": 3.2243268463094603,
       "carbohydrates_100g": 57.93206747608265
     },
-    "overall_score": 0.91
+    "overall_score": 4.32
   },
   {
     "barcode": "BOOTSTRAP_0209",
@@ -6081,7 +6081,7 @@
       "proteins_100g": 2.588789060830022,
       "carbohydrates_100g": 68.15233465542403
     },
-    "overall_score": 0.0
+    "overall_score": 0.37
   },
   {
     "barcode": "BOOTSTRAP_0210",
@@ -6116,7 +6116,7 @@
       "proteins_100g": 1.6846351995787603,
       "carbohydrates_100g": 55.58019254333162
     },
-    "overall_score": 0.0
+    "overall_score": 1.27
   },
   {
     "barcode": "BOOTSTRAP_0211",
@@ -6147,7 +6147,7 @@
       "proteins_100g": 9.173215525480854,
       "carbohydrates_100g": 59.227762451971714
     },
-    "overall_score": 2.33
+    "overall_score": 5.93
   },
   {
     "barcode": "BOOTSTRAP_0212",
@@ -6183,7 +6183,7 @@
       "proteins_100g": 2.701565456424183,
       "carbohydrates_100g": 77.32363935478682
     },
-    "overall_score": 0.0
+    "overall_score": 0.45
   },
   {
     "barcode": "BOOTSTRAP_0213",
@@ -6198,14 +6198,14 @@
       "energy_100g": 235.72529720506114,
       "sugars_100g": 0.9325252067354164,
       "fat_100g": 2.1810894110105017,
-      "saturated-fat_100g": 0.052138197709282186,
+      "saturated_fat_100g": 0.052138197709282186,
       "sodium_100g": 0.10446297372484235,
       "salt_100g": 0.5528405628357443,
       "fiber_100g": 3.973097873622707,
       "proteins_100g": 11.62906861562949,
       "carbohydrates_100g": 39.62745203025236
     },
-    "overall_score": 7.19
+    "overall_score": 9.06
   },
   {
     "barcode": "BOOTSTRAP_0214",
@@ -6235,7 +6235,7 @@
       "proteins_100g": 3.092451570860687,
       "carbohydrates_100g": 32.89510796570126
     },
-    "overall_score": 1.83
+    "overall_score": 5.16
   },
   {
     "barcode": "BOOTSTRAP_0215",
@@ -6253,14 +6253,14 @@
       "energy_100g": 225.37347395053393,
       "sugars_100g": 6.246417089018469,
       "fat_100g": 6.516607859554906,
-      "saturated-fat_100g": 1.5147276871704016,
+      "saturated_fat_100g": 1.5147276871704016,
       "sodium_100g": 0.020501111669329563,
       "salt_100g": 0.6556692038663249,
       "fiber_100g": 8.342708230747954,
       "proteins_100g": 12.932581106237851,
       "carbohydrates_100g": 31.474349020022345
     },
-    "overall_score": 6.79
+    "overall_score": 9.36
   },
   {
     "barcode": "BOOTSTRAP_0216",
@@ -6293,7 +6293,7 @@
       "proteins_100g": 5.880895236175141,
       "carbohydrates_100g": 63.31867610496434
     },
-    "overall_score": 0.0
+    "overall_score": 2.37
   },
   {
     "barcode": "BOOTSTRAP_0217",
@@ -6324,7 +6324,7 @@
       "proteins_100g": 10.105434590644077,
       "carbohydrates_100g": 49.31493534368836
     },
-    "overall_score": 0.69
+    "overall_score": 4.5
   },
   {
     "barcode": "BOOTSTRAP_0218",
@@ -6358,7 +6358,7 @@
       "proteins_100g": 7.919580304317425,
       "carbohydrates_100g": 58.577414847306514
     },
-    "overall_score": 2.45
+    "overall_score": 6.07
   },
   {
     "barcode": "BOOTSTRAP_0219",
@@ -6375,14 +6375,14 @@
       "energy_100g": 230.3990389408921,
       "sugars_100g": 1.313153951852298,
       "fat_100g": 4.876130060929016,
-      "saturated-fat_100g": 0.9373790260193464,
+      "saturated_fat_100g": 0.9373790260193464,
       "sodium_100g": 0.11672414724704977,
       "salt_100g": 0.6112089104019522,
       "fiber_100g": 6.981986565330416,
       "proteins_100g": 12.358305677035293,
       "carbohydrates_100g": 26.613516960749212
     },
-    "overall_score": 7.45
+    "overall_score": 9.61
   },
   {
     "barcode": "BOOTSTRAP_0220",
@@ -6416,7 +6416,7 @@
       "proteins_100g": 6.038348313629726,
       "carbohydrates_100g": 30.591359705869138
     },
-    "overall_score": 1.43
+    "overall_score": 4.46
   },
   {
     "barcode": "BOOTSTRAP_0221",
@@ -6434,14 +6434,14 @@
       "energy_100g": 217.41551662252073,
       "sugars_100g": 0.8004534656324358,
       "fat_100g": 7.07600165794175,
-      "saturated-fat_100g": 1.0079023874565523,
+      "saturated_fat_100g": 1.0079023874565523,
       "sodium_100g": 0.15083055677590632,
       "salt_100g": 0.6119231204234812,
       "fiber_100g": 5.376775973784852,
       "proteins_100g": 14.222418103313546,
       "carbohydrates_100g": 20.90002916069949
     },
-    "overall_score": 6.69
+    "overall_score": 8.65
   },
   {
     "barcode": "BOOTSTRAP_0222",
@@ -6472,7 +6472,7 @@
       "proteins_100g": 9.329984811291226,
       "carbohydrates_100g": 55.88129420277602
     },
-    "overall_score": 2.21
+    "overall_score": 5.04
   },
   {
     "barcode": "BOOTSTRAP_0223",
@@ -6502,7 +6502,7 @@
       "proteins_100g": 10.44505941714991,
       "carbohydrates_100g": 43.92479102731846
     },
-    "overall_score": 2.58
+    "overall_score": 5.65
   },
   {
     "barcode": "BOOTSTRAP_0224",
@@ -6535,7 +6535,7 @@
       "proteins_100g": 7.727341236667875,
       "carbohydrates_100g": 44.89353304011334
     },
-    "overall_score": 1.98
+    "overall_score": 5.5
   },
   {
     "barcode": "BOOTSTRAP_0225",
@@ -6553,14 +6553,14 @@
       "energy_100g": 149.42384446585183,
       "sugars_100g": 6.903199469416197,
       "fat_100g": 1.5033286244662643,
-      "saturated-fat_100g": 1.6004099110075454,
+      "saturated_fat_100g": 1.6004099110075454,
       "sodium_100g": 0.2098853184626495,
       "salt_100g": 0.09036907742315492,
       "fiber_100g": 6.820215232420483,
       "proteins_100g": 12.122811863132391,
       "carbohydrates_100g": 17.390400684620886
     },
-    "overall_score": 7.37
+    "overall_score": 10.0
   },
   {
     "barcode": "BOOTSTRAP_0226",
@@ -6576,14 +6576,14 @@
       "energy_100g": 197.4160173979978,
       "sugars_100g": 6.310421685671722,
       "fat_100g": 3.157082462883338,
-      "saturated-fat_100g": 1.65818370993488,
+      "saturated_fat_100g": 1.65818370993488,
       "sodium_100g": 0.09278055050734219,
       "salt_100g": 0.7667868894375371,
       "fiber_100g": 5.539985688940432,
       "proteins_100g": 17.183754483451878,
       "carbohydrates_100g": 13.66161306237668
     },
-    "overall_score": 6.48
+    "overall_score": 9.0
   },
   {
     "barcode": "BOOTSTRAP_0227",
@@ -6620,7 +6620,7 @@
       "proteins_100g": 3.5818294552551184,
       "carbohydrates_100g": 79.08993760517404
     },
-    "overall_score": 0.0
+    "overall_score": 0.71
   },
   {
     "barcode": "BOOTSTRAP_0228",
@@ -6673,14 +6673,14 @@
       "energy_100g": 151.11626849072337,
       "sugars_100g": 3.268192815331431,
       "fat_100g": 2.313485669038877,
-      "saturated-fat_100g": 0.870578884544853,
+      "saturated_fat_100g": 0.870578884544853,
       "sodium_100g": 0.0785398391682333,
       "salt_100g": 0.4941441920457881,
       "fiber_100g": 9.35129764481057,
       "proteins_100g": 10.544566092964605,
       "carbohydrates_100g": 30.528012584276993
     },
-    "overall_score": 6.14
+    "overall_score": 8.35
   },
   {
     "barcode": "BOOTSTRAP_0230",
@@ -6707,7 +6707,7 @@
       "proteins_100g": 3.048248866818189,
       "carbohydrates_100g": 45.136259932739556
     },
-    "overall_score": 2.11
+    "overall_score": 5.41
   },
   {
     "barcode": "BOOTSTRAP_0231",
@@ -6739,7 +6739,7 @@
       "proteins_100g": 11.034046288466858,
       "carbohydrates_100g": 39.46628758390305
     },
-    "overall_score": 2.03
+    "overall_score": 5.39
   },
   {
     "barcode": "BOOTSTRAP_0232",
@@ -6772,7 +6772,7 @@
       "proteins_100g": 2.0619807833264536,
       "carbohydrates_100g": 79.9401366647245
     },
-    "overall_score": 0.0
+    "overall_score": 0.78
   },
   {
     "barcode": "BOOTSTRAP_0233",
@@ -6790,14 +6790,14 @@
       "energy_100g": 222.28612545878826,
       "sugars_100g": 1.230203749470383,
       "fat_100g": 1.7295691307045407,
-      "saturated-fat_100g": 2.4920976767176386,
+      "saturated_fat_100g": 2.4920976767176386,
       "sodium_100g": 0.19786179694500958,
       "salt_100g": 0.3632444121143623,
       "fiber_100g": 9.68641071681104,
       "proteins_100g": 13.913063890264143,
       "carbohydrates_100g": 10.174160822352823
     },
-    "overall_score": 7.58
+    "overall_score": 9.76
   },
   {
     "barcode": "BOOTSTRAP_0234",
@@ -6836,7 +6836,7 @@
       "proteins_100g": 3.1705296125518627,
       "carbohydrates_100g": 62.78051296463924
     },
-    "overall_score": 0.0
+    "overall_score": 0.89
   },
   {
     "barcode": "BOOTSTRAP_0235",
@@ -6853,14 +6853,14 @@
       "energy_100g": 154.35043821827418,
       "sugars_100g": 7.2576616884198595,
       "fat_100g": 5.29850228654995,
-      "saturated-fat_100g": 0.44581961596428377,
+      "saturated_fat_100g": 0.44581961596428377,
       "sodium_100g": 0.03833692450295521,
       "salt_100g": 0.7223228949332753,
       "fiber_100g": 8.89076567992996,
       "proteins_100g": 12.846380855262108,
       "carbohydrates_100g": 18.864449017167615
     },
-    "overall_score": 5.77
+    "overall_score": 8.28
   },
   {
     "barcode": "BOOTSTRAP_0236",
@@ -6874,14 +6874,14 @@
       "energy_100g": 158.99160364527546,
       "sugars_100g": 5.7624799948023675,
       "fat_100g": 8.315422820154003,
-      "saturated-fat_100g": 1.0663729068978174,
+      "saturated_fat_100g": 1.0663729068978174,
       "sodium_100g": 0.17567036542691936,
       "salt_100g": 0.6149174183812414,
       "fiber_100g": 3.1138808563168974,
       "proteins_100g": 16.10774252506848,
       "carbohydrates_100g": 23.88636831482176
     },
-    "overall_score": 6.4
+    "overall_score": 8.46
   },
   {
     "barcode": "BOOTSTRAP_0237",
@@ -6914,7 +6914,7 @@
       "proteins_100g": 4.3690157146432105,
       "carbohydrates_100g": 70.70880063066683
     },
-    "overall_score": 0.0
+    "overall_score": 1.04
   },
   {
     "barcode": "BOOTSTRAP_0238",
@@ -6942,7 +6942,7 @@
       "proteins_100g": 7.365421535398086,
       "carbohydrates_100g": 30.588833360328472
     },
-    "overall_score": 2.79
+    "overall_score": 5.59
   },
   {
     "barcode": "BOOTSTRAP_0239",
@@ -6970,7 +6970,7 @@
       "proteins_100g": 11.002265350967956,
       "carbohydrates_100g": 33.50822221371281
     },
-    "overall_score": 3.79
+    "overall_score": 6.63
   },
   {
     "barcode": "BOOTSTRAP_0240",
@@ -7002,7 +7002,7 @@
       "proteins_100g": 4.1618689861865334,
       "carbohydrates_100g": 35.98452668405639
     },
-    "overall_score": 0.19
+    "overall_score": 4.31
   },
   {
     "barcode": "BOOTSTRAP_0241",
@@ -7030,7 +7030,7 @@
       "proteins_100g": 5.407421120009268,
       "carbohydrates_100g": 34.53535121382955
     },
-    "overall_score": 3.38
+    "overall_score": 6.08
   },
   {
     "barcode": "BOOTSTRAP_0242",
@@ -7055,7 +7055,7 @@
       "proteins_100g": 3.893648150478762,
       "carbohydrates_100g": 49.41278912806591
     },
-    "overall_score": 2.25
+    "overall_score": 5.97
   },
   {
     "barcode": "BOOTSTRAP_0243",
@@ -7070,14 +7070,14 @@
       "energy_100g": 128.74891099224882,
       "sugars_100g": 1.3700943640013845,
       "fat_100g": 3.394140663384848,
-      "saturated-fat_100g": 2.145599233094868,
+      "saturated_fat_100g": 2.145599233094868,
       "sodium_100g": 0.12450258216405674,
       "salt_100g": 0.5035523215830043,
       "fiber_100g": 4.718158960798967,
       "proteins_100g": 16.298093879987356,
       "carbohydrates_100g": 25.889508222428457
     },
-    "overall_score": 7.8
+    "overall_score": 10.0
   },
   {
     "barcode": "BOOTSTRAP_0244",
@@ -7138,7 +7138,7 @@
       "proteins_100g": 5.328211621731952,
       "carbohydrates_100g": 54.9668696017916
     },
-    "overall_score": 1.79
+    "overall_score": 5.25
   },
   {
     "barcode": "BOOTSTRAP_0246",
@@ -7155,14 +7155,14 @@
       "energy_100g": 177.31399763573688,
       "sugars_100g": 0.04170718509835947,
       "fat_100g": 4.050822651733123,
-      "saturated-fat_100g": 0.7082919807446202,
+      "saturated_fat_100g": 0.7082919807446202,
       "sodium_100g": 0.22372742143794908,
       "salt_100g": 0.46527505854128137,
       "fiber_100g": 8.00252984658161,
       "proteins_100g": 19.063091385484974,
       "carbohydrates_100g": 29.96561636029675
     },
-    "overall_score": 8.02
+    "overall_score": 9.77
   },
   {
     "barcode": "BOOTSTRAP_0247",
@@ -7194,7 +7194,7 @@
       "proteins_100g": 4.182305746653013,
       "carbohydrates_100g": 79.89535326661466
     },
-    "overall_score": 0.0
+    "overall_score": 0.67
   },
   {
     "barcode": "BOOTSTRAP_0248",
@@ -7228,7 +7228,7 @@
       "proteins_100g": 11.048276355463829,
       "carbohydrates_100g": 56.67171618718258
     },
-    "overall_score": 0.52
+    "overall_score": 4.01
   },
   {
     "barcode": "BOOTSTRAP_0249",
@@ -7248,14 +7248,14 @@
       "energy_100g": 209.48539276784655,
       "sugars_100g": 5.33776595885007,
       "fat_100g": 2.340843318381234,
-      "saturated-fat_100g": 2.183592468318707,
+      "saturated_fat_100g": 2.183592468318707,
       "sodium_100g": 0.026794494241054987,
       "salt_100g": 0.499816344168796,
       "fiber_100g": 7.365126318241643,
       "proteins_100g": 10.808526825102671,
       "carbohydrates_100g": 37.00733253256912
     },
-    "overall_score": 5.71
+    "overall_score": 8.28
   },
   {
     "barcode": "BOOTSTRAP_0250",
@@ -7270,14 +7270,14 @@
       "energy_100g": 175.37754036245605,
       "sugars_100g": 0.9902528908201562,
       "fat_100g": 6.034175409126045,
-      "saturated-fat_100g": 0.5772802000157905,
+      "saturated_fat_100g": 0.5772802000157905,
       "sodium_100g": 0.1856112164448969,
       "salt_100g": 0.46148446653851966,
       "fiber_100g": 3.3701207019466874,
       "proteins_100g": 13.553665748434565,
       "carbohydrates_100g": 15.681876186406292
     },
-    "overall_score": 6.73
+    "overall_score": 8.6
   },
   {
     "barcode": "BOOTSTRAP_0251",
@@ -7301,7 +7301,7 @@
       "proteins_100g": 5.856441918299339,
       "carbohydrates_100g": 37.715333795031555
     },
-    "overall_score": 4.96
+    "overall_score": 7.61
   },
   {
     "barcode": "BOOTSTRAP_0252",
@@ -7315,14 +7315,14 @@
       "energy_100g": 106.21865303929907,
       "sugars_100g": 7.6173178200290454,
       "fat_100g": 7.107477110048528,
-      "saturated-fat_100g": 0.17674120398928406,
+      "saturated_fat_100g": 0.17674120398928406,
       "sodium_100g": 0.2883370004414559,
       "salt_100g": 0.1451662720869254,
       "fiber_100g": 7.993104364048783,
       "proteins_100g": 9.47036505378109,
       "carbohydrates_100g": 12.962326478967398
     },
-    "overall_score": 7.19
+    "overall_score": 9.68
   },
   {
     "barcode": "BOOTSTRAP_0253",
@@ -7339,14 +7339,14 @@
       "energy_100g": 241.39069951745742,
       "sugars_100g": 2.154300216474055,
       "fat_100g": 3.8650280101851506,
-      "saturated-fat_100g": 1.6593632565530343,
+      "saturated_fat_100g": 1.6593632565530343,
       "sodium_100g": 0.019637463578965165,
       "salt_100g": 0.023125150248371276,
       "fiber_100g": 7.4347890662862595,
       "proteins_100g": 18.70602647432937,
       "carbohydrates_100g": 10.558684975466072
     },
-    "overall_score": 6.97
+    "overall_score": 8.88
   },
   {
     "barcode": "BOOTSTRAP_0254",
@@ -7372,7 +7372,7 @@
       "proteins_100g": 4.5064350664979695,
       "carbohydrates_100g": 31.805250927844675
     },
-    "overall_score": 1.72
+    "overall_score": 5.51
   },
   {
     "barcode": "BOOTSTRAP_0255",
@@ -7407,7 +7407,7 @@
       "proteins_100g": 5.611288905220014,
       "carbohydrates_100g": 68.26360251229903
     },
-    "overall_score": 0.0
+    "overall_score": 0.42
   },
   {
     "barcode": "BOOTSTRAP_0256",
@@ -7421,14 +7421,14 @@
       "energy_100g": 209.61909105460705,
       "sugars_100g": 4.305051629611777,
       "fat_100g": 8.085747114498037,
-      "saturated-fat_100g": 1.9472918283477383,
+      "saturated_fat_100g": 1.9472918283477383,
       "sodium_100g": 0.023256934893092485,
       "salt_100g": 0.02475801642282116,
       "fiber_100g": 8.824587052407832,
       "proteins_100g": 15.074196172339107,
       "carbohydrates_100g": 30.167377395201235
     },
-    "overall_score": 7.67
+    "overall_score": 9.77
   },
   {
     "barcode": "BOOTSTRAP_0257",
@@ -7460,7 +7460,7 @@
       "proteins_100g": 4.74393231375922,
       "carbohydrates_100g": 52.16444482632884
     },
-    "overall_score": 0.38
+    "overall_score": 3.78
   },
   {
     "barcode": "BOOTSTRAP_0258",
@@ -7486,7 +7486,7 @@
       "proteins_100g": 6.661883059638145,
       "carbohydrates_100g": 33.65153089467588
     },
-    "overall_score": 3.38
+    "overall_score": 6.45
   },
   {
     "barcode": "BOOTSTRAP_0259",
@@ -7519,7 +7519,7 @@
       "proteins_100g": 7.262188726255542,
       "carbohydrates_100g": 58.7640797363524
     },
-    "overall_score": 0.32
+    "overall_score": 3.77
   },
   {
     "barcode": "BOOTSTRAP_0260",
@@ -7555,7 +7555,7 @@
       "proteins_100g": 1.1298603957175,
       "carbohydrates_100g": 65.51638677601375
     },
-    "overall_score": 0.0
+    "overall_score": 0.74
   },
   {
     "barcode": "BOOTSTRAP_0261",
@@ -7580,7 +7580,7 @@
       "proteins_100g": 11.637672162542826,
       "carbohydrates_100g": 52.631209051104705
     },
-    "overall_score": 3.67
+    "overall_score": 6.86
   },
   {
     "barcode": "BOOTSTRAP_0262",
@@ -7598,14 +7598,14 @@
       "energy_100g": 166.20833746538494,
       "sugars_100g": 6.681399438348407,
       "fat_100g": 8.728319849755358,
-      "saturated-fat_100g": 1.2661834212500476,
+      "saturated_fat_100g": 1.2661834212500476,
       "sodium_100g": 0.05862213889474592,
       "salt_100g": 0.1602975227865862,
       "fiber_100g": 9.359501528805707,
       "proteins_100g": 16.778957106367173,
       "carbohydrates_100g": 20.246557710175715
     },
-    "overall_score": 7.38
+    "overall_score": 9.59
   },
   {
     "barcode": "BOOTSTRAP_0263",
@@ -7638,7 +7638,7 @@
       "proteins_100g": 8.68201119654758,
       "carbohydrates_100g": 57.38126295034574
     },
-    "overall_score": 3.27
+    "overall_score": 6.28
   },
   {
     "barcode": "BOOTSTRAP_0264",
@@ -7663,7 +7663,7 @@
       "proteins_100g": 6.04544951338341,
       "carbohydrates_100g": 36.30712135994562
     },
-    "overall_score": 3.22
+    "overall_score": 6.45
   },
   {
     "barcode": "BOOTSTRAP_0265",
@@ -7694,7 +7694,7 @@
       "proteins_100g": 10.972508589930204,
       "carbohydrates_100g": 36.27712720497665
     },
-    "overall_score": 1.92
+    "overall_score": 5.93
   },
   {
     "barcode": "BOOTSTRAP_0266",
@@ -7711,14 +7711,14 @@
       "energy_100g": 201.12276847332254,
       "sugars_100g": 4.2038053688114685,
       "fat_100g": 5.349673497981196,
-      "saturated-fat_100g": 2.867255676421345,
+      "saturated_fat_100g": 2.867255676421345,
       "sodium_100g": 0.14212744668499108,
       "salt_100g": 0.4649493479785089,
       "fiber_100g": 7.466739203395668,
       "proteins_100g": 16.859367219803772,
       "carbohydrates_100g": 29.49211784525316
     },
-    "overall_score": 7.19
+    "overall_score": 9.56
   },
   {
     "barcode": "BOOTSTRAP_0267",
@@ -7734,14 +7734,14 @@
       "energy_100g": 173.59383556551495,
       "sugars_100g": 1.0746425242199154,
       "fat_100g": 1.7562533442335733,
-      "saturated-fat_100g": 1.3335159462426764,
+      "saturated_fat_100g": 1.3335159462426764,
       "sodium_100g": 0.10547248549054018,
       "salt_100g": 0.46716977978433916,
       "fiber_100g": 6.2567717774647065,
       "proteins_100g": 14.316887297076057,
       "carbohydrates_100g": 22.7830703074823
     },
-    "overall_score": 7.23
+    "overall_score": 9.41
   },
   {
     "barcode": "BOOTSTRAP_0268",
@@ -7773,7 +7773,7 @@
       "proteins_100g": 8.436306394502232,
       "carbohydrates_100g": 34.13595378363246
     },
-    "overall_score": 0.45
+    "overall_score": 4.14
   },
   {
     "barcode": "BOOTSTRAP_0269",
@@ -7810,7 +7810,7 @@
       "proteins_100g": 4.763130918270674,
       "carbohydrates_100g": 72.88524741947131
     },
-    "overall_score": 0.0
+    "overall_score": 0.98
   },
   {
     "barcode": "BOOTSTRAP_0270",
@@ -7840,7 +7840,7 @@
       "proteins_100g": 11.666951004214935,
       "carbohydrates_100g": 38.514528618579874
     },
-    "overall_score": 2.14
+    "overall_score": 5.59
   },
   {
     "barcode": "BOOTSTRAP_0271",
@@ -7859,14 +7859,14 @@
       "energy_100g": 146.12879263137614,
       "sugars_100g": 7.228700033766001,
       "fat_100g": 2.8583172274335507,
-      "saturated-fat_100g": 2.611347203083567,
+      "saturated_fat_100g": 2.611347203083567,
       "sodium_100g": 0.09292715288445504,
       "salt_100g": 0.6543168825487591,
       "fiber_100g": 7.653548518743069,
       "proteins_100g": 7.381718747732354,
       "carbohydrates_100g": 27.252741516937522
     },
-    "overall_score": 6.26
+    "overall_score": 9.2
   },
   {
     "barcode": "BOOTSTRAP_0272",
@@ -7882,14 +7882,14 @@
       "energy_100g": 169.39560581677813,
       "sugars_100g": 7.282420311524216,
       "fat_100g": 8.913154523213413,
-      "saturated-fat_100g": 1.3806136800951239,
+      "saturated_fat_100g": 1.3806136800951239,
       "sodium_100g": 0.17283982568774695,
       "salt_100g": 0.5898325687116545,
       "fiber_100g": 5.015382494956954,
       "proteins_100g": 18.21491110163508,
       "carbohydrates_100g": 23.68919872048091
     },
-    "overall_score": 6.45
+    "overall_score": 9.04
   },
   {
     "barcode": "BOOTSTRAP_0273",
@@ -7920,7 +7920,7 @@
       "proteins_100g": 10.015595778332042,
       "carbohydrates_100g": 42.302882027090185
     },
-    "overall_score": 1.35
+    "overall_score": 4.92
   },
   {
     "barcode": "BOOTSTRAP_0274",
@@ -7935,14 +7935,14 @@
       "energy_100g": 206.8127643159636,
       "sugars_100g": 6.8461851593496545,
       "fat_100g": 4.570068950503855,
-      "saturated-fat_100g": 0.0322120841727942,
+      "saturated_fat_100g": 0.0322120841727942,
       "sodium_100g": 0.034404815083219686,
       "salt_100g": 0.7337095805196796,
       "fiber_100g": 5.289772538036622,
       "proteins_100g": 16.230140417543673,
       "carbohydrates_100g": 24.542777119880242
     },
-    "overall_score": 7.09
+    "overall_score": 9.29
   },
   {
     "barcode": "BOOTSTRAP_0275",
@@ -7960,14 +7960,14 @@
       "energy_100g": 101.10573508509361,
       "sugars_100g": 5.931571864536375,
       "fat_100g": 2.5160803623368415,
-      "saturated-fat_100g": 2.0141764677373106,
+      "saturated_fat_100g": 2.0141764677373106,
       "sodium_100g": 0.0033631853998820627,
       "salt_100g": 0.21860181184706973,
       "fiber_100g": 6.084605936010249,
       "proteins_100g": 7.669103430584716,
       "carbohydrates_100g": 31.43236816699315
     },
-    "overall_score": 6.88
+    "overall_score": 9.51
   },
   {
     "barcode": "BOOTSTRAP_0276",
@@ -8003,7 +8003,7 @@
       "proteins_100g": 3.1394014776052517,
       "carbohydrates_100g": 56.97224413166493
     },
-    "overall_score": 0.0
+    "overall_score": 0.99
   },
   {
     "barcode": "BOOTSTRAP_0277",
@@ -8019,14 +8019,14 @@
       "energy_100g": 191.8534894180628,
       "sugars_100g": 2.227660992738306,
       "fat_100g": 6.61518454790726,
-      "saturated-fat_100g": 0.1318168282657397,
+      "saturated_fat_100g": 0.1318168282657397,
       "sodium_100g": 0.26563801516270824,
       "salt_100g": 0.3288774687143221,
       "fiber_100g": 8.37281591588321,
       "proteins_100g": 12.493640368778536,
       "carbohydrates_100g": 39.71422875713115
     },
-    "overall_score": 7.7
+    "overall_score": 9.72
   },
   {
     "barcode": "BOOTSTRAP_0278",
@@ -8054,7 +8054,7 @@
       "proteins_100g": 6.856480842942085,
       "carbohydrates_100g": 37.30637191677829
     },
-    "overall_score": 2.83
+    "overall_score": 5.7
   },
   {
     "barcode": "BOOTSTRAP_0279",
@@ -8070,14 +8070,14 @@
       "energy_100g": 205.67345812280792,
       "sugars_100g": 2.6295188149372937,
       "fat_100g": 3.5031379897732124,
-      "saturated-fat_100g": 1.9308062148162173,
+      "saturated_fat_100g": 1.9308062148162173,
       "sodium_100g": 0.22814816468866347,
       "salt_100g": 0.4166982876764522,
       "fiber_100g": 9.842972531201346,
       "proteins_100g": 14.720696376194493,
       "carbohydrates_100g": 18.653653133783692
     },
-    "overall_score": 7.03
+    "overall_score": 9.36
   },
   {
     "barcode": "BOOTSTRAP_0280",
@@ -8097,14 +8097,14 @@
       "energy_100g": 242.12240228592697,
       "sugars_100g": 0.4168548962096539,
       "fat_100g": 9.928113119853943,
-      "saturated-fat_100g": 2.8148235798825327,
+      "saturated_fat_100g": 2.8148235798825327,
       "sodium_100g": 0.037668299880086,
       "salt_100g": 0.13894065971750402,
       "fiber_100g": 6.841929702598945,
       "proteins_100g": 16.928496390411183,
       "carbohydrates_100g": 16.131199949155032
     },
-    "overall_score": 7.42
+    "overall_score": 9.61
   },
   {
     "barcode": "BOOTSTRAP_0281",
@@ -8137,7 +8137,7 @@
       "proteins_100g": 4.5812938609393346,
       "carbohydrates_100g": 41.41350711814714
     },
-    "overall_score": 0.71
+    "overall_score": 4.44
   },
   {
     "barcode": "BOOTSTRAP_0282",
@@ -8154,14 +8154,14 @@
       "energy_100g": 80.71069361404945,
       "sugars_100g": 6.893241018098581,
       "fat_100g": 7.57331777757487,
-      "saturated-fat_100g": 1.1227734422263587,
+      "saturated_fat_100g": 1.1227734422263587,
       "sodium_100g": 0.12136657817443698,
       "salt_100g": 0.332656132818967,
       "fiber_100g": 5.76254789377338,
       "proteins_100g": 16.132909771778984,
       "carbohydrates_100g": 21.521122714031737
     },
-    "overall_score": 7.14
+    "overall_score": 9.69
   },
   {
     "barcode": "BOOTSTRAP_0283",
@@ -8179,14 +8179,14 @@
       "energy_100g": 187.94655663552282,
       "sugars_100g": 2.9454443273815754,
       "fat_100g": 1.519341557161189,
-      "saturated-fat_100g": 1.1559994725849947,
+      "saturated_fat_100g": 1.1559994725849947,
       "sodium_100g": 0.1272121013753061,
       "salt_100g": 0.1974334492823652,
       "fiber_100g": 6.34407890768016,
       "proteins_100g": 18.82202820626569,
       "carbohydrates_100g": 20.842428646449605
     },
-    "overall_score": 7.82
+    "overall_score": 9.75
   },
   {
     "barcode": "BOOTSTRAP_0284",
@@ -8211,7 +8211,7 @@
       "proteins_100g": 6.8065037391514505,
       "carbohydrates_100g": 54.892486950800894
     },
-    "overall_score": 0.78
+    "overall_score": 4.38
   },
   {
     "barcode": "BOOTSTRAP_0285",
@@ -8228,14 +8228,14 @@
       "energy_100g": 238.10286720998093,
       "sugars_100g": 3.1837617575531594,
       "fat_100g": 3.7729030851854586,
-      "saturated-fat_100g": 2.961076479443878,
+      "saturated_fat_100g": 2.961076479443878,
       "sodium_100g": 0.2449168134295715,
       "salt_100g": 0.0012628620676437665,
       "fiber_100g": 3.4888904647246406,
       "proteins_100g": 15.444750609007434,
       "carbohydrates_100g": 25.748859662601866
     },
-    "overall_score": 7.07
+    "overall_score": 9.08
   },
   {
     "barcode": "BOOTSTRAP_0286",
@@ -8266,7 +8266,7 @@
       "proteins_100g": 9.844802349115032,
       "carbohydrates_100g": 30.28519728654395
     },
-    "overall_score": 3.97
+    "overall_score": 6.82
   },
   {
     "barcode": "BOOTSTRAP_0287",
@@ -8280,14 +8280,14 @@
       "energy_100g": 182.50742821702806,
       "sugars_100g": 7.895174739483468,
       "fat_100g": 7.8522757321039,
-      "saturated-fat_100g": 2.7963851426376287,
+      "saturated_fat_100g": 2.7963851426376287,
       "sodium_100g": 0.14196953495646633,
       "salt_100g": 0.26962397458774773,
       "fiber_100g": 6.006175349323835,
       "proteins_100g": 10.561776833444087,
       "carbohydrates_100g": 36.70456588486078
     },
-    "overall_score": 6.47
+    "overall_score": 9.24
   },
   {
     "barcode": "BOOTSTRAP_0288",
@@ -8319,7 +8319,7 @@
       "proteins_100g": 3.00082595419901,
       "carbohydrates_100g": 68.37777036293456
     },
-    "overall_score": 0.0
+    "overall_score": 0.67
   },
   {
     "barcode": "BOOTSTRAP_0289",
@@ -8337,14 +8337,14 @@
       "energy_100g": 215.45952927176117,
       "sugars_100g": 2.410786439916736,
       "fat_100g": 7.057559445252587,
-      "saturated-fat_100g": 1.6462399807695955,
+      "saturated_fat_100g": 1.6462399807695955,
       "sodium_100g": 0.2624357330802151,
       "salt_100g": 0.13444228110556944,
       "fiber_100g": 6.124006902317394,
       "proteins_100g": 6.735179627184034,
       "carbohydrates_100g": 29.87926331326393
     },
-    "overall_score": 6.53
+    "overall_score": 8.82
   },
   {
     "barcode": "BOOTSTRAP_0290",
@@ -8359,14 +8359,14 @@
       "energy_100g": 107.23999722250244,
       "sugars_100g": 7.431738872915553,
       "fat_100g": 9.123836669708849,
-      "saturated-fat_100g": 2.298926471479785,
+      "saturated_fat_100g": 2.298926471479785,
       "sodium_100g": 0.0661128104906715,
       "salt_100g": 0.20610283414085312,
       "fiber_100g": 6.334116225395554,
       "proteins_100g": 18.46266325607165,
       "carbohydrates_100g": 13.692943304511093
     },
-    "overall_score": 7.4
+    "overall_score": 10.0
   },
   {
     "barcode": "BOOTSTRAP_0291",
@@ -8385,14 +8385,14 @@
       "energy_100g": 124.0459712569959,
       "sugars_100g": 2.32781202123644,
       "fat_100g": 2.002442701177707,
-      "saturated-fat_100g": 1.020713561935303,
+      "saturated_fat_100g": 1.020713561935303,
       "sodium_100g": 0.17766014621528384,
       "salt_100g": 0.15052509751688092,
       "fiber_100g": 9.594053736424025,
       "proteins_100g": 13.592585142821486,
       "carbohydrates_100g": 13.822523993253029
     },
-    "overall_score": 8.11
+    "overall_score": 10.0
   },
   {
     "barcode": "BOOTSTRAP_0292",
@@ -8409,14 +8409,14 @@
       "energy_100g": 168.35773499933086,
       "sugars_100g": 4.81294110958433,
       "fat_100g": 2.999274015123198,
-      "saturated-fat_100g": 1.1859371515182073,
+      "saturated_fat_100g": 1.1859371515182073,
       "sodium_100g": 0.16148788299939487,
       "salt_100g": 0.36848221609548465,
       "fiber_100g": 4.01290550614175,
       "proteins_100g": 19.143348630162727,
       "carbohydrates_100g": 35.1164996368224
     },
-    "overall_score": 7.05
+    "overall_score": 9.08
   },
   {
     "barcode": "BOOTSTRAP_0293",
@@ -8448,7 +8448,7 @@
       "proteins_100g": 4.432739026245243,
       "carbohydrates_100g": 30.646974641369933
     },
-    "overall_score": 1.47
+    "overall_score": 5.75
   },
   {
     "barcode": "BOOTSTRAP_0294",
@@ -8481,7 +8481,7 @@
       "proteins_100g": 10.725876832965382,
       "carbohydrates_100g": 41.29667377853352
     },
-    "overall_score": 2.33
+    "overall_score": 5.6
   },
   {
     "barcode": "BOOTSTRAP_0295",
@@ -8510,7 +8510,7 @@
       "proteins_100g": 4.251554682184045,
       "carbohydrates_100g": 58.25648120768372
     },
-    "overall_score": 0.0
+    "overall_score": 1.37
   },
   {
     "barcode": "BOOTSTRAP_0296",
@@ -8539,7 +8539,7 @@
       "proteins_100g": 8.004541474261622,
       "carbohydrates_100g": 46.09250369298634
     },
-    "overall_score": 1.63
+    "overall_score": 4.5
   },
   {
     "barcode": "BOOTSTRAP_0297",
@@ -8573,7 +8573,7 @@
       "proteins_100g": 3.452214125361349,
       "carbohydrates_100g": 59.388081473708056
     },
-    "overall_score": 0.0
+    "overall_score": 1.64
   },
   {
     "barcode": "BOOTSTRAP_0298",
@@ -8609,7 +8609,7 @@
       "proteins_100g": 3.0984323628830834,
       "carbohydrates_100g": 54.60474229969687
     },
-    "overall_score": 0.0
+    "overall_score": 0.44
   },
   {
     "barcode": "BOOTSTRAP_0299",
@@ -8645,6 +8645,6 @@
       "proteins_100g": 4.706485691585089,
       "carbohydrates_100g": 79.0400085126044
     },
-    "overall_score": 0.0
+    "overall_score": 0.65
   }
 ]

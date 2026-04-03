@@ -11,6 +11,9 @@ Usage:
     python -m ml.train --min-samples 100      # wait for 100 real samples
 """
 
+from dotenv import load_dotenv
+load_dotenv()
+
 import argparse
 import json
 import os
@@ -194,7 +197,7 @@ def train(firebase_only: bool = False, min_samples: int = MIN_SAMPLES):
         "r2":                 round(float(r2), 4),
         "cv_mae":             round(float(cv_mae), 4),
         "feature_columns":    FEATURE_COLUMNS,
-        "feature_importances": {k: round(float(v), 4) for k, v in importances},
+        "feature_importances": [[k, round(float(v), 4)] for k, v in importances],
     }
     with open(METADATA_PATH, "w") as f:
         json.dump(metadata, f, indent=2)
