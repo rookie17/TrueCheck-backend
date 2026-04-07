@@ -3,3 +3,41 @@ venv/
 __pycache__/
 *.pyc
 serviceAccountKey.json
+
+# ── Environment variables (NEVER commit secrets) ──
+.env
+*.env
+_env
+
+# ── Firebase credentials (NEVER commit these) ──
+*firebase-adminsdk*.json
+firebase_config.json
+truecheck-*.json
+serviceAccountKey.json
+
+# ── ML Model files (large, regenerate locally) ──
+model/truecheck_model.joblib
+model/bootstrap_dataset.json
+model/model_metadata.json
+
+# ── Python cache ──
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# ── Virtual environment ──
+venv/
+env/
+.venv/
+
+# ── Dataset files ──
+dataset.csv
+
+# ── VS Code ──
+.vscode/
+
+# ── OS files ──
+.DS_Store
+Thumbs.db
