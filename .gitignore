@@ -3,3 +3,9 @@ venv/
 __pycache__/
 *.pyc
 serviceAccountKey.json
+
+model/truecheck_model.joblib
+model/bootstrap_dataset.json
+model/model_metadata.json
+dataset.csv
+model/
