@@ -63,7 +63,11 @@ def load_firebase_data() -> list:
             if isinstance(rating, (int, float)):
                 overall_score = float(rating)
             elif isinstance(rating, dict):
-                overall_score = rating.get("overall_score") or rating.get("score")
+                overall_score = (
+                    rating.get("overall_score") or
+                    rating.get("score") or
+                    rating.get("product_score")  # ← add this
+                )
                 if overall_score is None:
                     continue
                 overall_score = float(overall_score)

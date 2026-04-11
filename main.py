@@ -13,12 +13,28 @@ from services.enrichment import enrich_ingredients
 from services.openfoodfacts_api import get_product_from_openfoodfacts
 from services.nutrition_fetcher import fetch_nutrition_from_barcode
 from services.percent_estimate import get_percent_estimates
+from services.upcitemdb import get_product_name_from_barcode
+from services.scrapers.bigbasket import get_product_by_name as bb_get_product_by_name
 from utils.ingredient_utils import extract_ingredient_text
 
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
+
+
+def _parse_ingredients_from_raw(raw: str) -> list[str]:
+    """
+    Split a raw ingredients string (from BB or elsewhere) into a list of names.
+    Splits on commas, strips parens content and percentages, cleans whitespace.
+    """
+    import re
+    # Remove percentage annotations like (35.6%)
+    cleaned = re.sub(r"\(\d+\.?\d*%\)", "", raw)
+    # Split on comma
+    parts = [p.strip() for p in cleaned.split(",")]
+    # Remove empty, very short, or numeric-only parts
+    return [p for p in parts if len(p) > 1 and not p.replace(".", "").isdigit()]
 
 
 @app.route("/get-complete-product-info", methods=["GET"])
@@ -34,28 +50,56 @@ def get_complete_product_info():
         product_name = product_data.get("product_name", "Unknown")
         cached_ingredients = product_data.get("ingredients", [])
         nutrition_data = product_data.get("nutrients_per_100g", {})
-        from_cache = True
         off_product_data = None
+
     else:
-        product = get_product_from_openfoodfacts(barcode)
-        if not product:
-            return jsonify({"error": "Product not found on OpenFoodFacts"}), 404
+        # ---------- 2. TRY OPENFOODFACTS ----------
+        off_product = get_product_from_openfoodfacts(barcode)
 
-        product_name = product.get("product_name", "Unknown")
-        raw_ingredient_names = [
-            extract_ingredient_text(i) for i in product.get("ingredients", [])
-            if extract_ingredient_text(i)
-        ]
-        nutriments = product.get("nutriments", {})
-        nutrition_data = {k: v for k, v in nutriments.items() if k.endswith("_100g")}
+        product_name = None
+        raw_ingredient_names = []
+        nutrition_data = {}
+        off_product_data = None
 
+        if off_product:
+            product_name = off_product.get("product_name", "Unknown")
+            raw_ingredient_names = [
+                extract_ingredient_text(i) for i in off_product.get("ingredients", [])
+                if extract_ingredient_text(i)
+            ]
+            nutriments = off_product.get("nutriments", {})
+            nutrition_data = {k: v for k, v in nutriments.items() if k.endswith("_100g")}
+            off_product_data = off_product
+
+        # ---------- 3. BB FALLBACK (no OFf result, or OFf has no ingredients) ----------
+        if not off_product or not raw_ingredient_names:
+            # Need a product name to search BB
+            if not product_name or product_name == "Unknown":
+                product_name = get_product_name_from_barcode(barcode)
+
+            if product_name:
+                bb_data = bb_get_product_by_name(product_name)
+                if bb_data and bb_data.get("ingredients_raw"):
+                    raw_ingredient_names = _parse_ingredients_from_raw(
+                        bb_data["ingredients_raw"]
+                    )
+                    if not nutrition_data and bb_data.get("nutrition"):
+                        nutrition_data = bb_data["nutrition"]
+                    # Use BB product name only if we had nothing from OFf
+                    if not product_name or product_name == "Unknown":
+                        product_name = bb_data.get("product_name", "Unknown")
+
+        if not raw_ingredient_names:
+            return jsonify({
+                "error": "Product not found or ingredients unavailable",
+                "product_name": product_name or "Unknown"
+            }), 404
+
+        product_name = product_name or "Unknown"
         save_product_to_db(barcode, product_name, raw_ingredient_names, nutrition_data)
-
         cached_ingredients = [{"name": n, "profile": None} for n in raw_ingredient_names]
-        from_cache = False
-        off_product_data = product
 
-    # ---------- 2. ENRICH INGREDIENTS ----------
+    # ---------- 4. ENRICH INGREDIENTS ----------
     final_ingredient_list = []
     for item in cached_ingredients:
         if isinstance(item, dict) and item.get("profile"):
@@ -75,11 +119,16 @@ def get_complete_product_info():
 
         final_ingredient_list.append({"name": name_str, "profile": profile_doc})
 
-    # ---------- 3. GET PERCENT ESTIMATES ----------
-    ingredient_names_only = [i.get("name", "") if isinstance(i, dict) else i for i in cached_ingredients]
-    percent_estimates = get_percent_estimates(barcode, ingredient_names_only, product_data=off_product_data)
+    # ---------- 5. PERCENT ESTIMATES ----------
+    ingredient_names_only = [
+        i.get("name", "") if isinstance(i, dict) else i
+        for i in cached_ingredients
+    ]
+    percent_estimates = get_percent_estimates(
+        barcode, ingredient_names_only, product_data=off_product_data
+    )
 
-    # ---------- 4. GET RATING ----------
+    # ---------- 6. RATING ----------
     product_rating = get_product_rating_from_db(barcode)
     if not product_rating:
         product_rating = get_product_rating_from_llm(final_ingredient_list, percent_estimates)
@@ -94,6 +143,7 @@ def get_complete_product_info():
     })
 
 
+# All other routes remain unchanged below
 @app.route("/test-nutrition", methods=["GET"])
 def test_nutrition():
     barcode = request.args.get("barcode")
