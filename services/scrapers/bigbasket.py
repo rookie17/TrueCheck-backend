@@ -118,14 +118,21 @@ def _extract_nutrition(tabs: list[dict]) -> dict:
 
     return nutrition
 
-
 def search_by_name(product_name: str, bucket_id: int = 76) -> list[dict]:
     """Hit BB listing API, return raw product list."""
+    session = requests.Session()
+    session.headers.update(_HEADERS)
+
     try:
-        resp = requests.get(
+        # Seed session cookies by hitting the homepage first
+        session.get(BASE_URL, timeout=10)
+    except Exception as e:
+        logger.warning(f"BB: failed to seed session cookies: {e}")
+
+    try:
+        resp = session.get(
             SEARCH_URL,
             params={"type": "ps", "slug": product_name, "page": 1, "bucket_id": bucket_id},
-            headers=_HEADERS,
             timeout=10,
         )
         resp.raise_for_status()
@@ -137,7 +144,6 @@ def search_by_name(product_name: str, bucket_id: int = 76) -> list[dict]:
     except Exception as e:
         logger.error(f"BB search failed for '{product_name}': {e}")
         return []
-
 
 def get_product_details(absolute_url: str) -> dict | None:
     """

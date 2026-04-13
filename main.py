@@ -1,3 +1,5 @@
+#main.py
+
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -14,9 +16,10 @@ from services.openfoodfacts_api import get_product_from_openfoodfacts
 from services.nutrition_fetcher import fetch_nutrition_from_barcode
 from services.percent_estimate import get_percent_estimates
 from services.upcitemdb import get_product_name_from_barcode
+from services.barcode_resolver import resolve_product_name          # ← NEW
 from services.scrapers.bigbasket import get_product_by_name as bb_get_product_by_name
 from utils.ingredient_utils import extract_ingredient_text
-
+import re
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -29,13 +32,19 @@ def _parse_ingredients_from_raw(raw: str) -> list[str]:
     Splits on commas, strips parens content and percentages, cleans whitespace.
     """
     import re
-    # Remove percentage annotations like (35.6%)
     cleaned = re.sub(r"\(\d+\.?\d*%\)", "", raw)
-    # Split on comma
     parts = [p.strip() for p in cleaned.split(",")]
-    # Remove empty, very short, or numeric-only parts
     return [p for p in parts if len(p) > 1 and not p.replace(".", "").isdigit()]
 
+def _clean_name_for_search(name: str) -> str:
+    """Strip weight/size suffixes and special chars before using as a search query."""
+    # Remove weight patterns like "850 g", "1 kg", "500ml", etc.
+    name = re.sub(r",?\s*\d+\.?\d*\s*(g|kg|ml|l|oz|lb)\b", "", name, flags=re.IGNORECASE)
+    # Replace slashes with space (Vermicelli/Seviyan → Vermicelli Seviyan)
+    name = name.replace("/", " ")
+    # Strip trailing punctuation and whitespace
+    name = re.sub(r"[,\-]+$", "", name).strip()
+    return name
 
 @app.route("/get-complete-product-info", methods=["GET"])
 def get_complete_product_info():
@@ -71,21 +80,25 @@ def get_complete_product_info():
             nutrition_data = {k: v for k, v in nutriments.items() if k.endswith("_100g")}
             off_product_data = off_product
 
-        # ---------- 3. BB FALLBACK (no OFf result, or OFf has no ingredients) ----------
+        # ---------- 3. NAME RESOLUTION + BB FALLBACK ----------
         if not off_product or not raw_ingredient_names:
-            # Need a product name to search BB
             if not product_name or product_name == "Unknown":
-                product_name = get_product_name_from_barcode(barcode)
+                # DDG → Google CSE (free tiers, no quota burn on upcitemdb)
+                product_name = resolve_product_name(barcode)           # ← NEW
+
+            # If both free sources failed, fall back to upcitemdb
+            if not product_name or product_name == "Unknown":
+                product_name = get_product_name_from_barcode(barcode)  # ← kept as last resort
 
             if product_name:
-                bb_data = bb_get_product_by_name(product_name)
+                bb_search_name = _clean_name_for_search(product_name)
+                bb_data = bb_get_product_by_name(bb_search_name)
                 if bb_data and bb_data.get("ingredients_raw"):
                     raw_ingredient_names = _parse_ingredients_from_raw(
                         bb_data["ingredients_raw"]
                     )
                     if not nutrition_data and bb_data.get("nutrition"):
                         nutrition_data = bb_data["nutrition"]
-                    # Use BB product name only if we had nothing from OFf
                     if not product_name or product_name == "Unknown":
                         product_name = bb_data.get("product_name", "Unknown")
 
