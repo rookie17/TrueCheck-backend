@@ -10,6 +10,7 @@ from firestore import (
     save_percent_estimate_to_db, save_product_rating_to_db,
     get_product_rating_from_db
 )
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from utils.llm_client import get_ingredient_profile_from_llm, get_product_rating_from_llm
 from services.enrichment import enrich_ingredients
 from services.openfoodfacts_api import get_product_from_openfoodfacts
@@ -112,17 +113,17 @@ def get_complete_product_info():
         save_product_to_db(barcode, product_name, raw_ingredient_names, nutrition_data)
         cached_ingredients = [{"name": n, "profile": None} for n in raw_ingredient_names]
 
+    
     # ---------- 4. ENRICH INGREDIENTS ----------
-    final_ingredient_list = []
-    for item in cached_ingredients:
+    def _enrich_single(item):
+        """Fetch or generate profile for one ingredient. Thread-safe."""
         if isinstance(item, dict) and item.get("profile"):
-            final_ingredient_list.append(item)
-            continue
+            return item
 
         name_str = item.get("name") if isinstance(item, dict) else str(item)
         name_str = str(name_str).strip().lower()
         if not name_str:
-            continue
+            return None
 
         profile_doc = get_ingredient_profile_from_db(name_str)
         if not profile_doc:
@@ -130,7 +131,24 @@ def get_complete_product_info():
             if profile_doc and "error" not in profile_doc:
                 save_ingredient_to_db(name_str, name_str, profile_doc)
 
-        final_ingredient_list.append({"name": name_str, "profile": profile_doc})
+        return {"name": name_str, "profile": profile_doc}
+
+    final_ingredient_list = []
+    with ThreadPoolExecutor(max_workers=6) as executor:
+        futures = {executor.submit(_enrich_single, item): item for item in cached_ingredients}
+        for future in as_completed(futures):
+            result = future.result()
+            if result:
+                final_ingredient_list.append(result)
+
+    # Preserve original order
+    name_order = [
+        (item.get("name") if isinstance(item, dict) else str(item)).strip().lower()
+        for item in cached_ingredients
+    ]
+    final_ingredient_list.sort(
+        key=lambda x: name_order.index(x["name"]) if x["name"] in name_order else 999
+    )
 
     # ---------- 5. PERCENT ESTIMATES ----------
     ingredient_names_only = [
