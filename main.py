@@ -12,8 +12,10 @@ from firestore import (
     get_product_from_db, save_product_to_db,
     get_ingredient_profile_from_db, save_ingredient_to_db,
     save_percent_estimate_to_db, save_product_rating_to_db,
-    get_product_rating_from_db
+    get_product_rating_from_db,
+    get_recent_products
 )
+from utils.name_utils import clean_product_name
 from utils.llm_client import get_ingredient_profile_from_llm, get_product_rating_from_llm
 from services.enrichment import enrich_ingredients
 from services.openfoodfacts_api import get_product_from_openfoodfacts
@@ -189,7 +191,7 @@ def get_complete_product_info():
                 "data_sources": data_sources,
             }), 404
 
-        product_name = product_name or "Unknown"
+        product_name = clean_product_name(product_name or "Unknown")
         save_product_to_db(barcode, product_name, raw_ingredient_names, nutrition_data)
         logger.info("DB       product saved to Firestore")
         cached_ingredients = [{"name": n, "profile": None} for n in raw_ingredient_names]
@@ -259,6 +261,20 @@ def get_complete_product_info():
         "data_sources":        data_sources,
     })
 
+#──── Explore Page Route ─────────────────────────────────────────────────────────────
+@app.route("/get-recent-products", methods=["GET"])
+def get_recent_products_route():
+    try:
+        limit = min(int(request.args.get("limit", 20)), 100)
+    except ValueError:
+        return jsonify({"error": "Invalid limit parameter"}), 400
+
+    sort_by = request.args.get("sort", "recent")
+    if sort_by not in ("recent", "most_scanned", "highly_rated"):
+        return jsonify({"error": "sort must be one of: recent, most_scanned, highly_rated"}), 400
+
+    products = get_recent_products(limit=limit, sort_by=sort_by)
+    return jsonify({"products": products, "count": len(products)})
 
 # ── Other routes ──────────────────────────────────────────────────────────────
 

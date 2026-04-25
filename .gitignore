@@ -9,3 +9,7 @@ model/bootstrap_dataset.json
 model/model_metadata.json
 dataset.csv
 model/
+
+__pycache__/
+*.pyc
+*.pyo

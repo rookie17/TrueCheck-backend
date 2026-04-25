@@ -1,5 +1,6 @@
 import os, json
 from firebase_admin import credentials, initialize_app, firestore
+from google.cloud.firestore_v1 import Increment
 
 # Dev: set FIREBASE_CREDENTIALS_PATH=./firebase_config.json in .env
 # Prod: set FIREBASE_CREDENTIALS with the raw JSON string
@@ -56,16 +57,23 @@ def save_product_to_db(barcode, product_name, ingredient_list, nutrition_data=No
         for ing in ingredient_list
     ]
 
+    doc_ref = db.collection("products").document(barcode)
+    doc = doc_ref.get()
+    existing = doc.to_dict() if doc.exists else {}
+
     doc_data = {
         "product_name": product_name,
-        "ingredients": ingredient_names
+        "ingredients": ingredient_names,
+        "scan_count": existing.get("scan_count", 0) + 1,
     }
 
     if nutrition_data:
         doc_data["nutrients_per_100g"] = nutrition_data
 
-    db.collection("products").document(barcode).set(doc_data, merge=True)
+    if not doc.exists or "created_at" not in existing:
+        doc_data["created_at"] = firestore.SERVER_TIMESTAMP
 
+    doc_ref.set(doc_data, merge=True)
 
 def get_ingredient_profile_from_db(ingredient):
     ingredient = ingredient.lower()
@@ -109,3 +117,43 @@ def save_nutrition_to_db(barcode: str, nutrition_data: dict):
         {"nutrients_per_100g": nutrition_data},
         merge=True
     )
+
+
+def get_recent_products(limit: int = 20, sort_by: str = "recent") -> list[dict]:
+    """
+    Returns a list of products for the explore feed.
+    sort_by: "recent" | "most_scanned" | "highly_rated"
+    Note: "highly_rated" requires a Firestore composite index on
+    product_rating.product_score — Firestore will log the index creation URL
+    on first use if missing.
+    """
+    ref = db.collection("products")
+
+    try:
+        if sort_by == "most_scanned":
+            query = ref.order_by("scan_count", direction=firestore.Query.DESCENDING)
+        elif sort_by == "highly_rated":
+            query = ref.order_by("product_rating.product_score", direction=firestore.Query.DESCENDING)
+        else:
+            query = ref.order_by("created_at", direction=firestore.Query.DESCENDING)
+
+        docs = query.limit(limit).stream()
+    except Exception as e:
+        print(f"[Firestore] get_recent_products query failed ({sort_by}): {e}")
+        return []
+
+    results = []
+    for doc in docs:
+        data = doc.to_dict()
+        rating = data.get("product_rating", {}) or {}
+        score = rating.get("product_score") or rating.get("overall_score")
+
+        results.append({
+            "barcode": doc.id,
+            "product_name": data.get("product_name", "Unknown"),
+            "product_score": score,
+            "scan_count": data.get("scan_count", 0),
+            "scanned_at": data.get("created_at").isoformat() if data.get("created_at") else None,
+        })
+
+    return results
