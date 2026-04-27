@@ -257,7 +257,7 @@ def get_complete_product_info():
         if not profile:
             # FIX #5: fallback matches old Gemini shape — Firestore stays consistent
             profile = _build_ingredient_profile_fallback(name)
-            save_ingredient_to_db(name, name, profile)
+            save_ingredient_to_db(name, profile)
 
         final_ingredient_list.append({"name": name, "profile": _fix_nested_profile(profile)})
 

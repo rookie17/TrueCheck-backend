@@ -7,7 +7,7 @@ def fetch_nutrition_from_barcode(barcode):
     Saves and returns only keys ending in '_100g'.
     """
     url = f"https://world.openfoodfacts.org/api/v0/product/{barcode}.json"
-    response = requests.get(url)
+    response = requests.get(url, headers={"User-Agent": "TrueCheck-App/1.0"}, timeout=10)
 
     if response.status_code != 200:
         return None
