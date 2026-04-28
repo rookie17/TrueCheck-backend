@@ -26,6 +26,7 @@ from services.barcode_resolver import resolve_product_name
 from services.scrapers.bigbasket import get_product_by_name as bb_get_product_by_name
 from services.scrapers.blinkit import scrape_blinkit
 from utils.ingredient_utils import extract_ingredient_text
+from services.ocr_processor import process_ocr_inputs
 
 # ── Logging ───────────────────────────────────────────────────────────────────
 logging.basicConfig(
@@ -275,6 +276,150 @@ def get_recent_products_route():
 
     products = get_recent_products(limit=limit, sort_by=sort_by)
     return jsonify({"products": products, "count": len(products)})
+
+
+# ── OCR route ──────────────────────────────────────────────────────────────
+
+@app.route("/scan-ocr", methods=["POST"])
+def scan_ocr():
+    """
+    Last-resort OCR endpoint. Called by the frontend only when
+    /get-complete-product-info has already failed to find the product.
+ 
+    Expects JSON body:
+        {
+            "barcode_ocr":     "<raw OCR text from barcode photo>",
+            "name_ocr":        "<raw OCR text from product name photo>",
+            "ingredients_ocr": "<raw OCR text from ingredients photo>"
+        }
+ 
+    Returns the same shape as /get-complete-product-info.
+    Caches result in Firestore under the extracted barcode (if one was found).
+    """
+    body = request.get_json(silent=True)
+    if not body:
+        return jsonify({"error": "Request body must be JSON"}), 400
+ 
+    barcode_ocr     = body.get("barcode_ocr", "")
+    name_ocr        = body.get("name_ocr", "")
+    ingredients_ocr = body.get("ingredients_ocr", "")
+ 
+    if not ingredients_ocr:
+        return jsonify({"error": "ingredients_ocr is required"}), 400
+ 
+    logger.info("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+    logger.info("OCR-SCAN request received")
+ 
+    # ── 1. Extract structured data from OCR blobs ─────────────────────────────
+    extracted = process_ocr_inputs(barcode_ocr, name_ocr, ingredients_ocr)
+ 
+    barcode      = extracted.get("barcode")
+    product_name = extracted.get("product_name") or "Unknown"
+    ingredients  = extracted.get("ingredients")
+    ocr_method   = extracted.get("extraction_method")
+ 
+    logger.info(
+        "OCR      method=%s  barcode=%s  name='%s'  ingredients=%d",
+        ocr_method, barcode, product_name, len(ingredients) if ingredients else 0,
+    )
+ 
+    if not ingredients:
+        logger.warning("OCR      could not extract any ingredients from provided text")
+        return jsonify({
+            "error":            "Could not extract ingredients from OCR text",
+            "extraction_method": ocr_method,
+        }), 422
+ 
+    data_sources = {
+        "product":     f"ocr ({ocr_method})",
+        "ingredients": f"ocr ({ocr_method})",
+        "nutrition":   None,
+        "name":        f"ocr ({ocr_method})" if product_name != "Unknown" else None,
+        "rating":      None,
+    }
+ 
+    # ── 2. Save product to Firestore (if barcode was recovered) ───────────────
+    if barcode:
+        product_name = clean_product_name(product_name)
+        save_product_to_db(barcode, product_name, ingredients, nutrition_data=None)
+        logger.info("OCR      product cached in Firestore under barcode=%s", barcode)
+    else:
+        logger.info("OCR      no barcode extracted — skipping Firestore product cache")
+ 
+    # ── 3. Ingredient profiles (Firestore cache → Groq) ───────────────────────
+    logger.info("OCR-ENRICH  fetching profiles for %d ingredients...", len(ingredients))
+    final_ingredient_list = []
+    profile_sources = {"firestore": 0, "llm": 0}
+ 
+    for name_str in ingredients:
+        name_str = str(name_str).strip().lower()
+        if not name_str:
+            continue
+ 
+        profile_doc = get_ingredient_profile_from_db(name_str)
+        if profile_doc:
+            profile_sources["firestore"] += 1
+        else:
+            profile_doc = get_ingredient_profile_from_llm(name_str)
+            if profile_doc and "error" not in profile_doc:
+                save_ingredient_to_db(name_str, name_str, profile_doc)
+            profile_sources["llm"] += 1
+ 
+        final_ingredient_list.append({"name": name_str, "profile": profile_doc})
+ 
+    logger.info(
+        "OCR-ENRICH  done — firestore=%d  llm=%d",
+        profile_sources["firestore"], profile_sources["llm"],
+    )
+ 
+    # ── 4. Percent estimates ──────────────────────────────────────────────────
+    # OCR-sourced products have no OFf data, so all estimates will be
+    # "Not Available" — this is expected and consistent with the main route.
+    ingredient_names_only = [
+        i.get("name", "") if isinstance(i, dict) else i
+        for i in final_ingredient_list
+    ]
+    percent_estimates = get_percent_estimates(
+        barcode or "ocr_unknown",
+        ingredient_names_only,
+        product_data=None,
+    )
+ 
+    # ── 5. Product rating (Firestore cache → Groq) ────────────────────────────
+    product_rating = None
+ 
+    if barcode:
+        product_rating = get_product_rating_from_db(barcode)
+        if product_rating:
+            logger.info("OCR      rating loaded from Firestore cache")
+            data_sources["rating"] = "firestore_cache"
+ 
+    if not product_rating:
+        logger.info("OCR      generating rating via Groq...")
+        product_rating = get_product_rating_from_llm(final_ingredient_list, percent_estimates)
+        if barcode and product_rating and "error" not in product_rating:
+            save_product_rating_to_db(barcode, product_rating)
+            logger.info("OCR      rating saved to Firestore")
+        score = product_rating.get("product_score", "?")
+        logger.info("OCR      score=%s", score)
+        data_sources["rating"] = "llm (groq)"
+ 
+    logger.info("OCR-SCAN done — barcode=%s  name='%s'", barcode, product_name)
+    logger.info("SOURCES  %s", data_sources)
+    logger.info("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+ 
+    return jsonify({
+        "product_name":        product_name,
+        "ingredients_profile": final_ingredient_list,
+        "nutrients":           {},          # no nutrition data from OCR
+        "percent_estimate":    percent_estimates,
+        "overall_rating":      product_rating,
+        "data_sources":        data_sources,
+        "ocr_meta": {
+            "extraction_method": ocr_method,
+            "barcode_recovered": barcode is not None,
+        },
+    })
 
 # ── Other routes ──────────────────────────────────────────────────────────────
 
