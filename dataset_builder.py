@@ -20,7 +20,8 @@ def build_dataset():
         features = extract_features(product)
 
         # 🎯 TARGET LABEL (IMPORTANT)
-        rating = data.get("product_rating", {}).get("overall_score")
+        rating = data.get("product_rating", {}).get("product_score") or \
+         data.get("product_rating", {}).get("overall_score")
 
         if rating is None:
             continue
