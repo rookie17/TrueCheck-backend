@@ -13,7 +13,7 @@ from firestore import (
     get_ingredient_profile_from_db, save_ingredient_to_db,
     save_percent_estimate_to_db, save_product_rating_to_db,
     get_product_rating_from_db,
-    get_recent_products
+    get_recent_products, save_image_url_to_db
 )
 from utils.name_utils import clean_product_name
 from utils.llm_client import get_ingredient_profile_from_llm, get_product_rating_from_llm
@@ -23,7 +23,7 @@ from services.nutrition_fetcher import fetch_nutrition_from_barcode
 from services.percent_estimate import get_percent_estimates
 from services.upcitemdb import get_product_name_from_barcode
 from services.barcode_resolver import resolve_product_name
-from services.scrapers.bigbasket import get_product_by_name as bb_get_product_by_name
+from services.scrapers.bigbasket import get_product_by_name as bb_get_product_by_name, get_product_image_url as bb_get_image_url
 from services.scrapers.blinkit import scrape_blinkit
 from utils.ingredient_utils import extract_ingredient_text
 from services.ocr_processor import process_ocr_inputs
@@ -94,6 +94,13 @@ def get_complete_product_info():
         if cached_ingredients:
             data_sources["ingredients"] = "firestore_cache"
         data_sources["name"] = "firestore_cache"
+        image_url = product_data.get("image_url")
+        if not image_url:
+            logger.info("IMAGE    not cached — fetching from BigBasket...")
+            image_url = bb_get_image_url(product_name)
+            save_image_url_to_db(barcode, image_url)
+        else:
+            logger.info("IMAGE    loaded from cache")
 
     else:
         logger.info("CACHE    MISS — fetching from external sources")
@@ -193,7 +200,9 @@ def get_complete_product_info():
             }), 404
 
         product_name = clean_product_name(product_name or "Unknown")
-        save_product_to_db(barcode, product_name, raw_ingredient_names, nutrition_data)
+        image_url = bb_get_image_url(product_name)
+        logger.info("IMAGE    fetched → %s", image_url)
+        save_product_to_db(barcode, product_name, raw_ingredient_names, nutrition_data, image_url=image_url)
         logger.info("DB       product saved to Firestore")
         cached_ingredients = [{"name": n, "profile": None} for n in raw_ingredient_names]
 
@@ -260,6 +269,7 @@ def get_complete_product_info():
         "percent_estimate":    percent_estimates,
         "overall_rating":      product_rating,
         "data_sources":        data_sources,
+        "image_url":           image_url,
     })
 
 #──── Explore Page Route ─────────────────────────────────────────────────────────────

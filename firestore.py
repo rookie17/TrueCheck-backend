@@ -47,11 +47,12 @@ def get_product_from_db(barcode):
     return {
         "product_name": product_data.get("product_name", ""),
         "ingredients": normalised,
-        "nutrients_per_100g": product_data.get("nutrients_per_100g", {})
+        "nutrients_per_100g": product_data.get("nutrients_per_100g", {}),
+        "image_url": product_data.get("image_url"),
     }
 
 
-def save_product_to_db(barcode, product_name, ingredient_list, nutrition_data=None):
+def save_product_to_db(barcode, product_name, ingredient_list, nutrition_data=None, image_url=None):
     ingredient_names = [
         ing if isinstance(ing, str) else ing.get("name", "unknown")
         for ing in ingredient_list
@@ -70,10 +71,17 @@ def save_product_to_db(barcode, product_name, ingredient_list, nutrition_data=No
     if nutrition_data:
         doc_data["nutrients_per_100g"] = nutrition_data
 
+    if image_url:
+        doc_data["image_url"] = image_url
     if not doc.exists or "created_at" not in existing:
         doc_data["created_at"] = firestore.SERVER_TIMESTAMP
 
     doc_ref.set(doc_data, merge=True)
+
+def save_image_url_to_db(barcode: str, image_url: str):
+    db.collection("products").document(barcode).set(
+        {"image_url": image_url}, merge=True
+    )
 
 def get_ingredient_profile_from_db(ingredient):
     ingredient = ingredient.lower()

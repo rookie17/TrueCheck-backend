@@ -205,3 +205,20 @@ def get_product_by_name(product_name: str, bucket_id: int = 76) -> dict | None:
 
     logger.info(f"BB: fetching {absolute_url}")
     return get_product_details(absolute_url)
+
+_PLACEHOLDER_URL = "https://placehold.co/300x300/eeeeee/999999?text=Image+Not+Available"
+
+def get_product_image_url(product_name: str) -> str:
+    try:
+        products = search_by_name(product_name)
+        if not products:
+            return _PLACEHOLDER_URL
+        images = products[0].get("images", [])
+        if not images:
+            return _PLACEHOLDER_URL
+        url = images[0].get("m") or images[0].get("l") or images[0].get("s")
+        logger.info(f"BB image: resolved '{product_name}' → {url}")
+        return url or _PLACEHOLDER_URL
+    except Exception as e:
+        logger.error(f"BB image: unexpected error for '{product_name}': {e}")
+        return _PLACEHOLDER_URL
