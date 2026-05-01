@@ -196,25 +196,61 @@ def _run_groq_extraction(barcode_ocr: str, name_ocr: str, ingredients_ocr: str) 
 
 # ── Public entry point ────────────────────────────────────────────────────────
 
-def process_ocr_inputs(barcode_ocr: str, name_ocr: str, ingredients_ocr: str) -> dict:
+
+def process_ocr_inputs(
+    barcode_ocr: str,
+    name_ocr: str,
+    ingredients_ocr: str,
+    override_barcode: str | None = None,   # ← NEW: clean barcode from mobile_scanner
+) -> dict:
     """
     Main entry point for OCR-based product scanning.
-
-    Flow:
-      1. If FORCE_GROQ → skip heuristics, call Groq directly.
-      2. Otherwise run heuristic extractors on all three blobs.
-      3. If barcode or ingredients are missing after heuristics → Groq fallback.
-      4. Always cross-validate the barcode field with a digit-only regex
-         to catch Groq hallucinations before the result leaves this function.
-
-    Returns:
-        {
-            "barcode":          str | None,
-            "product_name":     str | None,   # key is 'product_name' for consistency with main.py
-            "ingredients":      list[str] | None,
-            "extraction_method": "heuristic" | "groq" | "groq_failed"
-        }
+ 
+    If override_barcode is provided (came from mobile_scanner, already validated),
+    barcode extraction is skipped entirely — heuristics/Groq only run for
+    name and ingredients.
+ 
+    Flow (no override):
+      1. FORCE_GROQ → skip heuristics, call Groq directly.
+      2. Run heuristic extractors on all three blobs.
+      3. Barcode or ingredients missing → Groq fallback.
+      4. Cross-validate barcode with digit-only regex.
     """
+    if override_barcode:
+        # Barcode is clean — only need name + ingredients from OCR.
+        # Run heuristics/Groq on name+ingredients only.
+        logger.info("OCR      override_barcode=%s — skipping barcode extraction", override_barcode)
+ 
+        if FORCE_GROQ:
+            raw = _run_groq_extraction("", name_ocr, ingredients_ocr)
+        else:
+            name        = extract_product_name_from_ocr(name_ocr)
+            ingredients = extract_ingredients_from_ocr(ingredients_ocr)
+ 
+            logger.info(
+                "OCR      heuristic — barcode=OVERRIDE  name=%s  ingredients=%d",
+                name, len(ingredients) if ingredients else 0,
+            )
+ 
+            if not ingredients:
+                logger.info("OCR      heuristic incomplete — falling back to Groq")
+                raw = _run_groq_extraction("", name_ocr, ingredients_ocr)
+            else:
+                raw = {
+                    "barcode":           override_barcode,
+                    "name":              name,
+                    "ingredients":       ingredients,
+                    "extraction_method": "heuristic",
+                }
+ 
+        return {
+            "barcode":           override_barcode,          # always trust the scanner
+            "product_name":      raw.get("name") or raw.get("product_name"),
+            "ingredients":       raw.get("ingredients"),
+            "extraction_method": raw.get("extraction_method", "unknown"),
+        }
+ 
+    # ── No override — full extraction from all three OCR blobs ───────────────
     if FORCE_GROQ:
         logger.info("OCR      FORCE_GROQ=true — bypassing heuristics")
         raw = _run_groq_extraction(barcode_ocr, name_ocr, ingredients_ocr)
@@ -223,29 +259,29 @@ def process_ocr_inputs(barcode_ocr: str, name_ocr: str, ingredients_ocr: str) ->
         barcode     = extract_barcode_from_ocr(barcode_ocr)
         name        = extract_product_name_from_ocr(name_ocr)
         ingredients = extract_ingredients_from_ocr(ingredients_ocr)
-
+ 
         logger.info(
             "OCR      heuristic — barcode=%s  name=%s  ingredients=%d",
             barcode, name, len(ingredients) if ingredients else 0,
         )
-
+ 
         if not barcode or not ingredients:
             logger.info("OCR      heuristic incomplete — falling back to Groq")
             raw = _run_groq_extraction(barcode_ocr, name_ocr, ingredients_ocr)
         else:
             raw = {
-                "barcode":          barcode,
-                "name":             name,
-                "ingredients":      ingredients,
+                "barcode":           barcode,
+                "name":              name,
+                "ingredients":       ingredients,
                 "extraction_method": "heuristic",
             }
-
-    # Cross-validate barcode: must be 8-14 digits only
+ 
+    # Cross-validate barcode — catches Groq hallucinations
     barcode = raw.get("barcode")
     if barcode and not re.fullmatch(r"\d{8,14}", str(barcode)):
         logger.warning("OCR      barcode validation failed ('%s') — setting to None", barcode)
         barcode = None
-
+ 
     return {
         "barcode":           barcode,
         "product_name":      raw.get("name") or raw.get("product_name"),
