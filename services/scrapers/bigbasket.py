@@ -141,6 +141,13 @@ def search_by_name(product_name: str, bucket_id: int = 76) -> list[dict]:
         if not tabs:
             return []
         return tabs[0].get("product_info", {}).get("products", [])
+    
+    except requests.exceptions.JSONDecodeError as e:
+        logger.error(
+            f"BB search JSON parse failed for '{product_name}': {e} | "
+            f"status={resp.status_code} body_preview={resp.text[:120]!r}"
+        )
+        return []
     except Exception as e:
         logger.error(f"BB search failed for '{product_name}': {e}")
         return []

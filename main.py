@@ -159,6 +159,7 @@ def get_complete_product_info():
                     logger.info("NAME     upcitemdb returned nothing")
 
             if product_name:
+                product_name = clean_product_name(product_name)
                 bb_search_name = _clean_name_for_search(product_name)
                 logger.info("BB       searching BigBasket for '%s'...", bb_search_name)
                 bb_data = bb_get_product_by_name(bb_search_name)

@@ -162,6 +162,7 @@ def get_recent_products(limit: int = 20, sort_by: str = "recent") -> list[dict]:
             "product_score": score,
             "scan_count": data.get("scan_count", 0),
             "scanned_at": data.get("created_at").isoformat() if data.get("created_at") else None,
+            "image_url": data.get("image_url"),
         })
 
     return results
