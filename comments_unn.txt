@@ -1,0 +1,41 @@
+"""
+TrueCheck — Flask Backend
+==========================
+ANALYSIS_MODE controls the scoring pipeline:
+  ml   — local GradientBoosting model  (default, no API cost)
+  groq — Groq/LLaMA LLM calls          (richer profiles, costs quota)
+
+Set in .env:
+  ANALYSIS_MODE=ml    # or groq
+"""
+
+
+"""
+firestore.py
+All Firestore operations for TrueCheck.
+
+Auth priority:
+  1. FIREBASE_CREDENTIALS      — JSON string (production / cloud hosting)
+  2. FIREBASE_CREDENTIALS_PATH — file path   (local dev only)
+
+Bug fixes merged from ML branch:
+  BUG 1 — save_ingredient_to_db had a 3-arg signature that double-nested
+           the profile. Signature is now (name, profile_dict) — 2 args.
+           _fix_nested_profile() in main.py handles old Firestore docs.
+
+  BUG 2 — get_product_from_db returned product_rating as a raw float for
+           products saved before the ML-dict format. _build_rating_response
+           then crashed with AttributeError. Normalised here via
+           _normalise_rating().
+
+  BUG 3 — save_product_rating_to_db and save_percent_estimate_to_db used
+           .update() which throws if the document doesn't exist yet.
+           Changed to .set(..., merge=True) which is always safe.
+
+  BUG 4 — get_product_from_db normalised ingredients into [{name, profile}]
+           dicts before returning, which confused _flatten_ingredients in
+           main.py and the ML feature extractor (expected plain strings).
+           Now returns plain strings; main.py's enrichment loop handles
+           the profile lookup.
+"""
+
