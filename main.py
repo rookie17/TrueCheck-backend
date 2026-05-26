@@ -19,6 +19,7 @@ from firestore import (
     save_product_rating_to_db,
     get_recent_products,
 )
+from services.product_resolver import resolve_product
 from services.percent_estimate import get_percent_estimates
 
 logging.basicConfig(level=logging.INFO)
@@ -249,75 +250,21 @@ def get_complete_product_info():
         nutrition_data   = product_data["nutrients_per_100g"]
 
     else:
-        # ── Cache miss: fetch from OpenFoodFacts ──────────────────────────────
-        logger.info("Cache miss — fetching from OpenFoodFacts for %s", barcode)
+        logger.info("Cache miss — running resolver for %s", barcode)
+        resolved = resolve_product(barcode)
+        if not resolved:
+            return jsonify({
+                "error":   "Product not found",
+                "barcode": barcode,
+            }), 404
 
-        url     = f"https://world.openfoodfacts.org/api/v0/product/{barcode}.json"
-        headers = {"User-Agent": "TrueCheck-App/1.0 (student project)"}
+        product_name     = resolved["product_name"]
+        ingredient_names = resolved["ingredients"]
+        nutrition_data   = resolved.get("nutrients_per_100g", {})
+        off_product_data = resolved.get("_raw_off_product")
 
-        MAX_RETRIES  = 3
-        RETRY_DELAYS = [3, 8, 20]
-        resp         = None
-
-        for attempt, delay in enumerate(RETRY_DELAYS):
-            try:
-                resp = requests.get(url, headers=headers, timeout=10)
-                logger.info("OFf attempt %d — status: %d", attempt + 1, resp.status_code)
-
-                if resp.status_code == 200:
-                    break
-
-                if resp.status_code == 429:
-                    if attempt < MAX_RETRIES - 1:
-                        logger.warning("OFf rate limited. Waiting %ds ...", delay)
-                        time.sleep(delay)
-                        continue
-                    return jsonify({
-                        "error": "OpenFoodFacts rate limit reached after retries.",
-                        "tip":   "Scan again in a minute — first scan is always cached.",
-                    }), 429
-
-                return jsonify({"error": f"OpenFoodFacts error {resp.status_code}"}), 500
-
-            except requests.exceptions.Timeout:
-                logger.warning("OFf timeout on attempt %d", attempt + 1)
-                if attempt < MAX_RETRIES - 1:
-                    time.sleep(delay)
-                else:
-                    return jsonify({"error": "OpenFoodFacts timed out after retries."}), 504
-            except Exception as e:
-                logger.exception("Unexpected error fetching from OpenFoodFacts")
-                return jsonify({"error": str(e)}), 500
-
-        try:
-            product = resp.json().get("product", {})
-            if not product:
-                return jsonify({
-                    "error":   "Product not found",
-                    "message": "This barcode is not in the OpenFoodFacts database.",
-                    "barcode": barcode,
-                }), 404
-
-            product_name     = product.get("product_name", "Unknown")
-            raw_ingredients  = [
-                i.get("text") for i in product.get("ingredients", []) if "text" in i
-            ]
-            ingredient_names = _flatten_ingredients(raw_ingredients)
-            nutriments       = product.get("nutriments", {})
-            nutrition_data   = {k: v for k, v in nutriments.items() if k.endswith("_100g")}
-
-            if not nutrition_data and not ingredient_names:
-                return jsonify({
-                    "error":        "No food data found",
-                    "message":      "This may not be a food product.",
-                    "product_name": product_name,
-                }), 404
-
-            save_product_to_db(barcode, product_name, ingredient_names, nutrition_data)
-
-        except Exception as e:
-            logger.exception("Failed to parse OpenFoodFacts response")
-            return jsonify({"error": str(e)}), 500
+        logger.info("Resolver source=%s  ingredients=%d", resolved["source"], len(ingredient_names))
+        save_product_to_db(barcode, product_name, ingredient_names, nutrition_data)
 
     # ── Ingredient profiles ───────────────────────────────────────────────────
     final_ingredient_list = []
@@ -328,7 +275,7 @@ def get_complete_product_info():
         final_ingredient_list.append({"name": name, "profile": _fix_nested_profile(profile)})
 
     # ── Percent estimate ──────────────────────────────────────────────────────
-    percent_estimates = get_percent_estimates(barcode, ingredient_names)
+    percent_estimates = get_percent_estimates(barcode, ingredient_names, product_data=off_product_data)
 
     # ── Rating ────────────────────────────────────────────────────────────────
     product_for_scoring = {
